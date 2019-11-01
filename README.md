@@ -102,5 +102,5 @@ CREATE TABLE team (
     p5 INTEGER NOT NULL,
     p6 INTEGER NOT NULL,
     user_id INTEGER REFERENCES users(user_id)
-)
+);
 ```
