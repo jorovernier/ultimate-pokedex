@@ -1,68 +1,106 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Ultimate Pokedex
 
-## Available Scripts
+## Front-End
 
-In the project directory, you can run:
+**Dependencies**
+- axios
+- redux
+- react-redux
+- react-router-dom
+- http-proxy-middleware
+- redux-promise-middleware
+<!-- - node-sass -->
 
-### `npm start`
+**File Structure**
+- src/
+    - components/
+        - AuthComponent.js
+        - Pokedex.js
+        - Profile.js
+    - App.js
+    - index.js
+    - index.css => reset.css
+    - setupProxy.js
+    - psyducks/
+        - store.js
+        - reducer.js
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Routes**
+- Login/Register => '/' => AuthComponent.js
+- Profile => '/profile' => Profile.js
+- Home => '/pokedex' => Pokedex.js
+- Kanto => '/pokedex-kanto' => Pokedex.js
+- Johto => '/pokedex-johto' => Pokedex.js
+- Hoenn => '/pokedex-hoenn' => Pokedex.js
+- Sinnoh => '/pokedex-sinnoh' => Pokedex.js
+- Unova => '/pokedex-unova' => Pokedex.js
+- Kalos => '/pokedex-kalos' => Pokedex.js
+- Alola => '/pokedex-alola' => Pokedex.js
+<!-- - Galar => '/pokedex' => Pokedex.js -->
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+#
+## Back-End
 
-### `npm test`
+**Dependencies**
+- express
+- massive
+- dotenv
+- express-session
+- bcrypt
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**Server File Structure**
+- db/
+- server/
+    - index.js
+    - controllers/
+        - userController.js
+        - pokemonController.js
+    <!-- - middleware/
+        - sessionsCheck.js -->
 
-### `npm run build`
+**Endpoints**
+- User Controller
+    - userSession => get => /auth/session
+    - register => post => /auth/register
+    - login => post => /auth/login
+    - logout => delete => /auth/logout
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Pokemon Controller
+    - getAllPokemon => get => /api/pokemon
+    - getPokemonById => get => /api/pokemon/:id
+    - getPokemonByName => get => /api/pokemon/:name
+    <!-- - getPokemonByMove => get => /api/pokemon/:move -->
+    <!-- - getPokemonByType => get => /api/pokemon/:type -->
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- Team Control
+    - addToTeam => post => /api/add_to_team
+    - removeFromTeam => delete => /api/remove_from_team/:id?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#
+## Database
 
-### `npm run eject`
+**Tables**
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- User
+```sql
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    username TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL
+);
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- Pokemon Team
+```sql
+CREATE TABLE team (
+    team_id SERIAL PRIMARY KEY,
+    p1 INTEGER NOT NULL,
+    p2 INTEGER NOT NULL,
+    p3 INTEGER NOT NULL,
+    p4 INTEGER NOT NULL,
+    p5 INTEGER NOT NULL,
+    p6 INTEGER NOT NULL,
+    user_id INTEGER REFERENCES users(user_id)
+)
+```
