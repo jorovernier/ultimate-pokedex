@@ -16,14 +16,18 @@
     - components/
         - AuthComponent.js
         - Pokedex.js
+        - Pokemon.js
         - Profile.js
-    - App.js
-    - index.js
-    - index.css => reset.css
-    - setupProxy.js
     - psyducks/
         - store.js
         - reducer.js
+    - App.css
+    - App.js
+    - App.test.js
+    - index.css => reset.css
+    - index.js
+    - serviceWorker.js
+    - setupProxy.js
 
 **Routes**
 - Login/Register => '/' => AuthComponent.js
@@ -54,9 +58,7 @@
     - index.js
     - controllers/
         - userController.js
-        - pokemonController.js
-    <!-- - middleware/
-        - sessionsCheck.js -->
+        <!-- - pokemonController.js -->
 
 **Endpoints**
 - User Controller
