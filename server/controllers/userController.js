@@ -32,7 +32,7 @@ module.exports = {
                         }
                         res.status(200).send(req.session.user)
                     } else {
-                        res.status(400).send('Incorrect password.')
+                        res.status(400).send(console.log('Incorrect password.'))
                     }
                 })
             }

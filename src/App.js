@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import AuthComponent from './components/AuthComponent';
 import Profile from './components/Profile';
+import Pokedex from './components/Pokedex';
 import {Switch, NavLink, Route, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {setUser} from './psyducks/reducer';
@@ -33,9 +34,7 @@ class App extends React.Component {
         </header>
         <Switch>
           <Route exact path='/' component={AuthComponent} />
-          <Route path='/pokedex' render={() => {
-            return <div>Pokedex</div>
-          }} />
+          <Route path='/pokedex' component={Pokedex} />
           <Route path='/profile' component={Profile} />
           <Route path='*' render={() => {
             return (
