@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {setUser} from '../psyducks/reducer';
 import {Redirect} from 'react-router-dom';
 import axios from 'axios';
+import '../sass-css/Auth.scss';
 
 class AuthComponent extends Component {
     constructor(props){
@@ -42,30 +43,32 @@ class AuthComponent extends Component {
                         this.login();
                     }
                 }}>
-                    {register && (
-                        <div>
-                            <label>Username</label>
-                            <input type='username' value={username} onChange={(e) => this.setState({
-                                username: e.target.value
+                    <div className='inputs'>
+                        {register && (
+                            <div className='username-i'>
+                                <label>Username</label>
+                                <input type='username' value={username} onChange={(e) => this.setState({
+                                    username: e.target.value
+                                })} />
+                            </div>
+                        )}
+                        <div className='email-i'>
+                            <label>Email</label>
+                            <input type='email' value={email} onChange={(e) => this.setState({
+                                email: e.target.value
                             })} />
                         </div>
-                    )}
-                    <div>
-                        <label>Email</label>
-                        <input type='email' value={email} onChange={(e) => this.setState({
-                            email: e.target.value
-                        })} />
+                        <div className='password-i'>
+                            <label>Password</label>
+                            <input type='password' value={password} onChange={(e) => this.setState({
+                                password: e.target.value
+                            })} />
+                        </div>
+                        <button>Submit</button>
                     </div>
-                    <div>
-                        <label>Password</label>
-                        <input type='password' value={password} onChange={(e) => this.setState({
-                            password: e.target.value
-                        })} />
-                    </div>
-                    <button>Submit</button>
-                </form>
                 {!register && <button onClick={() => this.setState({register: true})}>Go to Register</button>}
                 {register && <button onClick={() => this.setState({register: false})}>Go to Login</button>}
+                </form>
             </div>
         )
     }

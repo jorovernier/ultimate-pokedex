@@ -1,0 +1,66 @@
+@import 'var-mix-ext';
+
+.page {
+    @extend %page-sizing;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    .pokedex-holder {
+      background-color: lightgrey;
+      @extend %border-setting;
+      height: 75vh;
+      width: 470px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      input{
+        outline-color: red;
+      }
+      .pokedex {
+        background-color: lightgrey;
+        @extend %border-setting;
+        height: 60vh;
+        width: 410px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: auto;
+      }
+    }
+    .placeholder {
+      background-color: indigo;
+      @extend %border-setting;
+      height: 75vh;
+      width: 470px;
+    }
+  }
+  
+  .pokemon-box {
+    width: 410px;
+    display: flex;
+    @include center(center);
+    .pokemon {
+      background-color: grey;
+      border-radius: 10px;
+      width: 400px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      margin: 10px;
+      .sprite {
+        background-color: white;
+        border-radius: 50px;
+        outline: none;
+      }
+      .name {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .dex-num {
+        font-size: 20px;
+      }
+    }
+  }

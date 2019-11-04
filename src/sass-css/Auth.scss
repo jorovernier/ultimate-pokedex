@@ -1,0 +1,25 @@
+@import 'var-mix-ext';
+
+.auth-container {
+  @extend %page-sizing;
+  display: flex;
+  @include center(center);
+  form {
+    background-color: $head-foot;
+    @extend %border-setting;
+    height: 500px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    @include center(center);
+    .inputs {
+      @extend %border-setting;
+      height: 300px;
+      width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
