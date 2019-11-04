@@ -1,0 +1,30 @@
+@import 'var-mix-ext';
+
+.pokemon-box {
+  width: 410px;
+  display: flex;
+  @include center(center);
+  .pokemon {
+    background-color: grey;
+    border-radius: 10px;
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    .sprite {
+      background-color: white;
+      border-radius: 50px;
+      outline: none;
+    }
+    .name {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .dex-num {
+      font-size: 20px;
+    }
+  }
+}
