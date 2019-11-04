@@ -27,7 +27,7 @@ class App extends React.Component {
               <img src={logo} alt='logo' />
             </div>
             <div className='nav-box'>
-              <NavLink className='nav' activeClassName='active' exact to='/' >Register</NavLink>
+              {!this.props.user && <NavLink className='nav' activeClassName='active' exact to='/' >Register</NavLink>}
               <NavLink className='nav' activeClassName='active' to='/pokedex' >Pokedex</NavLink>
               <NavLink className='nav' activeClassName='active' to='/pokedex-kanto' >Kanto</NavLink>
               <NavLink className='nav' activeClassName='active' to='/pokedex-johto' >Johto</NavLink>

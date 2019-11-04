@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
+// import axios from 'axios';
+import '../sass-css/Pokemon.scss';
 
 export default class Pokemon extends Component{
     render(){
-        const {pokemon, id} = this.props;
+        const {pokemon} = this.props;
         let species = pokemon.name;
         let upperSpecies = species.charAt(0).toUpperCase() + species.substring(1);
         if(species === 'minior-red-meteor'){
@@ -10,6 +12,7 @@ export default class Pokemon extends Component{
         } else if(species === 'mimikyu-disguised'){
             species = 'mimikyu'
         };
+
         if(upperSpecies === 'Nidoran-f'){
             upperSpecies = 'Nidoran F'
         } else if(upperSpecies === 'Nidoran-m'){
@@ -72,11 +75,10 @@ export default class Pokemon extends Component{
         return (
             <div className='pokemon-box'>
                 <div className='pokemon'>
-                    <button className='sprite'>
+                    <button className='sprite' onClick={() => {this.props.action(species)}}>
                         <img src={`https://img.pokemondb.net/sprites/sun-moon/icon/${species}.png`} alt={`sprite of ${species}`} />
                     </button>
                     <div className='name'> {upperSpecies} </div>
-                    <div className='dex-num'>Dex #: {id}</div>
                 </div>
             </div>
         );

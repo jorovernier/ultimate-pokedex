@@ -28,7 +28,5 @@ app.post('/auth/login', login);
 app.get('/auth/user_session', userSession);
 app.delete('/auth/logout', logout);
 
-// app.get('http://pokeapi.co/api/v2/pokemon/?limit=151', getAllPokemon)
-
 let port = SERVER_PORT || 6000;
 app.listen(port, () => console.log(`Listening on port ${port}.`));

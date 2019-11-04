@@ -29,10 +29,14 @@
     - serviceWorker.js
     - setupProxy.js
 
+**Axios Requests**
+- getAllPokemon => get => `http://pokeapi.co/api/v2/pokemon?limit=807`
+- getPokemonByName => get => `http://pokeapi.co/api/v2/pokemon/${name}`
+
 **Routes**
 - Login/Register => '/' => AuthComponent.js
 - Profile => '/profile' => Profile.js
-- Home => '/pokedex' => Pokedex.js
+- Pokedex => '/pokedex' => Pokedex.js
 - Kanto => '/pokedex-kanto' => Pokedex.js
 - Johto => '/pokedex-johto' => Pokedex.js
 - Hoenn => '/pokedex-hoenn' => Pokedex.js
@@ -58,7 +62,6 @@
     - index.js
     - controllers/
         - userController.js
-        <!-- - pokemonController.js -->
 
 **Endpoints**
 - User Controller
@@ -66,13 +69,6 @@
     - register => post => /auth/register
     - login => post => /auth/login
     - logout => delete => /auth/logout
-
-- Pokemon Controller
-    - getAllPokemon => get => /api/pokemon
-    - getPokemonById => get => /api/pokemon/:id
-    - getPokemonByName => get => /api/pokemon/:name
-    <!-- - getPokemonByMove => get => /api/pokemon/:move -->
-    <!-- - getPokemonByType => get => /api/pokemon/:type -->
 
 - Team Control
     - addToTeam => post => /api/add_to_team
