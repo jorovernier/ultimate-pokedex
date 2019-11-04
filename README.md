@@ -9,7 +9,7 @@
 - react-router-dom
 - http-proxy-middleware
 - redux-promise-middleware
-<!-- - node-sass -->
+- node-sass
 
 **File Structure**
 - src/

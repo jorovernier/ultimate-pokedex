@@ -1,0 +1,16 @@
+$head-foot: darkgrey;
+
+@mixin center($prop){
+  justify-content: $prop;
+  align-items: $prop;
+}
+
+%border-setting {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+%page-sizing {
+  height: 84vh;
+  width: 100%;
+}

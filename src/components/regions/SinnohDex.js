@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import Pokemon from './Pokemon';
+import Pokemon from '../Pokemon';
 import axios from 'axios';
-import '../sass-css/Dex.scss';
+import '../../sass-css/Dex.scss';
 
-export default class Pokedex extends Component{
+export default class SinnohDex extends Component{
   constructor(props){
     super(props);
     this.state = {
@@ -16,7 +16,7 @@ export default class Pokedex extends Component{
     this.setState({
       loading : true
     });
-    axios.get('http://pokeapi.co/api/v2/pokemon?limit=807').then(response => {
+    axios.get('https://pokeapi.co/api/v2/pokemon/?offset=386&limit=107').then(response => {
       this.setState({
         species : response.data.results,
         loading : true,

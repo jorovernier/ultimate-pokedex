@@ -1,0 +1,5 @@
+@import 'var-mix-ext';
+
+.profile {
+    @extend %page-sizing;
+  }

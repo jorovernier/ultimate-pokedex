@@ -14,15 +14,69 @@ export default class Pokemon extends Component{
             upperSpecies = 'Nidoran F'
         } else if(upperSpecies === 'Nidoran-m'){
             upperSpecies = 'Nidoran M'
+        } else if(upperSpecies === 'Deoxys-normal'){
+            upperSpecies = 'Deoxys'
+        } else if(upperSpecies === 'Wormadam-plant'){
+            upperSpecies = 'Wormadam'
+        } else if(upperSpecies === 'Mime-jr'){
+            upperSpecies = 'Mime Jr.'
+        } else if(upperSpecies === 'Porygon-z'){
+            upperSpecies = 'Porygon Z'
+        } else if(upperSpecies === 'Giratina-altered'){
+            upperSpecies = 'Giratina'
+        } else if(upperSpecies === 'Shaymin-land'){
+            upperSpecies = 'Shaymin'
+        } else if(upperSpecies === 'Basculin-red-striped'){
+            upperSpecies = 'Basculin'
+        } else if(upperSpecies === 'Darmanitan-standard'){
+            upperSpecies = 'Darmanitan'
+        } else if(upperSpecies === 'Tornadus-incarnate'){
+            upperSpecies = 'Tornadus'
+        } else if(upperSpecies === 'Thundurus-incarnate'){
+            upperSpecies = 'Thundurus'
+        } else if(upperSpecies === 'Landorus-incarnate'){
+            upperSpecies = 'Landorus'
+        } else if(upperSpecies === 'Keldeo-ordinary'){
+            upperSpecies = 'Keldeo'
+        } else if(upperSpecies === 'Meloetta-aria'){
+            upperSpecies = 'Meloetta'
+        } else if(upperSpecies === 'Meowstic-male'){
+            upperSpecies = 'Meowstic'
+        } else if(upperSpecies === 'Aegislash-shield'){
+            upperSpecies = 'Aegislash'
+        } else if(upperSpecies === 'Pumpkaboo-average'){
+            upperSpecies = 'Pumpkaboo'
+        } else if(upperSpecies === 'Gourgeist-average'){
+            upperSpecies = 'Gourgeist'
+        } else if(upperSpecies === 'Oricorio-baile'){
+            upperSpecies = 'Oricorio'
+        } else if(upperSpecies === 'Lycanroc-midday'){
+            upperSpecies = 'Lycanroc'
+        } else if(upperSpecies === 'Wishiwashi-solo'){
+            upperSpecies = 'Wishiwashi'
+        } else if(upperSpecies === 'Type-null'){
+            upperSpecies = 'Type Null'
+        } else if(upperSpecies === 'Minior-red-meteor'){
+            upperSpecies = 'Minior'
+        } else if(upperSpecies === 'Mimikyu-disguised'){
+            upperSpecies = 'Mimikyu'
+        } else if(upperSpecies === 'Tapu-koko'){
+            upperSpecies = 'Tapu Koko'
+        } else if(upperSpecies === 'Tapu-lele'){
+            upperSpecies = 'Tapu Lele'
+        } else if(upperSpecies === 'Tapu-bulu'){
+            upperSpecies = 'Tapu Bulu'
+        } else if(upperSpecies === 'Tapu-fini'){
+            upperSpecies = 'Tapu Fini'
         }
         return (
-            <div className="pokemon">
-                <div className="pokemon-box">
-                    <div className="sprite">
+            <div className='pokemon-box'>
+                <div className='pokemon'>
+                    <button className='sprite'>
                         <img src={`https://img.pokemondb.net/sprites/sun-moon/icon/${species}.png`} alt={`sprite of ${species}`} />
-                    </div>
-                    <div className="name"> {upperSpecies} </div>
-                    <div>Dex #: {id}</div>
+                    </button>
+                    <div className='name'> {upperSpecies} </div>
+                    <div className='dex-num'>Dex #: {id}</div>
                 </div>
             </div>
         );
