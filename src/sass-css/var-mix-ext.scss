@@ -1,8 +1,15 @@
-$head-foot: darkgrey;
+$lightblue: #86d3fb;
+$midblue: #003b72;
+$darkblue: #0b2a4d;
+$dexred: #e90026;
 
 @mixin center($prop){
   justify-content: $prop;
   align-items: $prop;
+}
+
+%foundmargin {
+  margin: 5px;
 }
 
 %border-setting {
@@ -13,4 +20,21 @@ $head-foot: darkgrey;
 %page-sizing {
   height: 84vh;
   width: 100%;
+}
+
+%auth-inputs {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  input {
+    outline-color: red;
+  }
+}
+
+%button {
+  background-color: $dexred;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
 }

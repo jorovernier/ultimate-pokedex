@@ -64,10 +64,10 @@ class AuthComponent extends Component {
                                 password: e.target.value
                             })} />
                         </div>
-                        <button>Submit</button>
+                        <button className='submit'>Submit</button>
                     </div>
-                {!register && <button onClick={() => this.setState({register: true})}>Go to Register</button>}
-                {register && <button onClick={() => this.setState({register: false})}>Go to Login</button>}
+                {!register && <button className='switcher' onClick={() => this.setState({register: true})}>Switch to Register</button>}
+                {register && <button className='switcher' onClick={() => this.setState({register: false})}>Switch to Login</button>}
                 </form>
             </div>
         )

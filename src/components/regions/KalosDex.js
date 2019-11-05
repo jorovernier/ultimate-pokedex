@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Pokemon from '../Pokemon';
 import axios from 'axios';
 import '../../sass-css/Dex.scss';
+import FoundDisplay from '../FoundDisplay';
 
 export default class KalosDex extends Component{
   constructor(props){
@@ -59,7 +60,9 @@ export default class KalosDex extends Component{
                   {input && (<div className='pokedex'>
                     {filteredSpecies.map((pokemon) => <Pokemon action={this.onSpriteClick} key={pokemon.name} pokemon={pokemon}/>)}
                   </div>)}
-                  <button className='random' onClick={() => this.onSpriteClick(species[Math.floor(Math.random()*species.length)].name)}/>
+                  <button className='random' onClick={() => this.onSpriteClick(species[Math.floor(Math.random()*species.length)].name)}>
+                    <img src='https://ya-webdesign.com/images/pokemon-egg-png.png' alt='sprite of pokemon egg' />
+                  </button>
                 </div>;
     } else if(loading && !fetched){
       display = <div className='pokedex-holder-loading'>
@@ -71,25 +74,18 @@ export default class KalosDex extends Component{
 
     let foundDisplay;
     if(found){
-      foundDisplay = 
-        (<div>
-          <div>{foundPokemon.name}</div>
-          <div>{foundPokemon.id}</div>
-          <div>{foundPokemon.weight}</div>
-          <div>{foundPokemon.stats[0].stat.name}</div>
-          <div>{foundPokemon.stats[0].base_stat}</div>
-        </div>)
+      foundDisplay = <FoundDisplay pokemon={foundPokemon}/>
     } else {
-      foundDisplay = <div></div>;
+      foundDisplay = <div>Search for a pokemon or click the egg for a surprise!</div>;
     }
 
     
     return (
       <div className='page'>
         {display}
-        <div className='found-display'>
-          {foundDisplay}
-        </div>
+          <div className='found-display'>
+            {foundDisplay}
+          </div>
       </div>
     );
   }

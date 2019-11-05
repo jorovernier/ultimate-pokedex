@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Pokemon from './Pokemon';
 import axios from 'axios';
 import '../sass-css/Dex.scss';
+import FoundDisplay from './FoundDisplay';
 
 export default class Pokedex extends Component{
   constructor(props){
@@ -73,26 +74,18 @@ export default class Pokedex extends Component{
 
     let foundDisplay;
     if(found){
-      foundDisplay = 
-        (<div>
-          <img src={foundPokemon.sprites.front_default} alt={`sprite of ${foundPokemon.name}`} />
-          <div>{foundPokemon.name}</div>
-          <div>{foundPokemon.id}</div>
-          <div>{foundPokemon.weight}</div>
-          <div>{foundPokemon.stats[0].stat.name}</div>
-          <div>{foundPokemon.stats[0].base_stat}</div>
-        </div>)
+      foundDisplay = <FoundDisplay pokemon={foundPokemon}/>
     } else {
-      foundDisplay = <div></div>;
+      foundDisplay = <div>Search for a pokemon or click the egg for a surprise!</div>;
     }
 
     
     return (
       <div className='page'>
         {display}
-        <div className='found-display'>
-          {foundDisplay}
-        </div>
+          <div className='found-display'>
+            {foundDisplay}
+          </div>
       </div>
     );
   }

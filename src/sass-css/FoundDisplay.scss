@@ -1,0 +1,87 @@
+@import 'var-mix-ext';
+.base-display {
+    background-color: lightgrey;
+    border-radius: 8px;
+    height: 75vh;
+    width: 470px;
+    display: flex;
+    @include center(center);
+    .display {
+        @extend %border-setting;
+        height: 70vh;
+        width: 420px;
+        .mon-img {
+            @extend %border-setting;
+            height: 300px;
+            max-width: 410px;
+            @extend %foundmargin;
+        }
+        .toprow {
+            // background-color: orange;
+            display: flex;
+            justify-content: space-around;
+            @extend %foundmargin;
+            h1 {
+                font-weight: bold;
+                font-size: 20px;
+                @extend %foundmargin;
+            }
+            .dex-num {
+                font-size: 20px;
+                @extend %foundmargin;
+            }
+        }
+        .type {
+            // background-color: yellow;
+            @extend %foundmargin;
+            display: flex;
+            @include center(center);
+            .type-img {
+                height: 30px;
+                width: 90px;
+                @extend %foundmargin;
+            }
+        }
+        .height-weight {
+            // background-color: green;
+            display: flex;
+            justify-content: space-around;
+            @extend %foundmargin;
+            .height-box {
+                background-color: white;
+                @extend %border-setting;
+                h2 {
+                    font-weight: bold;
+                    @extend %foundmargin;
+                }
+                .height {
+                    display: flex;
+                    @include center(center);
+                    div {
+                        @extend %foundmargin;
+                    }
+                }
+            }
+            .weight-box {
+                background-color: white;
+                @extend %border-setting;
+                h2 {
+                    font-weight: bold;
+                    @extend %foundmargin;
+                }
+                .weight {
+                    display: flex;
+                    @include center(center);
+                    div {
+                        @extend %foundmargin;
+                    }
+                }
+            }
+        }
+        .chart {
+            background-color: white;
+            @extend %foundmargin;
+            @extend %border-setting;
+        }
+    }
+}

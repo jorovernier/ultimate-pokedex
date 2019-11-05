@@ -37,7 +37,7 @@ class App extends React.Component {
               <NavLink className='nav' activeClassName='active' to='/pokedex-kalos' >Kalos</NavLink>
               <NavLink className='nav' activeClassName='active' to='/pokedex-alola' >Alola</NavLink>
               {this.props.user && <NavLink className='nav' activeClassName='active' to='/profile' >Profile</NavLink>}
-              {this.props.user && <button onClick={() => {
+              {this.props.user && <button className='logout' onClick={() => {
                 axios.delete('/auth/logout').then(() => {
                   this.props.setUser(null);
                 })

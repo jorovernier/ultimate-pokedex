@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-// import axios from 'axios';
 import '../sass-css/Pokemon.scss';
 
 export default class Pokemon extends Component{
@@ -7,12 +6,15 @@ export default class Pokemon extends Component{
         const {pokemon} = this.props;
         let species = pokemon.name;
         let upperSpecies = species.charAt(0).toUpperCase() + species.substring(1);
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+// This changes the names from pokeapi into ones readable by the pokemon db to get the sprites for the pokedex display.
         if(species === 'minior-red-meteor'){
             species = 'minior-meteor'
         } else if(species === 'mimikyu-disguised'){
             species = 'mimikyu'
         };
-
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+// This fixes the lowercase names and the ones with dashes in them purely for looks.
         if(upperSpecies === 'Nidoran-f'){
             upperSpecies = 'Nidoran F'
         } else if(upperSpecies === 'Nidoran-m'){
@@ -75,7 +77,7 @@ export default class Pokemon extends Component{
         return (
             <div className='pokemon-box'>
                 <div className='pokemon'>
-                    <button className='sprite' onClick={() => {this.props.action(species)}}>
+                    <button className='sprite' onClick={() => {this.props.action(pokemon.name)}}>
                         <img src={`https://img.pokemondb.net/sprites/sun-moon/icon/${species}.png`} alt={`sprite of ${species}`} />
                     </button>
                     <div className='name'> {upperSpecies} </div>
