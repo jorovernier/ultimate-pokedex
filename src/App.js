@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {Switch, NavLink, Route, withRouter} from 'react-router-dom';
+import {Switch, NavLink, Route, withRouter, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {setUser} from './psyducks/reducer';
 import './sass-css/App.scss';
@@ -15,9 +15,52 @@ import SinnohDex from './components/regions/SinnohDex';
 import UnovaDex from './components/regions/UnovaDex';
 import KalosDex from './components/regions/KalosDex';
 import AlolaDex from './components/regions/AlolaDex';
+// import store from './psyducks/store';
 
 class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {}
+
+    this.addToTeam1 = this.addToTeam1.bind(this);
+    this.addToTeam2 = this.addToTeam2.bind(this);
+    this.addToTeam3 = this.addToTeam3.bind(this);
+    this.addToTeam4 = this.addToTeam4.bind(this);
+    this.addToTeam5 = this.addToTeam5.bind(this);
+    this.addToTeam6 = this.addToTeam6.bind(this);
+  }
+
+  // componentDidMount(){
+  //   // store.subscribe(() => {
+  //   //   const reduxState = store.getState();
+  //   //   this.setState({
+  //   //     id: reduxState.id
+  //   //   })
+  //   // })
+  //   console.log(this.props)
+  // }
+
+  addToTeam1(){
+    axios.post('/api/add_to_team1', this.props.id)
+  }
+  addToTeam2(){
+    axios.post('/api/add_to_team2', this.props.id)
+  }
+  addToTeam3(){
+    axios.post('/api/add_to_team3', this.props.id)
+  }
+  addToTeam4(){
+    axios.post('/api/add_to_team4', this.props.id)
+  }
+  addToTeam5(){
+    axios.post('/api/add_to_team5', this.props.id)
+  }
+  addToTeam6(){
+    axios.post('/api/add_to_team6', this.props.id)
+  }
+
   render(){
+    // const {id} = this.state;
     return (
       <div className="App">
         <header>
@@ -59,15 +102,18 @@ class App extends React.Component {
           <Route path='/pokedex-alola' component={AlolaDex} />
           {this.props.user && <Route path='/profile' component={Profile} />}
           <Route path='*' render={() => {
-            return (
-              <div className='get-out'>
-                <img src='https://i.kym-cdn.com/entries/icons/original/000/027/475/Screen_Shot_2018-10-25_at_11.02.15_AM.png' alt='surprised pikachu' />
-                You shouldn't be here!
-              </div>)
+            return <Redirect to='/' />
           }} />
         </Switch>
         {this.props.user && <footer>
-          <div className='footer'>this will contain buttons</div>
+          <div className='footer'>
+            <button className='p1' onClick={() => this.addToTeam1()}>Add to Team</button>
+            <button className='p2' onClick={() => this.addToTeam2()}>Add to Team</button>
+            <button className='p3' onClick={() => this.addToTeam3()}>Add to Team</button>
+            <button className='p4' onClick={() => this.addToTeam4()}>Add to Team</button>
+            <button className='p5' onClick={() => this.addToTeam5()}>Add to Team</button>
+            <button className='p6' onClick={() => this.addToTeam6()}>Add to Team</button>
+          </div>
         </footer>}
       </div>
     );
@@ -83,3 +129,9 @@ const mapDispatchToProps = {
 const invokedConnect = connect(mapReduxStateToProps, mapDispatchToProps);
 
 export default invokedConnect(withRouter(App));
+
+// original path='*' return until changed to redirect
+// <div className='get-out'>
+//    <img src='https://i.kym-cdn.com/entries/icons/original/000/027/475/Screen_Shot_2018-10-25_at_11.02.15_AM.png' alt='surprised pikachu' />
+//    You shouldn't be here!
+//  </div> */}

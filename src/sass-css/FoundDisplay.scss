@@ -10,6 +10,7 @@
         @extend %border-setting;
         height: 70vh;
         width: 420px;
+        overflow: auto;
         .mon-img {
             @extend %border-setting;
             height: 300px;
