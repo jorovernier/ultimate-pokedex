@@ -1,19 +1,24 @@
 import React, {Component} from 'react';
 import Pokemon from './Pokemon';
 import axios from 'axios';
+import {connect} from 'react-redux';
 import '../sass-css/Dex.scss';
 import FoundDisplay from './FoundDisplay';
+import store from '../psyducks/store';
+import {sendID} from '../psyducks/reducer';
 
-export default class Pokedex extends Component{
+class Pokedex extends Component{
   constructor(props){
     super(props);
+    const reduxState = store.getState();
     this.state = {
       species : [],        
       fetched : false,
       loading : false,
       input: '',
       foundPokemon: [],
-      found: false
+      found: false,
+      id: reduxState.id
     };
     this.onSpriteClick = this.onSpriteClick.bind(this);
     this.universalInput = this.universalInput.bind(this);
@@ -30,6 +35,13 @@ export default class Pokedex extends Component{
         fetched : true
       });
     });
+    store.subscribe(() => {
+      const reduxState = store.getState();
+      this.setState({
+          id: reduxState.id
+      })
+    });
+    console.log(this.props)
   }
 
   onSpriteClick(name){
@@ -38,8 +50,10 @@ export default class Pokedex extends Component{
       foundPokemon: response.data,
       found: true
     });
-    }).catch(err => console.log(err))
-  }
+    this.props.sendID(this.state.foundPokemon.id)
+    console.log(this.props)
+
+    })}
 
   universalInput(prop, val){
     this.setState({
@@ -90,3 +104,13 @@ export default class Pokedex extends Component{
     );
   }
 }
+
+function mapReduxStateToProps(reduxState){
+  return reduxState
+};
+const mapDispatchToProps = {
+  sendID
+}
+const invokedConnect = connect(mapReduxStateToProps, mapDispatchToProps);
+
+export default invokedConnect(Pokedex);
