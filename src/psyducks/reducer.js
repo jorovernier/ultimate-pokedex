@@ -12,7 +12,7 @@ export default function reducer(state = initialState, action){
         case SET_USER:
             return {user: payload};
         case SEND_ID:
-            return {id: payload};
+            return {...state, id: payload};
         default:
             return state;
     }

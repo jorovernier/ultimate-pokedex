@@ -51,7 +51,6 @@ module.exports = {
         const db = await req.app.get('db');
         const {user_id} = req.session.user;
         db.get_team(user_id).then(team => {
-            // console.log(user_id);
             res.status(200).send(team)
         }).catch(err => {res.status(500).send(console.log(err))})
     }

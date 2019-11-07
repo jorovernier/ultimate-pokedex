@@ -1,35 +1,8 @@
 import React, {Component} from 'react';
 import StatsChart from './Chart';
 import '../sass-css/FoundDisplay.scss';
-// import store from '../psyducks/store';
-// import {SEND_ID} from '../psyducks/reducer';
 
 export default class FoundDisplay extends Component {
-    // constructor(props){
-    //     super(props)
-    //     const reduxState = store.getState();
-    //     this.state = {
-    //         id: reduxState.id
-    //     }
-    // }
-
-    // componentDidMount(){
-    //     store.subscribe(() => {
-    //         const reduxState = store.getState();
-    //         this.setState({
-    //             id: reduxState.id
-    //         })
-    //     })
-    // }
-
-    // sendID(){
-    //     store.dispatch({
-    //         type: SEND_ID,
-    //         payload: this.props.pokemon.id
-    //     });
-    //     console.log(this.props.pokemon.id)
-    // }
-
     render(){
         const {pokemon} = this.props;
         let species = pokemon.name;

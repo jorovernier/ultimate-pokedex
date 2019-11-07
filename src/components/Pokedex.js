@@ -1,24 +1,21 @@
 import React, {Component} from 'react';
-import Pokemon from './Pokemon';
-import axios from 'axios';
 import {connect} from 'react-redux';
-import '../sass-css/Dex.scss';
-import FoundDisplay from './FoundDisplay';
-import store from '../psyducks/store';
 import {sendID} from '../psyducks/reducer';
+import axios from 'axios';
+import Pokemon from './Pokemon';
+import FoundDisplay from './FoundDisplay';
+import '../sass-css/Dex.scss';
 
 class Pokedex extends Component{
   constructor(props){
     super(props);
-    const reduxState = store.getState();
     this.state = {
       species : [],        
       fetched : false,
       loading : false,
       input: '',
       foundPokemon: [],
-      found: false,
-      id: reduxState.id
+      found: false
     };
     this.onSpriteClick = this.onSpriteClick.bind(this);
     this.universalInput = this.universalInput.bind(this);
@@ -28,19 +25,20 @@ class Pokedex extends Component{
     this.setState({
       loading : true
     });
-    axios.get('http://pokeapi.co/api/v2/pokemon?limit=807').then(response => {
+    axios.get(`${this.props.url}`).then(response => {
       this.setState({
         species : response.data.results,
-        loading : true,
+        loading : false,
         fetched : true
       });
     });
-    store.subscribe(() => {
-      const reduxState = store.getState();
-      this.setState({
-          id: reduxState.id
-      })
-    });
+    // store.subscribe(() => {
+    //   const reduxState = store.getState();
+    //   this.setState({
+    //       id: reduxState.id
+    //   })
+    // });
+    this.props.sendID(0)
     console.log(this.props)
   }
 
@@ -52,7 +50,6 @@ class Pokedex extends Component{
     });
     this.props.sendID(this.state.foundPokemon.id)
     console.log(this.props)
-
     })}
 
   universalInput(prop, val){

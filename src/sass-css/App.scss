@@ -8,7 +8,6 @@
   font-family: 'Roboto', sans-serif;
   header {
     background-color: $lightblue;
-    box-shadow: 1px -20px 20px 20px $midblue;
     height: 8vh;
     width: 100%;
     display: flex;
@@ -25,7 +24,8 @@
         }
       }
       .nav-box{
-        width: 600px;
+        // background-color: $dexred;
+        width: 700px;
         display: flex;
         justify-content: space-between;
         font-weight: 500;
@@ -44,18 +44,17 @@
       }
     }
   }
-  .get-out {
-    @extend %page-sizing;
-    display: flex;
-    flex-direction: column;
-    @include center(center);
-    img {
-      max-width: 400px;
-    }
-  }
+  // .get-out {
+  //   @extend %page-sizing;
+  //   display: flex;
+  //   flex-direction: column;
+  //   @include center(center);
+  //   img {
+  //     max-width: 400px;
+  //   }
+  // }
   .footer {
     background-color: $lightblue;
-    box-shadow: 1px 20px 20px 20px $midblue;
     height: 8vh;
   }
 }
