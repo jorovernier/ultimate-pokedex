@@ -1,7 +1,12 @@
 @import 'var-mix-ext';
 
 .auth-container {
-  @extend %page-sizing;
+  background-image: url($authback);
+  background-position: center;
+  background-size: 100% 92vh;
+  background-repeat: no-repeat;
+  height: 92vh;
+  width: 100%;
   display: flex;
   @include center(center);
   form {

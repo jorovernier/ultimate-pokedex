@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
+import '../sass-css/TeamPokemon.scss';
 
 export default class TeamPokemon extends Component {
     constructor(props){
@@ -19,10 +20,14 @@ export default class TeamPokemon extends Component {
     
     render(){
         const {teamPokemon} = this.state;
+        console.log(teamPokemon)
+
         return(
-            <div>
-                <div>{teamPokemon.name}</div>
-                <img className='mon-img' src={`https://img.pokemondb.net/artwork/${teamPokemon.name}.jpg`} alt={`${teamPokemon.name}`} />
+            <div className='team-pokemon'>
+                <div className='img-name'>
+                    <img className='mon-img' src={`https://img.pokemondb.net/artwork/${teamPokemon.name}.jpg`} alt={`${teamPokemon.name}`} />
+                    <div className='team-mon-name'>{teamPokemon.name}</div>
+                </div>
             </div>
         )
     }

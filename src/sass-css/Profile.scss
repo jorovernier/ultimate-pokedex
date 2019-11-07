@@ -1,5 +1,61 @@
 @import 'var-mix-ext';
 
 .profile {
-    @extend %page-sizing;
+  // background-color: grey;
+  height: 92vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .interface {
+    width: 80vw;
+    display: flex;
+    .user-info {
+      background-color: $midblue;
+      width: 35%;
+      display: flex;
+      flex-direction: column;
+      @include center(center);
+      .image-box {
+        // background-color: hotpink;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 10px;
+        .user-img {
+          background-color: white;
+          border: 2px solid white;
+          border-radius: 10px;
+          max-height: 200px;
+          margin: 10px;
+        }
+        button {
+          @extend %button;
+          margin: 0px 0px 10px 0px;
+        }
+      }
+      .name-box {
+        // background-color: red;
+        color: white;
+        margin: 10px;
+      }
+    }
+    .user-team-holder {
+      background-color: $darkblue;
+      width: 65%;
+      display: flex;
+      align-items: center;
+      .user-team {
+        width: 100%;
+        .row1 {
+          @extend %teamrows;
+        }
+        .row2 {
+          @extend %teamrows;
+        }
+        .row3 {
+          @extend %teamrows;
+        }
+      }
+    }
   }
+}

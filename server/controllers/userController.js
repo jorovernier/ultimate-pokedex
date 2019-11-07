@@ -28,7 +28,8 @@ module.exports = {
                         req.session.user = {
                             user_id: foundUser.user_id,
                             username: foundUser.username,
-                            email: foundUser.email
+                            email: foundUser.email,
+                            img_url: foundUser.img_url
                         }
                         res.status(200).send(req.session.user)
                     } else {
