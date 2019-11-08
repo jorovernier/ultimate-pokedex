@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import '../sass-css/Profile.scss';
 import axios from 'axios';
 import TeamPokemon from './TeamPokemon';
+import {setUser} from '../psyducks/reducer';
 
 class Profile extends Component {
     constructor(props){
@@ -11,9 +12,14 @@ class Profile extends Component {
             team: [],
             user_id: this.props.user,
             render: false,
-            teamPokemon: []
+            teamPokemon: [],
+            imgInput: '',
+            edit: false,
+            label: 'Edit'
         }
         this.getTeam = this.getTeam.bind(this);
+        this.editPic = this.editPic.bind(this);
+        this.universalInput = this.universalInput.bind(this);
     }
 
     componentDidMount(){
@@ -30,12 +36,42 @@ class Profile extends Component {
     }
 
     getTeam(){
-        axios.get(`/api/get_team`).then(response => {
+        axios.get('/api/get_team').then(response => {
             this.setState({
                 team: response.data,
                 render: true
             });
         }).catch(err => console.log(err))
+    }
+
+    toggleEdit(){
+        this.setState({
+            edit: !this.state.edit
+        })
+    }
+
+    changeLabel(){
+        if(this.state.label === 'Edit'){
+        this.setState({
+          label: 'Cancel'
+        })
+        } else if(this.state.label === 'Cancel'){
+          this.setState({
+            label: 'Edit'
+          })
+        }
+    }
+
+    editPic(){
+        axios.put('/api/edit_profile_pic', {img_url: this.state.imgInput}).then(response => {
+            this.props.setUser(response.data[0]);
+        })
+    }
+
+    universalInput(prop, val){
+        this.setState({
+            [prop]: val
+        })
     }
 
     render(){
@@ -45,7 +81,14 @@ class Profile extends Component {
                     <div className='user-info'>
                         <div className='image-box'>
                             <img className='user-img' src={this.props.user.img_url} alt='user profile'/>
-                            <button>Edit Picture</button>
+                            <button onClick={() => {this.toggleEdit(); this.changeLabel();}}>{this.state.label}</button>
+                            {this.state.edit
+                              ? <div>
+                                    <input onChange={(e) => this.universalInput('imgInput', e.target.value)} placeholder='image url'/>
+                                    <button onClick={() => {this.editPic(); this.toggleEdit(); this.changeLabel();}}>Save</button>
+                                </div>
+                              : <></>
+                            }
                         </div>
                         <div className='name-box'>
                             {this.props.user && this.props.user.username}  
@@ -82,5 +125,9 @@ class Profile extends Component {
 function mapReduxStateToProps(reduxState){
     return reduxState
 }
+const mapDispatchToProps = {
+    setUser
+}
+const invokedConnect = connect(mapReduxStateToProps, mapDispatchToProps);
 
-export default connect(mapReduxStateToProps)(Profile);
+export default invokedConnect(Profile);
