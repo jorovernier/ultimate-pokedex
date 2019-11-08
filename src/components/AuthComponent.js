@@ -18,6 +18,11 @@ class AuthComponent extends Component {
         this.login = this.login.bind(this);
     }
 
+    componentDidMount(){
+        this.props.setButton(false);
+        this.props.setFooter(false);
+    }
+
     async register(){
         const {username, password, email} = this.state;
         const registeredUser = await axios.post('/auth/register', {username, password, email});

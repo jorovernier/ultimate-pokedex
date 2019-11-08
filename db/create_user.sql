@@ -1,10 +1,6 @@
 INSERT INTO users (username, password, email, img_url)
 VALUES ($1, $2, $3, 'http://files.gamebanana.com/img/ico/sprays/554003d253be0.png');
 
--- UPDATE users
--- SET img_url = 'http://files.gamebanana.com/img/ico/sprays/554003d253be0.png'
--- WHERE img_url IS NULL;
-
 INSERT INTO team (p1, p2, p3, p4, p5, p6)
 VALUES (NULL, NULL, NULL, NULL, NULL, NULL);
 

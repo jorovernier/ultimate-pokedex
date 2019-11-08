@@ -17,8 +17,9 @@ class Profile extends Component {
     }
 
     componentDidMount(){
+        this.props.setButton(false);
+        this.props.setFooter(false);
         this.getTeam();
-        console.log(this.state.team)
         if(this.state.render){
             axios.get(`https://pokeapi.co/api/v2/pokemon/${this.state.team[1]}/`).then(response => {
             this.setState({
@@ -38,8 +39,6 @@ class Profile extends Component {
     }
 
     render(){
-        console.log(this.props.user)
-        console.log(this.state.team)
         return(
             <div className='profile'>
                 <div className='interface'>
@@ -52,26 +51,28 @@ class Profile extends Component {
                             {this.props.user && this.props.user.username}  
                         </div>
                     </div>
-                    {this.state.render && <div className='user-team-holder'>
-                        {this.state.team.map((team, index) => {
-                            return (
-                                <div className='user-team' key={index}>
-                                    <span className='row1'>
-                                        {team.p1 && <TeamPokemon pokemon={team.p1}/>}
-                                        {team.p2 && <TeamPokemon pokemon={team.p2}/>}
-                                    </span>
-                                    <span className='row2'>
-                                        {team.p3 && <TeamPokemon pokemon={team.p3}/>}
-                                        {team.p4 && <TeamPokemon pokemon={team.p4}/>}
-                                    </span>
-                                    <span className='row3'>
-                                        {team.p5 && <TeamPokemon pokemon={team.p5}/>}
-                                        {team.p6 && <TeamPokemon pokemon={team.p6}/>}
-                                    </span>
-                                </div>
-                            )
-                        })}
-                    </div>}
+                    <div className='just-a-background-div'>
+                        {this.state.render && <div className='user-team-holder'>
+                            {this.state.team.map((team, index) => {
+                                return (
+                                    <div className='user-team' key={index}>
+                                        <span className='row1'>
+                                            {team.p1 && <TeamPokemon pokemon={team.p1}/>}
+                                            {team.p2 && <TeamPokemon pokemon={team.p2}/>}
+                                        </span>
+                                        <span className='row2'>
+                                            {team.p3 && <TeamPokemon pokemon={team.p3}/>}
+                                            {team.p4 && <TeamPokemon pokemon={team.p4}/>}
+                                        </span>
+                                        <span className='row3'>
+                                            {team.p5 && <TeamPokemon pokemon={team.p5}/>}
+                                            {team.p6 && <TeamPokemon pokemon={team.p6}/>}
+                                        </span>
+                                    </div>
+                                )
+                            })}
+                        </div>}
+                    </div>
                 </div>
             </div>
         )

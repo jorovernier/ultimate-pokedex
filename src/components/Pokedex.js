@@ -32,14 +32,8 @@ class Pokedex extends Component{
         fetched : true
       });
     });
-    // store.subscribe(() => {
-    //   const reduxState = store.getState();
-    //   this.setState({
-    //       id: reduxState.id
-    //   })
-    // });
     this.props.sendID(0)
-    console.log(this.props)
+    this.props.setButton(true)
   }
 
   onSpriteClick(name){
@@ -49,7 +43,7 @@ class Pokedex extends Component{
       found: true
     });
     this.props.sendID(this.state.foundPokemon.id)
-    console.log(this.props)
+    // console.log(this.props)
     })}
 
   universalInput(prop, val){
@@ -77,7 +71,9 @@ class Pokedex extends Component{
                 </div>;
     } else if(loading && !fetched){
       display = <div className='pokedex-holder-loading'>
-                  <div className='spinner'></div>
+                  <div className='pokedex-border-loading'>
+                    <div className='spinner'></div>
+                  </div>
                 </div>;
     } else {
       display = <div/>;

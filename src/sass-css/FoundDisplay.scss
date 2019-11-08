@@ -18,7 +18,6 @@
             @extend %foundmargin;
         }
         .toprow {
-            // background-color: orange;
             display: flex;
             justify-content: space-around;
             @extend %foundmargin;
@@ -33,7 +32,6 @@
             }
         }
         .type {
-            // background-color: yellow;
             @extend %foundmargin;
             display: flex;
             @include center(center);
@@ -44,7 +42,6 @@
             }
         }
         .height-weight {
-            // background-color: green;
             display: flex;
             justify-content: space-around;
             @extend %foundmargin;
