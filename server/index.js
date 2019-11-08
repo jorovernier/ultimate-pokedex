@@ -19,9 +19,7 @@ app.use(session({
 
 massive(CONNECTION_STRING).then(db => {
     console.log('Database connected!');
-    db.init().then(() => {
-        app.set('db', db);
-    });
+    app.set('db', db);
 }).catch(err => console.log(err));
 
 app.post('/auth/register', register);

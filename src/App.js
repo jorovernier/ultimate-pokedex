@@ -82,7 +82,7 @@ class App extends React.Component {
             <div className='logo-box'>
               <img src={logo} alt='logo' />
             </div>
-            <div className='nav-box'>
+            <span className='nav-box'>
               {this.props.user 
                 ? <NavLink className='nav' activeClassName='active' to='/profile' >Profile</NavLink> 
                 : <NavLink className='nav' activeClassName='active' exact to='/' >Register/Login</NavLink>
@@ -101,7 +101,7 @@ class App extends React.Component {
                 })
               }} >Logout</button>
               }
-            </div>
+            </span>
           </div>
 
         </header>
