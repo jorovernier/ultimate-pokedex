@@ -3,8 +3,6 @@ $midblue: #206092;
 $darkblue: #0b2a4d;
 $dexred: #e90026;
 
-$authback: 'https://thewallpaper.co//wp-content/uploads/2016/10/hd-all-pokemon-wallpaper-hd-desktop-wallpapers-1080p-windows-wallpapers-smart-phone-background-photos-download-widescreen-desktop-backgrounds-high-quality-3888x2459.jpg';
-
 @mixin center($prop){
   justify-content: $prop;
   align-items: $prop;
@@ -15,12 +13,12 @@ $authback: 'https://thewallpaper.co//wp-content/uploads/2016/10/hd-all-pokemon-w
 }
 
 %border-setting {
-  border: 1px solid black;
+  border: 2px solid black;
   border-radius: 10px;
 }
 
 %page-sizing {
-  height: 84vh;
+  height: 91.8vh;
   width: 100%;
 }
 

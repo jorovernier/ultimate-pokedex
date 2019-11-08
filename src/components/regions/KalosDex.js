@@ -5,7 +5,7 @@ import '../../sass-css/Dex.scss';
 export default class KalosDex extends Component{
   render(){
     return (
-      <Pokedex url={'https://pokeapi.co/api/v2/pokemon/?offset=649&limit=72'}/>
+      <Pokedex url={'https://pokeapi.co/api/v2/pokemon/?offset=649&limit=72'} setButton={this.props.setButton}/>
     )
   }
 }

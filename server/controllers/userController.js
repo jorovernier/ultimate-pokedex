@@ -45,5 +45,13 @@ module.exports = {
     },
     userSession: (req,res,next) => {
         res.status(200).send(req.session.user);
+    },
+    editPic: (req,res,next) => {
+        const db = req.app.get('db');
+        const {img_url} = req.body;
+        const {user_id} = req.session.user;
+        db.add_to_team2(img_url, user_id).then(image => {
+            res.status(200).send(image);
+        }).catch(err => {res.status(500).send(console.log(err))})
     }
 }

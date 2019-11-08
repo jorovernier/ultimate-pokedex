@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 const massive = require('massive');
 const session = require('express-session');
-const {register, login, logout, userSession} = require('./controllers/userController');
+const {register, login, logout, userSession, editPic} = require('./controllers/userController');
 const {addToTeam1, addToTeam2, addToTeam3, addToTeam4, addToTeam5, addToTeam6, getTeam} = require('./controllers/teamController');
 
 app.use(session({
@@ -28,6 +28,7 @@ app.post('/auth/register', register);
 app.post('/auth/login', login);
 app.get('/auth/user_session', userSession);
 app.delete('/auth/logout', logout);
+app.put('/api/edit_profile_pic', editPic);
 
 app.post('/api/add_to_team1', addToTeam1);
 app.post('/api/add_to_team2', addToTeam2);

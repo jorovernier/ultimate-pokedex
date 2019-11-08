@@ -4,7 +4,7 @@ import {Switch, NavLink, Route, withRouter, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {setUser} from './psyducks/reducer';
 import './sass-css/App.scss';
-import logo from './pokeball-icon.png';
+import logo from './images/pokeball-icon.png';
 import AuthComponent from './components/AuthComponent';
 import Profile from './components/Profile';
 import Pokedex from './components/Pokedex';
@@ -20,7 +20,8 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      profile: false
+      footer: false,
+      button: false
     }
     this.addToTeam1 = this.addToTeam1.bind(this);
     this.addToTeam2 = this.addToTeam2.bind(this);
@@ -28,30 +29,51 @@ class App extends React.Component {
     this.addToTeam4 = this.addToTeam4.bind(this);
     this.addToTeam5 = this.addToTeam5.bind(this);
     this.addToTeam6 = this.addToTeam6.bind(this);
+    this.toggleFooter = this.toggleFooter.bind(this);
+    this.setFooter = this.setFooter.bind(this);
+    this.setButton = this.setButton.bind(this);
   }
 
   addToTeam1(){
-    axios.post('/api/add_to_team1', this.props.id)
+    axios.post('/api/add_to_team1', {p1: this.props.id})
   }
   addToTeam2(){
-    axios.post('/api/add_to_team2', this.props.id)
+    axios.post('/api/add_to_team2', {p2: this.props.id})
   }
   addToTeam3(){
-    axios.post('/api/add_to_team3', this.props.id)
+    axios.post('/api/add_to_team3', {p3: this.props.id})
   }
   addToTeam4(){
-    axios.post('/api/add_to_team4', this.props.id)
+    axios.post('/api/add_to_team4', {p4: this.props.id})
   }
   addToTeam5(){
-    axios.post('/api/add_to_team5', this.props.id)
+    axios.post('/api/add_to_team5', {p5: this.props.id})
   }
   addToTeam6(){
-    axios.post('/api/add_to_team6', this.props.id)
+    axios.post('/api/add_to_team6', {p6: this.props.id})
+  }
+  
+  toggleFooter(){
+    this.setState((prevState) => {
+      return {
+        footer: !prevState.footer
+      }
+    })
+  }
+
+  setFooter(boolean){
+    this.setState({
+      footer: boolean
+    })
+  }
+
+  setButton(boolean){
+    this.setState({
+      button: boolean
+    })
   }
 
   render(){
-    console.log(this.props.id)
-    console.log(this.state.profile)
     return (
       <div className="App">
         <header>
@@ -84,25 +106,22 @@ class App extends React.Component {
 
         </header>
         <Switch>
-          <Route exact path='/' component={AuthComponent} />
-          <Route path='/pokedex' render={(props) => <Pokedex url={'http://pokeapi.co/api/v2/pokemon?limit=807'} {...props}/>} />
-          <Route path='/pokedex-kanto' component={KantoDex} />
-          <Route path='/pokedex-johto' component={JohtoDex} />
-          <Route path='/pokedex-hoenn' component={HoennDex} />
-          <Route path='/pokedex-sinnoh' component={SinnohDex} />
-          <Route path='/pokedex-unova' component={UnovaDex} />
-          <Route path='/pokedex-kalos' component={KalosDex} />
-          <Route path='/pokedex-alola' component={AlolaDex} />
-          {this.props.user && 
-            <Route path='/profile' component={Profile}/>
-          }
-          <Route path='*' render={() => {
-            return <Redirect to='/' />
-          }} />
+          <Route exact path='/' render={(props) => <AuthComponent setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
+          <Route path='/pokedex' render={(props) => <Pokedex url={'http://pokeapi.co/api/v2/pokemon?limit=807'} setButton={this.setButton} {...props}/>} />
+          <Route path='/pokedex-kanto' render={(props) => <KantoDex setButton={this.setButton} {...props}/>} />
+          <Route path='/pokedex-johto' render={(props) => <JohtoDex setButton={this.setButton} {...props}/>} />
+          <Route path='/pokedex-hoenn' render={(props) => <HoennDex setButton={this.setButton} {...props}/>} />
+          <Route path='/pokedex-sinnoh' render={(props) => <SinnohDex setButton={this.setButton} {...props}/>} />
+          <Route path='/pokedex-unova' render={(props) => <UnovaDex setButton={this.setButton} {...props}/>} />
+          <Route path='/pokedex-kalos' render={(props) => <KalosDex setButton={this.setButton} {...props}/>} />
+          <Route path='/pokedex-alola' render={(props) => <AlolaDex setButton={this.setButton} {...props}/>} />
+          {this.props.user && <Route path='/profile' render={(props) => <Profile setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />}
+          <Route path='*' render={() => {return <Redirect to='/' />}} />
         </Switch>
-        {(this.props.user && this.state.profile === false)
-          && (<footer>
-            <div className='footer'>
+        {this.state.button && this.props.user && <button className={this.state.footer ? 'move-up' : 'footer-toggle'} onClick={this.toggleFooter}></button>}
+        
+          <footer className={this.state.footer ? 'show' : ''}>
+            <div>
               <button className='p1' onClick={() => this.addToTeam1()}>Add to Team</button>
               <button className='p2' onClick={() => this.addToTeam2()}>Add to Team</button>
               <button className='p3' onClick={() => this.addToTeam3()}>Add to Team</button>
@@ -110,7 +129,8 @@ class App extends React.Component {
               <button className='p5' onClick={() => this.addToTeam5()}>Add to Team</button>
               <button className='p6' onClick={() => this.addToTeam6()}>Add to Team</button>
             </div>
-          </footer>)}
+          </footer>
+        
       </div>
     );
   }
@@ -125,9 +145,3 @@ const mapDispatchToProps = {
 const invokedConnect = connect(mapReduxStateToProps, mapDispatchToProps);
 
 export default invokedConnect(withRouter(App));
-
-// original path='*' return until changed to redirect
-// <div className='get-out'>
-//    <img src='https://i.kym-cdn.com/entries/icons/original/000/027/475/Screen_Shot_2018-10-25_at_11.02.15_AM.png' alt='surprised pikachu' />
-//    You shouldn't be here!
-//  </div> */}

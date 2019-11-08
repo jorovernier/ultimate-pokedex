@@ -1,17 +1,13 @@
 @import 'var-mix-ext';
 
 .auth-container {
-  background-image: url($authback);
-  background-position: center;
-  background-size: 100% 92vh;
-  background-repeat: no-repeat;
-  height: 92vh;
-  width: 100%;
+  @extend %page-sizing;
   display: flex;
   @include center(center);
   form {
     background-color: $midblue;
     @extend %border-setting;
+    border-color: $darkblue;
     height: 500px;
     width: 500px;
     display: flex;
@@ -21,6 +17,7 @@
     .inputs {
       background-color: $lightblue;
       @extend %border-setting;
+      border-color: $darkblue;
       height: 400px;
       width: 400px;
       display: flex;

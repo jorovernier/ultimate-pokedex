@@ -5,7 +5,7 @@ import '../../sass-css/Dex.scss';
 export default class KantoDex extends Component{
   render(){
     return (
-      <Pokedex url={'http://pokeapi.co/api/v2/pokemon?limit=151'}/>
+      <Pokedex url={'http://pokeapi.co/api/v2/pokemon?limit=151'} setButton={this.props.setButton}/>
     )
   }
 }
