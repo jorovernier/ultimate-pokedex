@@ -1,88 +1,156 @@
 @import 'var-mix-ext';
+
 .base-display {
     background-color: lightgrey;
     border-radius: 8px;
-    height: 75vh;
-    width: 470px;
+    height: 730px;
+    width: 900px;
     display: flex;
     @include center(center);
     .display {
         @extend %border-setting;
-        height: 70vh;
-        width: 420px;
+        height: 680px;
+        width: 850px;
         overflow: auto;
-        .mon-img {
-            @extend %border-setting;
-            height: 300px;
-            max-width: 410px;
-            @extend %foundmargin;
-        }
-        .toprow {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        .col1 {
+            width: 370px;
+            height: 640px;
             display: flex;
-            justify-content: space-around;
-            @extend %foundmargin;
-            h1 {
-                font-weight: bold;
-                font-size: 20px;
-                @extend %foundmargin;
-            }
-            .dex-num {
-                font-size: 20px;
-                @extend %foundmargin;
-            }
-        }
-        .type {
-            @extend %foundmargin;
-            display: flex;
-            @include center(center);
-            .type-img {
-                height: 30px;
-                width: 90px;
-                @extend %foundmargin;
-            }
-        }
-        .height-weight {
-            display: flex;
-            justify-content: space-around;
-            @extend %foundmargin;
-            .height-box {
-                background-color: white;
-                @extend %border-setting;
-                h2 {
-                    font-weight: bold;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            .top {
+                width: 370px;
+                max-height: 455px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                .mon-img {
+                    @extend %border-setting;
+                    max-width: 500px;
                     @extend %foundmargin;
                 }
-                .height {
+                .name-num {
                     display: flex;
-                    @include center(center);
-                    div {
+                    justify-content: space-around;
+                    h1 {
+                        font-weight: bold;
+                        font-size: 20px;
+                        @extend %foundmargin;
+                    }
+                    .dex-num {
+                        font-size: 20px;
                         @extend %foundmargin;
                     }
                 }
             }
-            .weight-box {
-                background-color: white;
-                @extend %border-setting;
-                h2 {
-                    font-weight: bold;
+            .hold-it {
+                max-height: 180px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-self: flex-end;
+                .type {
                     @extend %foundmargin;
-                }
-                .weight {
                     display: flex;
                     @include center(center);
-                    div {
-                        @extend %foundmargin;
+                    .type-img {
+                        height: 30px;
+                        width: 90px;
+                        margin: 0px 3px;
+                    }
+                }
+                .abilities {
+                    background-color: white;
+                    height: 60px;
+                    width: 350px;
+                    @extend %border-setting;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    span {
+                        width: 330px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+                        margin: 5px;
+                        h1 {
+                            font-weight: bold;
+                            margin: 5px;
+                        }
+                        h2 {
+                            font-size: 12px;
+                            margin: 5px;
+                        }
+                    }
+                }
+                .height-weight {
+                    width: 300px;
+                    display: flex;
+                    justify-content: space-around;
+                    @extend %foundmargin;
+                    .height-box {
+                        background-color: white;
+                        @extend %border-setting;
+                        margin: 0px 5px;
+                        h2 {
+                            font-weight: bold;
+                            @extend %foundmargin;
+                        }
+                        .height {
+                            width: 150px;
+                            display: flex;
+                            @include center(center);
+                            div {
+                                @extend %foundmargin;
+                            }
+                        }
+                    }
+                    .weight-box {
+                        background-color: white;
+                        @extend %border-setting;
+                        margin: 0px 5px;
+                        h2 {
+                            font-weight: bold;
+                            @extend %foundmargin;
+                        }
+                        .weight {
+                            width: 150px;
+                            display: flex;
+                            @include center(center);
+                            div {
+                                @extend %foundmargin;
+                            }
+                        }
                     }
                 }
             }
         }
-        .chart {
-            background-color: white;
-            height: 210px;
+        .col2 {
+            height: 640px;
             display: flex;
-            @include center(center);
-            @extend %foundmargin;
-            @extend %border-setting;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            .chart {
+                background-color: white;
+                @extend %border-setting;
+                height: 330px;
+                width: 430px;
+                display: flex;
+                @include center(center);
+            }
+            .encounters {
+                background-color: white;
+                @extend %border-setting;
+                height: 290px;
+                width: 430px;
+            }
         }
     }
 }

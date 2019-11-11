@@ -20,6 +20,7 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
+      hamburger: false,
       footer: false,
       button: false
     }
@@ -29,6 +30,7 @@ class App extends React.Component {
     this.addToTeam4 = this.addToTeam4.bind(this);
     this.addToTeam5 = this.addToTeam5.bind(this);
     this.addToTeam6 = this.addToTeam6.bind(this);
+    this.toggleBurger = this.toggleBurger.bind(this);
     this.toggleFooter = this.toggleFooter.bind(this);
     this.setFooter = this.setFooter.bind(this);
     this.setButton = this.setButton.bind(this);
@@ -51,6 +53,14 @@ class App extends React.Component {
   }
   addToTeam6(){
     axios.post('/api/add_to_team6', {p6: this.props.id})
+  }
+
+  toggleBurger(){
+    this.setState((prevState) => {
+      return {
+        hamburger: !prevState.hamburger
+      }
+    })
   }
   
   toggleFooter(){
@@ -83,24 +93,27 @@ class App extends React.Component {
               <img src={logo} alt='logo' />
             </div>
             <span className='nav-box'>
-              {this.props.user 
-                ? <NavLink className='nav' activeClassName='active' to='/profile' >Profile</NavLink> 
-                : <NavLink className='nav' activeClassName='active' exact to='/' >Register/Login</NavLink>
-              }
-              <NavLink className='nav' activeClassName='active' to='/pokedex' >Pokedex</NavLink>
-              <NavLink className='nav' activeClassName='active' to='/pokedex-kanto' >Kanto</NavLink>
-              <NavLink className='nav' activeClassName='active' to='/pokedex-johto' >Johto</NavLink>
-              <NavLink className='nav' activeClassName='active' to='/pokedex-hoenn' >Hoenn</NavLink>
-              <NavLink className='nav' activeClassName='active' to='/pokedex-sinnoh' >Sinnoh</NavLink>
-              <NavLink className='nav' activeClassName='active' to='/pokedex-unova' >Unova</NavLink>
-              <NavLink className='nav' activeClassName='active' to='/pokedex-kalos' >Kalos</NavLink>
-              <NavLink className='nav' activeClassName='active' to='/pokedex-alola' >Alola</NavLink>
-              {this.props.user && <button className='logout' onClick={() => {
-                axios.delete('/auth/logout').then(() => {
-                  this.props.setUser(null);
-                })
-              }} >Logout</button>
-              }
+              <span className={this.state.hamburger ? 'hamburger' : ''}>
+                {this.props.user 
+                  ? <NavLink className='nav' activeClassName='active' to='/profile' >Profile</NavLink> 
+                  : <NavLink className='nav' activeClassName='active' exact to='/' >Register/Login</NavLink>
+                }
+                <NavLink className='nav' activeClassName='active' to='/pokedex' >Pokedex</NavLink>
+                <NavLink className='nav' activeClassName='active' to='/pokedex-kanto' >Kanto</NavLink>
+                <NavLink className='nav' activeClassName='active' to='/pokedex-johto' >Johto</NavLink>
+                <NavLink className='nav' activeClassName='active' to='/pokedex-hoenn' >Hoenn</NavLink>
+                <NavLink className='nav' activeClassName='active' to='/pokedex-sinnoh' >Sinnoh</NavLink>
+                <NavLink className='nav' activeClassName='active' to='/pokedex-unova' >Unova</NavLink>
+                <NavLink className='nav' activeClassName='active' to='/pokedex-kalos' >Kalos</NavLink>
+                <NavLink className='nav' activeClassName='active' to='/pokedex-alola' >Alola</NavLink>
+                {this.props.user && <button className='logout' onClick={() => {
+                  axios.delete('/auth/logout').then(() => {
+                    this.props.setUser(null);
+                  })
+                }} >Logout</button>
+                }
+              </span>
+              <button className='burger-ler' onClick={this.toggleBurger}>☰</button>
             </span>
           </div>
 
@@ -122,12 +135,12 @@ class App extends React.Component {
         
           <footer className={this.state.footer ? 'show' : ''}>
             <div>
-              <button className='p1' onClick={() => this.addToTeam1()}>Add to Team</button>
-              <button className='p2' onClick={() => this.addToTeam2()}>Add to Team</button>
-              <button className='p3' onClick={() => this.addToTeam3()}>Add to Team</button>
-              <button className='p4' onClick={() => this.addToTeam4()}>Add to Team</button>
-              <button className='p5' onClick={() => this.addToTeam5()}>Add to Team</button>
-              <button className='p6' onClick={() => this.addToTeam6()}>Add to Team</button>
+              <button className='p1' onClick={() => this.addToTeam1()}>Team Slot 1</button>
+              <button className='p2' onClick={() => this.addToTeam2()}>Team Slot 2</button>
+              <button className='p3' onClick={() => this.addToTeam3()}>Team Slot 3</button>
+              <button className='p4' onClick={() => this.addToTeam4()}>Team Slot 4</button>
+              <button className='p5' onClick={() => this.addToTeam5()}>Team Slot 5</button>
+              <button className='p6' onClick={() => this.addToTeam6()}>Team Slot 6</button>
             </div>
           </footer>
         

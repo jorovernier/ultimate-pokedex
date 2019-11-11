@@ -281,47 +281,89 @@ export default class FoundDisplay extends Component {
                         <img className='type-img' src={url} alt={`sprite of ${pokemon.types[0].type.name} type logo`}/>
                     </div>
         }
+        let abilities;
+        if(pokemon.abilities.length === 1){
+            abilities = <span>
+                            <h1>{pokemon.abilities[0].ability.name.charAt(0).toUpperCase() + pokemon.abilities[0].ability.name.substring(1)}</h1>
+                        </span>
+        } else if(pokemon.abilities.length === 2){
+            abilities = <span>
+                            <h1>{pokemon.abilities[1].ability.name.charAt(0).toUpperCase() + pokemon.abilities[1].ability.name.substring(1)}</h1>
+                            <div>
+                                <h2>Hidden Ability:</h2>
+                                <h1>{pokemon.abilities[0].ability.name.charAt(0).toUpperCase() + pokemon.abilities[0].ability.name.substring(1)}</h1>
+                            </div>
+                        </span>
+        } else if(pokemon.abilities.length === 3){
+            abilities = <span>
+                            <h1>{pokemon.abilities[2].ability.name.charAt(0).toUpperCase() + pokemon.abilities[2].ability.name.substring(1)}</h1>
+                            <h1>{pokemon.abilities[1].ability.name.charAt(0).toUpperCase() + pokemon.abilities[1].ability.name.substring(1)}</h1>
+                            <div>
+                                <h2>Hidden Ability:</h2>
+                                <h1>{pokemon.abilities[0].ability.name.charAt(0).toUpperCase() + pokemon.abilities[0].ability.name.substring(1)}</h1>
+                            </div>
+                        </span>
+        }
+
+        // const mappedEncounters = pokemon.
+        
 //---------------------------------------------------------------------------------------------------------------------------------------------------
         return(
             <div className='base-display' style={{backgroundColor: secondary}} >
                 <div className='display' style={{backgroundColor: primary}} >
-                    <img className='mon-img' src={`https://img.pokemondb.net/artwork/${forPMDB}.jpg`} alt={`sprite of ${pokemon.name}`} />
+                    <div className='col1'>
 
-                    <div className='toprow'>
-                        <h1>{upperSpecies}</h1>
-                        <div className='dex-num'>Dex #: {pokemon.id}</div>
-                    </div>
-
-                    <div className='type'>
-                        {types}
-                    </div>
-
-                    <div className='height-weight'>
-                        <div className='height-box'>
-                            <h2>Height</h2>
-                            <span className='height'>
-                                <div>{Math.ceil(pokemon.height/10 * 3.281)} ft</div>
-                                <div>{pokemon.height/10} m</div>
-                            </span>
+                        <div className='top'>
+                            <img className='mon-img' src={`https://img.pokemondb.net/artwork/${forPMDB}.jpg`} alt={`sprite of ${pokemon.name}`} />
+                            <div className='name-num'>
+                                <h1>{upperSpecies}</h1>
+                                <div className='dex-num'>Dex #: {pokemon.id}</div>
+                            </div>
                         </div>
 
-                        <div className='weight-box'>
-                            <h2>Weight</h2>
-                            <span className='weight'>
-                                <div>{Math.floor(pokemon.weight * 2.205) /10} lbs</div>
-                                <div>{pokemon.weight/10} kg</div>
-                            </span>
+                        <div className='hold-it'>
+                            <div className='type'>
+                                {types}
+                            </div>
+
+                            <div className='abilities'>
+                                {abilities}
+                            </div>
+                            
+                            <div className='height-weight'>
+                                <div className='height-box'>
+                                    <h2>Height</h2>
+                                    <span className='height'>
+                                        <div>{Math.ceil(pokemon.height/10 * 3.281)} ft</div>
+                                        <div>{pokemon.height/10} m</div>
+                                    </span>
+                                </div>
+
+                                <div className='weight-box'>
+                                    <h2>Weight</h2>
+                                    <span className='weight'>
+                                        <div>{Math.floor(pokemon.weight * 2.205) /10} lbs</div>
+                                        <div>{pokemon.weight/10} kg</div>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div className='col2'>
+                        <StatsChart 
+                            speed={pokemon.stats[0].base_stat} 
+                            sped={pokemon.stats[1].base_stat} 
+                            spea={pokemon.stats[2].base_stat} 
+                            def={pokemon.stats[3].base_stat} 
+                            att={pokemon.stats[4].base_stat} 
+                            hp={pokemon.stats[5].base_stat} 
+                        />
+                        <div className='encounters'>
+                            <div>something</div>
                         </div>
                     </div>
-    
-                    <StatsChart 
-                        speed={pokemon.stats[0].base_stat} 
-                        sped={pokemon.stats[1].base_stat} 
-                        spea={pokemon.stats[2].base_stat} 
-                        def={pokemon.stats[3].base_stat} 
-                        att={pokemon.stats[4].base_stat} 
-                        hp={pokemon.stats[5].base_stat} 
-                    />
                     
                 </div>
             </div>

@@ -17,7 +17,7 @@ export default class StatsChart extends Component {
       this.myChart = new Chart(this.canvasRef.current, {
         type: 'bar',
         options: {
-            maintainAspectRatio: true,
+            maintainAspectRatio: false,
             legend: {
                 display: false
             },

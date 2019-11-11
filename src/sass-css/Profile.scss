@@ -2,6 +2,7 @@
 
 .profile {
   @extend %page-sizing;
+  height: 92.9vh;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -38,11 +39,9 @@
     }
     .just-a-background-div {
       background-color: $darkblue;
-      height: 91.8vh;
       width: 65%;
       .user-team-holder {
         background-color: $darkblue;
-        height: 91.8vh;
         display: flex;
         align-items: center;
         .user-team {

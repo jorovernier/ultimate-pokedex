@@ -3,94 +3,122 @@
 .page {
   @extend %page-sizing;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  .pokedex-holder {
-    background-color: #e90026;
-    @extend %border-setting;
-    height: 75vh;
-    width: 470px;
+  .top {
+    height: 92.9vh;
+    width: 85%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
-    input {
-      outline-color: red;
-    }
-    .pokedex {
-      background-color: lightgrey;
+    justify-content: space-around;
+    .pokedex-holder {
+      background-color: #e90026;
       @extend %border-setting;
-      height: 60vh;
-      width: 410px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      overflow: auto;
-    }
-    .random {
-      background: none;
-      outline: none;
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      img {
-        max-height: 96px;
-        height: 40px;
-        max-width: 90px;
-        width: 35px;
-      }
-    }
-  }
-  .pokedex-holder-loading {
-    background-color: $dexred;
-    @extend %border-setting;
-    height: 75vh;
-    width: 470px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    .pokedex-border-loading {
-      background-color: lightgrey;
-      @extend %border-setting;
-      height: 60vh;
-      width: 410px;
+      height: 730px;
+      width: 470px;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
-      .spinner {
-        width: 80px;
-        height: 80px;
-        background-color: grey;
-        border: 81px solid black;
-        border-top-color: red;
-        border-right-color: red;        
-        border-left-color: white;
-        border-bottom-color: white;
-        border-radius: 50%;
-        transform: rotate(-45deg);
-        animation: rotate 2s ease-in-out .5s infinite;
-        width: 120px;
-        height: 120px;
+      input {
+        outline-color: red;
+      }
+      .pokedex {
+        background-color: lightgrey;
+        @extend %border-setting;
+        height: 590px;
+        width: 410px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: auto;
+      }
+      .random {
+        background: none;
+        outline: none;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        img {
+          max-height: 96px;
+          height: 40px;
+          max-width: 90px;
+          width: 35px;
+        }
       }
     }
-    @keyframes rotate {
-      0% {
-          transform: rotate(-44deg);
+    .pokedex-holder-loading {
+      background-color: $dexred;
+      @extend %border-setting;
+      height: 730px;
+      width: 470px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      .pokedex-border-loading {
+        background-color: lightgrey;
+        @extend %border-setting;
+        height: 615px;
+        width: 410px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        .spinner {
+          width: 80px;
+          height: 80px;
+          background-color: grey;
+          border: 81px solid black;
+          border-top-color: red;
+          border-right-color: red;        
+          border-left-color: white;
+          border-bottom-color: white;
+          border-radius: 50%;
+          transform: rotate(-45deg);
+          animation: rotate 2s ease-in-out .5s infinite;
+          width: 120px;
+          height: 120px;
+        }
       }
-      100% {
-          transform: rotate(316deg);
+      @keyframes rotate {
+        0% {
+            transform: rotate(-44deg);
+        }
+        100% {
+            transform: rotate(316deg);
+        }
       }
+    }
+    .found-display{
+      background-color: lightgrey;
+      @extend %border-setting;
+      height: 730px;
+      width: 900px;
+      display: flex;
+      @include center(center);
     }
   }
-  .found-display{
-    background-color: lightgrey;
-    @extend %border-setting;
-    height: 75vh;
-    width: 470px;
+  .bottom {
+    width: 85%;
     display: flex;
-    @include center(center);
+    justify-content: space-around;
+    align-self: center;
+    margin: 30px 0px 75px 0px;
+    img {
+      @extend %border-setting;
+      max-width: 685px;
+      display: flex;
+    }
+    .region-info {
+      background-color: darkcyan;
+      width: 685px;
+    }
   }
 }
+
+// @media (min-width: 1650px) {
+
+// }
