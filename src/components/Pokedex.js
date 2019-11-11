@@ -43,7 +43,6 @@ class Pokedex extends Component{
       found: true
     });
     this.props.sendID(this.state.foundPokemon.id)
-    // console.log(this.props)
     })}
 
   universalInput(prop, val){
@@ -86,13 +85,15 @@ class Pokedex extends Component{
       foundDisplay = <div>Search for a pokemon or click the egg for a surprise!</div>;
     }
 
-    
     return (
       <div className='page'>
-        {display}
+        <div className='top'>
+          {display}
           <div className='found-display'>
             {foundDisplay}
           </div>
+        </div>
+        {this.props.info}
       </div>
     );
   }

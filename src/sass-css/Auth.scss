@@ -2,6 +2,7 @@
 
 .auth-container {
   @extend %page-sizing;
+  height: 92.9vh;
   display: flex;
   @include center(center);
   form {
@@ -40,5 +41,27 @@
   }
   .switcher {
     @extend %button;
+  }
+}
+
+@media (max-width: 500px) {
+  .auth-container {
+    form {
+      height: 300px;
+      width: 300px;
+      .inputs {
+        height: 230px;
+        width: 250px;
+        .username-i {
+          width: 200px;
+        }
+        .email-i {
+          width: 200px;
+        }
+        .password-i {
+          width: 200px;
+        }
+      }
+    }
   }
 }

@@ -3,8 +3,7 @@
 .App {
   text-align: center;
   background-image: url('../images/transparent-logo.png');
-  background-position: center;
-  background-size: 51px;
+  background-size: 45px;
   background-repeat: repeat;
   width: 100%;
   display: flex;
@@ -13,7 +12,7 @@
   header {
     background-color: $lightblue;
     border-bottom: 2px solid $darkblue;
-    height: 8vh;
+    height: 67px;
     width: 100%;
     display: flex;
     @include center(center);
@@ -23,17 +22,17 @@
       align-items: center;
       justify-content: space-between;
       .logo-box {
-        max-height: 6vh;
+        max-height: 50px;
         img {
-          max-height: 6vh;
+          max-height: 50px;
         }
       }
-      .nav-box{
+      .nav-box {
         width: 700px;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-evenly;
         font-weight: 500;
-        .nav{
+        .nav {
           color: $darkblue;
           display: flex;
           align-items: center;
@@ -44,6 +43,14 @@
         }
         .logout {
           @extend %button;
+        }
+        span {
+          width: 550px;
+          display: flex;
+          justify-content: space-between;
+        }
+        .burger-ler {
+          display: none;
         }
       }
     }
@@ -96,7 +103,6 @@
         font-weight: 600;
         border: none;
         border-radius: 5px;
-        // padding: 1px;
         transition: .3s;
       }
     }
@@ -108,3 +114,108 @@
     transition: .3s;
   }      
 }
+
+@media (max-width: 800px) {
+  .App {
+    header {
+      // background-color: $lightblue;
+      // border-bottom: 2px solid $darkblue;
+      // height: 67px;
+      // width: 100%;
+      // display: flex;
+      // @include center(center);
+      .logo-nav {
+      // width: 98%;
+      // display: flex;
+      // align-items: center;
+      // justify-content: space-between;
+        .logo-box {
+          // max-height: 50px;
+          img {
+            max-height: 50px;
+          }
+        }
+        .nav-box {
+          max-width: 30px;
+          flex-direction: column;
+          .nav {
+            flex-direction: column;
+            outline: none;
+            margin: 5px;
+          }
+          span {
+            background-color: white;
+            position: fixed;
+            top: 69px;
+            right: 0;
+            width: 157px;
+            overflow: hidden;
+            height: 0px;
+            transition: .3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .hamburger {
+            height: 260px;
+          }
+          .burger-ler {
+            display: flex;
+            background-color: $dexred;
+            font-weight: 600;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// header {
+//   background-color: $lightblue;
+//   border-bottom: 2px solid $darkblue;
+//   height: 67px;
+//   width: 100%;
+//   display: flex;
+//   @include center(center);
+//   .logo-nav{
+//     width: 98%;
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     .logo-box {
+//       max-height: 50px;
+//       img {
+//         max-height: 50px;
+//       }
+//     }
+//     .nav-box {
+//       width: 700px;
+//       display: flex;
+//       justify-content: space-between;
+//       font-weight: 500;
+//       .nav {
+//         color: $darkblue;
+//         display: flex;
+//         align-items: center;
+//         text-decoration: none;
+//       }
+//       .active {
+//         font-weight: bold;
+//       }
+//       .logout {
+//         @extend %button;
+//       }
+//       .normal {
+//         width: 550px;
+//         display: flex;
+//         justify-content: space-between;
+//       }
+//       .burger-ler {
+//         display: none;
+//       }
+//     }
+//   }
+// }
