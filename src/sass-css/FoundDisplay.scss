@@ -78,6 +78,9 @@
         }
         .chart {
             background-color: white;
+            height: 210px;
+            display: flex;
+            @include center(center);
             @extend %foundmargin;
             @extend %border-setting;
         }

@@ -12,7 +12,7 @@ class AuthComponent extends Component {
             username: '',
             password: '',
             email: '',
-            register: true
+            register: false
         }
         this.register = this.register.bind(this);
         this.login = this.login.bind(this);

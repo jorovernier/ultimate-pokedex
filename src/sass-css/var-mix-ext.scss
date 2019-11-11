@@ -3,6 +3,10 @@ $midblue: #206092;
 $darkblue: #0b2a4d;
 $dexred: #e90026;
 
+// button {
+//   outline: none;
+// }
+
 @mixin center($prop){
   justify-content: $prop;
   align-items: $prop;

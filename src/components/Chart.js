@@ -2,42 +2,58 @@ import React, { Component } from 'react';
 import Chart from 'chart.js';
 
 export default class StatsChart extends Component {
-    constructor(props){
-        super(props)
-        this.state = {}
+    constructor(props) {
+      super(props);
+      this.canvasRef = React.createRef();
     }
-
-    chartRef = React.createRef();
-
-    componentDidMount(){
-        const myChartRef = this.chartRef.current.getContext("2d");
-        const {speed, sped, spea, def, att, hp} = this.props;
-        new Chart(myChartRef, {
-            type: "bar",
-            data: {
-                labels: ["Speed", "Sp. Def", "Sp. Att", "Def", "Att", "HP"],
-                datasets: [
-                    {
-                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                        data: [speed, sped, spea, def, att, hp]
-                    }
-                ]
+  
+    componentDidUpdate() {
+      this.myChart.data.labels = ["Speed", "Sp. Def", "Sp. Att", "Def", "Att", "HP"];
+      this.myChart.data.datasets[0].data = [this.props.speed, this.props.sped, this.props.spea, this.props.def, this.props.att, this.props.hp];
+      this.myChart.update();
+    }
+  
+    componentDidMount() {
+      this.myChart = new Chart(this.canvasRef.current, {
+        type: 'bar',
+        options: {
+            maintainAspectRatio: true,
+            legend: {
+                display: false
             },
-            options: {
-                legend: { display: false },
-                title: {
-                    display: true,
-                    text: 'Base Stats'
+          scales: {
+            yAxes: [
+              {
+                ticks: {
+                  min: 0,
+                  max: 250
                 }
-            }
-        });
+              }
+            ]
+          }
+        },
+        data: {
+          labels: ["Speed", "Sp. Def", "Sp. Att", "Def", "Att", "HP"],
+          datasets: [{
+            data: [
+                this.props.speed, 
+                this.props.sped, 
+                this.props.spea, 
+                this.props.def, 
+                this.props.att, 
+                this.props.hp
+            ],
+            backgroundColor: ['#ed5587', '#78c850', '#688ff0', '#f8d132', '#f08030', '#ed4630']
+          }]
+        }
+      });
     }
 
-    render(){
-        return (
-            <div className='chart'>
-                <canvas id="myChart" ref={this.chartRef} />
-            </div>
-        )
+    render() {
+      return (
+          <div className='chart'>
+              <canvas ref={this.canvasRef} />
+          </div>
+      );
     }
-}
+  }
