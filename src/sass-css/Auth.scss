@@ -2,7 +2,7 @@
 
 .auth-container {
   @extend %page-sizing;
-  height: 92.9vh;
+  height: 100vh;
   display: flex;
   @include center(center);
   form {
