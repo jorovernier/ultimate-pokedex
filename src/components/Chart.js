@@ -18,6 +18,7 @@ export default class StatsChart extends Component {
         type: 'bar',
         options: {
             maintainAspectRatio: false,
+            responsive: true,
             legend: {
                 display: false
             },
@@ -52,7 +53,7 @@ export default class StatsChart extends Component {
     render() {
       return (
           <div className='chart'>
-              <canvas ref={this.canvasRef} />
+            <canvas ref={this.canvasRef} style={{position: 'relative'}}/>
           </div>
       );
     }
