@@ -34,25 +34,54 @@ class App extends React.Component {
     this.toggleFooter = this.toggleFooter.bind(this);
     this.setFooter = this.setFooter.bind(this);
     this.setButton = this.setButton.bind(this);
+    // this.getTeam = this.getTeam.bind(this);
   }
 
+  // componentDidMount(){
+  //   this.getTeam();
+  // }
+
   addToTeam1(){
-    axios.post('/api/add_to_team1', {p1: this.props.id})
+    if(this.props.id > 0){
+      axios.post('/api/add_to_team1', {p1: this.props.id})
+    } else {
+      window.alert('You cannot add nothing to your team!')
+    }
   }
   addToTeam2(){
-    axios.post('/api/add_to_team2', {p2: this.props.id})
+    if(this.props.id > 0){
+      axios.post('/api/add_to_team2', {p2: this.props.id})
+    } else {
+      window.alert('You cannot add nothing to your team!')
+    }
   }
   addToTeam3(){
-    axios.post('/api/add_to_team3', {p3: this.props.id})
+    if(this.props.id > 0){
+      axios.post('/api/add_to_team3', {p3: this.props.id})
+    } else {
+      window.alert('You cannot add nothing to your team!')
+    }
   }
   addToTeam4(){
-    axios.post('/api/add_to_team4', {p4: this.props.id})
+    if(this.props.id > 0){
+      axios.post('/api/add_to_team4', {p4: this.props.id})
+    } else {
+      window.alert('You cannot add nothing to your team!')
+    }
   }
   addToTeam5(){
-    axios.post('/api/add_to_team5', {p5: this.props.id})
+    if(this.props.id > 0){
+      axios.post('/api/add_to_team5', {p5: this.props.id})
+    } else {
+      window.alert('You cannot add nothing to your team!')
+    }
   }
   addToTeam6(){
-    axios.post('/api/add_to_team6', {p6: this.props.id})
+    if(this.props.id > 0){
+      axios.post('/api/add_to_team6', {p6: this.props.id})
+    } else {
+      window.alert('You cannot add nothing to your team!')
+    }
   }
 
   toggleBurger(){
@@ -83,6 +112,20 @@ class App extends React.Component {
     })
   }
 
+  // getTeam(){
+  //   if(this.props.user){
+  //     axios.get('/api/get_team').then(response => {
+  //         this.setState({
+  //           team: response.data
+  //         });
+  //     }).catch(err => console.log(err));
+  //   } else {
+  //     return 'no user'
+  //   }
+  //   console.log('team fetched');
+  //   console.log(this.state.team)
+  // } 
+
   render(){
     return (
       <div className="App">
@@ -109,7 +152,8 @@ class App extends React.Component {
                 {this.props.user && <button className='logout' onClick={() => {
                   axios.delete('/auth/logout').then(() => {
                     this.props.setUser(null);
-                  })
+                  });
+                  window.alert('See you later!')
                 }} >Logout</button>
                 }
               </span>

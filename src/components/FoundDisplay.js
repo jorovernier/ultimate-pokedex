@@ -4,6 +4,15 @@ import '../sass-css/FoundDisplay.scss';
 
 export default class FoundDisplay extends Component {
     render(){
+        let mappedEncounters = this.props.encounters.map(
+            (encounter) => <div className='encounter' key={encounter.location_area.name} >{encounter.location_area.name}</div>);
+        let encounterDisplay;
+        if(this.props.encounters.length === 0){
+            encounterDisplay = <div className='no-encounter'>This pokemon cannot be found in the wild.</div>;
+        } else {
+            encounterDisplay = mappedEncounters;
+        }
+
         const {pokemon} = this.props;
         let species = pokemon.name;
 //---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -304,9 +313,7 @@ export default class FoundDisplay extends Component {
                             </div>
                         </span>
         }
-
-        // const mappedEncounters = pokemon.
-        
+    
 //---------------------------------------------------------------------------------------------------------------------------------------------------
         return(
             <div className='base-display' style={{backgroundColor: secondary}} >
@@ -361,7 +368,7 @@ export default class FoundDisplay extends Component {
                             hp={pokemon.stats[5].base_stat} 
                         />
                         <div className='encounters'>
-                            <div>something</div>
+                            <div className='encounter-holder'>{encounterDisplay}</div>
                         </div>
                     </div>
                     

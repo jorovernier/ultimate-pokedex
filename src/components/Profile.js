@@ -20,6 +20,12 @@ class Profile extends Component {
         this.getTeam = this.getTeam.bind(this);
         this.editPic = this.editPic.bind(this);
         this.universalInput = this.universalInput.bind(this);
+        this.removeFromTeam1 = this.removeFromTeam1.bind(this);
+        this.removeFromTeam2 = this.removeFromTeam2.bind(this);
+        this.removeFromTeam3 = this.removeFromTeam3.bind(this);
+        this.removeFromTeam4 = this.removeFromTeam4.bind(this);
+        this.removeFromTeam5 = this.removeFromTeam5.bind(this);
+        this.removeFromTeam6 = this.removeFromTeam6.bind(this);
     }
 
     componentDidMount(){
@@ -33,6 +39,25 @@ class Profile extends Component {
             });
             }).catch(err => console.log(err))
         }
+    }
+
+    removeFromTeam1(){
+        axios.post('/api/add_to_team1').then(this.getTeam())
+    }
+    removeFromTeam2(){
+        axios.post('/api/add_to_team2').then(this.getTeam())
+    }
+    removeFromTeam3(){
+        axios.post('/api/add_to_team3').then(this.getTeam())
+    }
+    removeFromTeam4(){
+        axios.post('/api/add_to_team4').then(this.getTeam())
+    }
+    removeFromTeam5(){
+        axios.post('/api/add_to_team5').then(this.getTeam())
+    }
+    removeFromTeam6(){
+        axios.post('/api/add_to_team6').then(this.getTeam())
     }
 
     getTeam(){
@@ -100,16 +125,16 @@ class Profile extends Component {
                                 return (
                                     <div className='user-team' key={index}>
                                         <span className='row1'>
-                                            {team.p1 && <TeamPokemon pokemon={team.p1}/>}
-                                            {team.p2 && <TeamPokemon pokemon={team.p2}/>}
+                                            {team.p1 && <TeamPokemon pokemon={team.p1} remove={this.removeFromTeam1} />}
+                                            {team.p2 && <TeamPokemon pokemon={team.p2} remove={this.removeFromTeam2} />}
                                         </span>
                                         <span className='row2'>
-                                            {team.p3 && <TeamPokemon pokemon={team.p3}/>}
-                                            {team.p4 && <TeamPokemon pokemon={team.p4}/>}
+                                            {team.p3 && <TeamPokemon pokemon={team.p3} remove={this.removeFromTeam3} />}
+                                            {team.p4 && <TeamPokemon pokemon={team.p4} remove={this.removeFromTeam4} />}
                                         </span>
                                         <span className='row3'>
-                                            {team.p5 && <TeamPokemon pokemon={team.p5}/>}
-                                            {team.p6 && <TeamPokemon pokemon={team.p6}/>}
+                                            {team.p5 && <TeamPokemon pokemon={team.p5} remove={this.removeFromTeam5} />}
+                                            {team.p6 && <TeamPokemon pokemon={team.p6} remove={this.removeFromTeam6} />}
                                         </span>
                                     </div>
                                 )

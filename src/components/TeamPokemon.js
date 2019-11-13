@@ -85,6 +85,7 @@ export default class TeamPokemon extends Component {
                 <div className='img-name'>
                     <img className='mon-img' src={`https://img.pokemondb.net/artwork/${teamPokemon.name}.jpg`} alt={`${teamPokemon.name}`} />
                     <div className='team-mon-name'>{teamPokemon.name}</div>
+                    <button onClick={() => this.props.remove()}>Remove</button>
                 </div>
             </div>
         )
