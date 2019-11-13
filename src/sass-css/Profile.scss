@@ -40,10 +40,12 @@
     .just-a-background-div {
       background-color: $darkblue;
       width: 65%;
+      align-self: flex-end;
       .user-team-holder {
         background-color: $darkblue;
+        height: 100vh;
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         .user-team {
           width: 100%;
           .row1 {
@@ -60,3 +62,84 @@
     }
   }
 }
+
+// ----------------------------------------------------------------------------------------- //
+
+@media (max-width: 850px) {
+  .profile {
+    height: auto;
+    .interface {
+      margin-top: 69px;
+      flex-direction: column;
+      .user-info {
+        width: 100%;
+        .image-box {
+          .user-img {
+            border-radius: 10px;
+            max-height: 200px;
+            margin: 10px;
+          }
+          // button {
+          //   // @extend %button;
+          //   // margin: 0px 0px 10px 0px;
+          // }
+        }
+        // .name-box {
+        //   color: white;
+        //   margin: 10px;
+        // }
+      }
+      .just-a-background-div {
+        height: auto;
+        width: 100%;
+        .user-team-holder {
+          align-items: center;
+          .user-team {
+            width: 100%;
+            .row1 {
+              height: 25vh;
+              // margin: 5px 0px 5px 0px;
+            }
+            .row2 {
+              height: 25vh;
+              // margin: 5px 0px 5px 0px;
+            }
+            .row3 {
+              height: 25vh;
+              // margin: 5px 0px 5px 0px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------------------- //
+
+@media (max-width: 450px) {
+  .profile {
+    .just-a-background-div {
+      // height: 300px;
+      .user-team-holder {
+        // height: 300px;
+        .user-team {
+          width: 100%;
+          .row1 {
+            height: 10vh;
+            // margin: 5px 0px 5px 0px;
+          }
+          .row2 {
+            height: 10vh;
+            // margin: 5px 0px 5px 0px;
+          }
+          .row3 {
+            height: 10vh;
+            // margin: 5px 0px 5px 0px;
+          }
+        }
+      }
+    }
+  }
+}
+
