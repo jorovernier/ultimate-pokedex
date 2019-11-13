@@ -15,7 +15,8 @@ class Pokedex extends Component{
       loading : false,
       input: '',
       foundPokemon: [],
-      found: false
+      found: false,
+      encounters: []
     };
     this.onSpriteClick = this.onSpriteClick.bind(this);
     this.universalInput = this.universalInput.bind(this);
@@ -32,18 +33,24 @@ class Pokedex extends Component{
         fetched : true
       });
     });
-    this.props.sendID(0)
-    this.props.setButton(true)
+    this.props.sendID(0);
+    this.props.setButton(true);
   }
 
   onSpriteClick(name){
     axios.get(`https://pokeapi.co/api/v2/pokemon/${name}/`).then(response => {
-    this.setState({
-      foundPokemon: response.data,
-      found: true
+      this.setState({
+        foundPokemon: response.data,
+        found: true
+      });
+      this.props.sendID(this.state.foundPokemon.id)
     });
-    this.props.sendID(this.state.foundPokemon.id)
-    })}
+    axios.get(`https://pokeapi.co/api/v2/pokemon/${name}/encounters`).then(response => {
+      this.setState({
+        encounters: response.data
+      });
+    })
+  }
 
   universalInput(prop, val){
     this.setState({
@@ -80,7 +87,7 @@ class Pokedex extends Component{
 
     let foundDisplay;
     if(found){
-      foundDisplay = <FoundDisplay pokemon={foundPokemon}/>
+      foundDisplay = <FoundDisplay pokemon={foundPokemon} encounters={this.state.encounters}/>
     } else {
       foundDisplay = <div>Search for a pokemon or click the egg for a surprise!</div>;
     }

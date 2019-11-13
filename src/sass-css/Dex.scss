@@ -2,6 +2,7 @@
 
 .page {
   @extend %page-sizing;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,19 +16,20 @@
     .pokedex-holder {
       background-color: #e90026;
       @extend %border-setting;
-      height: 730px;
+      height: 80vh;
       width: 470px;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
+      margin-top: 50px;
       input {
         outline-color: red;
       }
       .pokedex {
         background-color: lightgrey;
         @extend %border-setting;
-        height: 590px;
+        height: 65vh;
         width: 410px;
         display: flex;
         flex-direction: column;
@@ -52,16 +54,17 @@
     .pokedex-holder-loading {
       background-color: $dexred;
       @extend %border-setting;
-      height: 730px;
+      height: 80vh;
       width: 470px;
       display: flex;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
+      margin-top: 50px;
       .pokedex-border-loading {
         background-color: lightgrey;
         @extend %border-setting;
-        height: 615px;
+        height: 65vh;
         width: 410px;
         display: flex;
         flex-direction: column;
@@ -95,10 +98,11 @@
     .found-display{
       background-color: lightgrey;
       @extend %border-setting;
-      height: 730px;
+      height: 80vh;
       width: 900px;
       display: flex;
       @include center(center);
+      margin-top: 50px;
     }
   }
   .bottom {
@@ -125,11 +129,10 @@
   .page {
     .top {
       height: 100vh;
-      margin-top: 35px;
       .pokedex-holder {
-        height: 700px;
+        height: 85vh;
         .pokedex {
-          height: 560px;
+          height: 70vh;
           width: 410px;
         }
         .random {
@@ -142,10 +145,10 @@
         }
       }
       .pokedex-holder-loading {
-        height: 700px;
+        height: 85vh;
         width: 470px;
         .pokedex-border-loading {
-          height: 560px;
+          height: 70vh;
           width: 410px;
           .spinner {
             width: 120px;
@@ -154,7 +157,7 @@
         }
       }
       .found-display {
-        height: 700px;
+        height: 85vh;
         width: 470px;
       }
     }
@@ -180,11 +183,9 @@
       display: flex;
       align-items: center;
       justify-content: space-around;
-      margin: 0px;
       .pokedex-holder {
         height: 600px;
         width: 370px;
-        margin: 0px;
         .pokedex {
           height: 500px;
           width: 300px;
