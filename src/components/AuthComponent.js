@@ -12,7 +12,8 @@ class AuthComponent extends Component {
             username: '',
             password: '',
             email: '',
-            register: false
+            register: false,
+            failed: false
         }
         this.register = this.register.bind(this);
         this.login = this.login.bind(this);
@@ -31,8 +32,14 @@ class AuthComponent extends Component {
 
     async login(){
         const {password, email} = this.state;
-        const loggedInUser = await axios.post('/auth/login', {password, email});
-        this.props.setUser(loggedInUser.data);
+        try {
+            const loggedInUser = await axios.post('/auth/login', {password, email});
+            this.props.setUser(loggedInUser.data);
+        } catch (error) {
+            this.setState({
+                failed: true
+            })
+        }
     }
 
     render(){
@@ -69,6 +76,7 @@ class AuthComponent extends Component {
                                 password: e.target.value
                             })} />
                         </div>
+                        {this.state.failed && <div>Login failed!</div>}
                         <button className='submit'>Submit</button>
                     </div>
                 {!register && <button className='switcher' onClick={() => this.setState({register: true})}>Switch to Register</button>}
