@@ -1,0 +1,63 @@
+@import 'var-mix-ext';
+
+.item-box {
+  width: 410px;
+  display: flex;
+  @include center(center);
+  .item {
+    background-color: grey;
+    border-radius: 10px;
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    .sprite {
+      background-color: white;
+      border-radius: 50px;
+      outline: none;
+    }
+    .name {
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .dex-num {
+      font-size: 20px;
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------------------- //
+
+@media (max-width: 1150px) {
+  .item-box {
+    width: 300px;
+    .item {
+      width: 290px;
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------------------- //
+
+@media (max-width: 850px) {
+  .item-box {
+    width: 550px;
+    .item {
+      width: 550px;
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------------------- //
+
+@media (max-width: 610px) {
+  .item-box {
+    width: 250px;
+    .item {
+      width: 250px;
+    }
+  }
+}
