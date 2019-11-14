@@ -76,7 +76,7 @@ class AuthComponent extends Component {
                                 password: e.target.value
                             })} />
                         </div>
-                        {this.state.failed && <div>Login failed!</div>}
+                        {this.state.failed && <div>Incorrect email or password.</div>}
                         <button className='submit'>Submit</button>
                     </div>
                 {!register && <button className='switcher' onClick={() => this.setState({register: true})}>Switch to Register</button>}

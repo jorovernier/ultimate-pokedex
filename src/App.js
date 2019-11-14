@@ -15,6 +15,7 @@ import SinnohDex from './components/regions/SinnohDex';
 import UnovaDex from './components/regions/UnovaDex';
 import KalosDex from './components/regions/KalosDex';
 import AlolaDex from './components/regions/AlolaDex';
+import ItemDex from './components/ItemDex';
 
 class App extends React.Component {
   constructor(props){
@@ -149,6 +150,7 @@ class App extends React.Component {
                 <NavLink className='nav' activeClassName='active' to='/pokedex-unova' >Unova</NavLink>
                 <NavLink className='nav' activeClassName='active' to='/pokedex-kalos' >Kalos</NavLink>
                 <NavLink className='nav' activeClassName='active' to='/pokedex-alola' >Alola</NavLink>
+                <NavLink className='nav' activeClassName='active' to='/itemdex' >Items</NavLink>
                 {this.props.user && <button className='logout' onClick={() => {
                   axios.delete('/auth/logout').then(() => {
                     this.props.setUser(null);
@@ -172,6 +174,7 @@ class App extends React.Component {
           <Route path='/pokedex-unova' render={(props) => <UnovaDex setButton={this.setButton} {...props}/>} />
           <Route path='/pokedex-kalos' render={(props) => <KalosDex setButton={this.setButton} {...props}/>} />
           <Route path='/pokedex-alola' render={(props) => <AlolaDex setButton={this.setButton} {...props}/>} />
+          <Route path='/itemdex' render={(props) => <ItemDex url={'http://pokeapi.co/api/v2/item?limit=866'} setButton={this.setButton} {...props}/>} />
           {this.props.user && <Route path='/profile' render={(props) => <Profile setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />}
           <Route path='*' render={() => {return <Redirect to='/' />}} />
         </Switch>
