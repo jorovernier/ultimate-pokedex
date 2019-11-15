@@ -16,10 +16,17 @@ class Pokedex extends Component{
       input: '',
       foundPokemon: [],
       found: false,
-      encounters: []
+      encounters: [],
+      p1: '',
+      p2: '',
+      p3: '',
+      p4: '',
+      p5: '',
+      p6: ''
     };
     this.onSpriteClick = this.onSpriteClick.bind(this);
     this.universalInput = this.universalInput.bind(this);
+    this.getTeam = this.getTeam.bind(this);
   }
 
   componentDidMount(){
@@ -35,6 +42,8 @@ class Pokedex extends Component{
     });
     this.props.sendID(0);
     this.props.setButton(true);
+    this.getTeam();
+    // this.props.setTeam(this.state.p1, this.state.p2, this.state.p3, this.state.p4, this.state.p5, this.state.p6);
   }
 
   onSpriteClick(name){
@@ -57,6 +66,27 @@ class Pokedex extends Component{
       [prop]: val
     })
   }
+
+  getTeam(){
+    if(this.props.user){
+      axios.get('/api/get_team').then(response => {
+        this.setState({
+          p1: response.data[0].p1,
+          p2: response.data[0].p2,
+          p3: response.data[0].p3,
+          p4: response.data[0].p4,
+          p5: response.data[0].p5,
+          p6: response.data[0].p6
+        });
+        this.props.img1(this.state.p1);
+        this.props.img2(this.state.p2);
+        this.props.img3(this.state.p3);
+        this.props.img4(this.state.p4);
+        this.props.img5(this.state.p5);
+        this.props.img6(this.state.p6);
+      }).catch(err => console.log(err));
+    }
+  } 
 
   render(){
     const {fetched, loading, species, input, foundPokemon, found} = this.state;

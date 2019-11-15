@@ -15,8 +15,44 @@
             max-height: 140px;
             margin: 10px;
         }
-        .team-mon-name {
-            margin: 10px;
+        .name-x {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .team-mon-name {
+                margin: 10px;
+            }
+            .x {
+                position: relative;
+                width: 23px;
+                height: 23px;
+                border: 2px solid $dexred;
+                background-color: $dexred;
+                border-radius: 50%;
+                outline: none;
+            }
+            .x::before, .x::after {
+                position: absolute;
+                top: 8px;
+                left: 3px;
+                width: 13px;
+                height: 3px;
+                content: "";
+                background-color: white;
+                display: none;
+                }
+            .x::before {
+                -ms-transform: rotate(-45deg);
+                -webkit-transform: rotate(-45deg);
+                transform: rotate(-45deg);
+                }
+            .x::after {
+                -ms-transform: rotate(45deg);
+                -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+                }
+            .x:hover { cursor: pointer; }
+            .x:hover::before, .x:hover::after { display: block; }
         }
     }
 }
@@ -31,8 +67,10 @@
                 max-width: 90px;
                 margin: 5px;
             }
-            .team-mon-name {
-                margin: 5px;
+            .name-x {
+                .team-mon-name {
+                    margin: 5px;
+                }
             }
         }
     }

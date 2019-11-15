@@ -23,8 +23,11 @@
         .user-img {
           background-color: white;
           border: 2px solid white;
+          min-height: 100px;
+          min-width: 100px;
           border-radius: 10px;
           max-height: 200px;
+          max-width: 200px;
           margin: 10px;
         }
         button {
