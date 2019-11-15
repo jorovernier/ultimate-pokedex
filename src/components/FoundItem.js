@@ -13,65 +13,33 @@ export default class FoundItem extends Component {
         let bought;
         let held;
         if(item.cost === 0){
-            bought = <div className='dex-num'>Cannot be bought.</div>
+            bought = <div className='cost'>Cannot be bought.</div>
         } else {
-            bought = <div className='dex-num'><img src={'https://cdn.bulbagarden.net/upload/8/8c/Pok%C3%A9monDollar.png'} alt='pokedollar sprite'/>{item.cost}</div>
+            bought = <div className='cost'><img src={'https://cdn.bulbagarden.net/upload/8/8c/Pok%C3%A9monDollar.png'} alt='pokedollar sprite'/>{item.cost}</div>
         }
-        let mappedHoldMons = item.held_by_pokemon.map(item => <div key={item.pokemon.name}>{item.pokemon.name}</div>)
+        let mappedHoldMons = item.held_by_pokemon.map(item => <div key={item.pokemon.name}>{this.prettify(item.pokemon.name)}</div>)
         if(item.held_by_pokemon.length === 0){
-            held = <div>Isn't held.</div>
+            held = <div className='no-hold'>Isn't held by any Pokemon.</div>
         } else {
-            held = <div>{mappedHoldMons}</div>
+            held = <div className='hold'>{mappedHoldMons}</div>
         }
         return(
-            <div className='base-display'>
-                <div className='display' style={{backgroundColor: 'rgb(32, 96, 146)'}}>
-                    <div className='col1'>
-
-                        <div className='top'>
-                            <img className='mon-img' src={item.sprites.default} alt={`sprite of ${name}`} />
-                            <div className='name-num'>
-                                <h1>{this.prettify(name)}</h1>
-                                {bought}
-                            </div>
+            <div className='item-base-display'>
+                <div className='item-display' style={{backgroundColor: 'rgb(32, 96, 146)'}}>
+                    <img className='item-img' src={item.sprites.default} alt={`sprite of ${name}`} />
+                    <div className='name-cost'>
+                        <h1>{this.prettify(name)}</h1>
+                        {bought}
+                    </div>
+                    <div className='effect'>
+                        <div>
+                            {item.effect_entries[0].effect}
                         </div>
-
-                        <div className='hold-it'>
-                            {/* <div className='type'>
-                                {types}
-                            </div> */}
-
-                            <div className='abilities'>
-                                {item.effect_entries[0].effect}
-                            </div>
-                            
-                            {/* <div className='height-weight'>
-                                <div className='height-box'>
-                                    <h2>Height</h2>
-                                    <span className='height'>
-                                        <div>{Math.ceil(pokemon.height/10 * 3.281)} ft</div>
-                                        <div>{pokemon.height/10} m</div>
-                                    </span>
-                                </div>
-
-                                <div className='weight-box'>
-                                    <h2>Weight</h2>
-                                    <span className='weight'>
-                                        <div>{Math.floor(pokemon.weight * 2.205) /10} lbs</div>
-                                        <div>{pokemon.weight/10} kg</div>
-                                    </span>
-                                </div>
-                            </div> */}
-                        </div>
-
                     </div>
 
-                    <div className='col2'>
-                        <div className='encounters'>
-                            <div className='encounter-holder'>{held}</div>
-                        </div>
+                    <div className='hold-mon'>
+                        <div className='hold-holder'>{held}</div>
                     </div>
-                    
                 </div>
             </div>
         )

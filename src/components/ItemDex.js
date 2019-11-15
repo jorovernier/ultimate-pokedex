@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import Item from './Item';
 import FoundItem from './FoundItem';
-import '../sass-css/Dex.scss';
+import '../sass-css/ItemDex.scss';
 
 export default class ItemDex extends Component {
   constructor(props){
@@ -62,8 +62,8 @@ export default class ItemDex extends Component {
                   {input && (<div className='pokedex'>
                     {filtereditems.map((item) => <Item action={this.onSpriteClick} key={item.name} item={item}/>)}
                   </div>)}
-                  <button className='random' onClick={() => this.onSpriteClick(items[Math.floor(Math.random()*items.length)].name)}>
-                    <img src='https://ya-webdesign.com/images/pokemon-egg-png.png' alt='sprite of pokemon egg' />
+                  <button className='random-item' onClick={() => this.onSpriteClick(items[Math.floor(Math.random()*items.length)].name)}>
+                    <img src='https://cdn.bulbagarden.net/upload/archive/8/8e/20090709005535%21Spr_3r_000.png' alt='sprite of question mark' />
                   </button>
                 </div>;
     } else if(loading && !fetched){
@@ -80,7 +80,7 @@ export default class ItemDex extends Component {
     if(found){
       foundDisplay = <FoundItem item={foundItem} />
     } else {
-      foundDisplay = <div>Search for an item or click the egg for a surprise!</div>;
+      foundDisplay = <div>Search for an item or click the question mark for a surprise!</div>;
     }
 
     return (

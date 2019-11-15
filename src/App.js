@@ -23,7 +23,13 @@ class App extends React.Component {
     this.state = {
       hamburger: false,
       footer: false,
-      button: false
+      button: false,
+      img1: '',
+      img2: '',
+      img3: '',
+      img4: '',
+      img5: '',
+      img6: ''
     }
     this.addToTeam1 = this.addToTeam1.bind(this);
     this.addToTeam2 = this.addToTeam2.bind(this);
@@ -35,51 +41,57 @@ class App extends React.Component {
     this.toggleFooter = this.toggleFooter.bind(this);
     this.setFooter = this.setFooter.bind(this);
     this.setButton = this.setButton.bind(this);
-    // this.getTeam = this.getTeam.bind(this);
+    this.img1 = this.img1.bind(this);
+    this.img2 = this.img2.bind(this);
+    this.img3 = this.img3.bind(this);
+    this.img4 = this.img4.bind(this);
+    this.img5 = this.img5.bind(this);
+    this.img6 = this.img6.bind(this);
   }
-
-  // componentDidMount(){
-  //   this.getTeam();
-  // }
-
   addToTeam1(){
     if(this.props.id > 0){
-      axios.post('/api/add_to_team1', {p1: this.props.id})
+      axios.post('/api/add_to_team1', {p1: this.props.id});
+      this.img1(this.props.id);
     } else {
       window.alert('You cannot add nothing to your team!')
     }
   }
   addToTeam2(){
     if(this.props.id > 0){
-      axios.post('/api/add_to_team2', {p2: this.props.id})
+      axios.post('/api/add_to_team2', {p2: this.props.id});
+      this.img2(this.props.id);
     } else {
       window.alert('You cannot add nothing to your team!')
     }
   }
   addToTeam3(){
     if(this.props.id > 0){
-      axios.post('/api/add_to_team3', {p3: this.props.id})
+      axios.post('/api/add_to_team3', {p3: this.props.id});
+      this.img3(this.props.id);
     } else {
       window.alert('You cannot add nothing to your team!')
     }
   }
   addToTeam4(){
     if(this.props.id > 0){
-      axios.post('/api/add_to_team4', {p4: this.props.id})
+      axios.post('/api/add_to_team4', {p4: this.props.id});
+      this.img4(this.props.id);
     } else {
       window.alert('You cannot add nothing to your team!')
     }
   }
   addToTeam5(){
     if(this.props.id > 0){
-      axios.post('/api/add_to_team5', {p5: this.props.id})
+      axios.post('/api/add_to_team5', {p5: this.props.id});
+      this.img5(this.props.id);
     } else {
       window.alert('You cannot add nothing to your team!')
     }
   }
   addToTeam6(){
     if(this.props.id > 0){
-      axios.post('/api/add_to_team6', {p6: this.props.id})
+      axios.post('/api/add_to_team6', {p6: this.props.id});
+      this.img6(this.props.id);
     } else {
       window.alert('You cannot add nothing to your team!')
     }
@@ -113,19 +125,41 @@ class App extends React.Component {
     })
   }
 
-  // getTeam(){
-  //   if(this.props.user){
-  //     axios.get('/api/get_team').then(response => {
-  //         this.setState({
-  //           team: response.data
-  //         });
-  //     }).catch(err => console.log(err));
-  //   } else {
-  //     return 'no user'
-  //   }
-  //   console.log('team fetched');
-  //   console.log(this.state.team)
-  // } 
+  img1(p1){
+    this.setState({
+      img1: p1
+    });
+  }
+
+  img2(p2){
+    this.setState({
+      img2: p2
+    });
+  }
+
+  img3(p3){
+    this.setState({
+      img3: p3
+    });
+  }
+
+  img4(p4){
+    this.setState({
+      img4: p4
+    });
+  }
+
+  img5(p5){
+    this.setState({
+      img5: p5
+    });
+  }
+
+  img6(p6){
+    this.setState({
+      img6: p6
+    });
+  }
 
   render(){
     return (
@@ -166,14 +200,14 @@ class App extends React.Component {
         </header>
         <Switch>
           <Route exact path='/' render={(props) => <AuthComponent setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
-          <Route path='/pokedex' render={(props) => <Pokedex url={'http://pokeapi.co/api/v2/pokemon?limit=807'} setButton={this.setButton} {...props}/>} />
-          <Route path='/pokedex-kanto' render={(props) => <KantoDex setButton={this.setButton} {...props}/>} />
-          <Route path='/pokedex-johto' render={(props) => <JohtoDex setButton={this.setButton} {...props}/>} />
-          <Route path='/pokedex-hoenn' render={(props) => <HoennDex setButton={this.setButton} {...props}/>} />
-          <Route path='/pokedex-sinnoh' render={(props) => <SinnohDex setButton={this.setButton} {...props}/>} />
-          <Route path='/pokedex-unova' render={(props) => <UnovaDex setButton={this.setButton} {...props}/>} />
-          <Route path='/pokedex-kalos' render={(props) => <KalosDex setButton={this.setButton} {...props}/>} />
-          <Route path='/pokedex-alola' render={(props) => <AlolaDex setButton={this.setButton} {...props}/>} />
+          <Route path='/pokedex' render={(props) => <Pokedex url={'http://pokeapi.co/api/v2/pokemon?limit=807'} img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
+          <Route path='/pokedex-kanto' render={(props) => <KantoDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
+          <Route path='/pokedex-johto' render={(props) => <JohtoDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
+          <Route path='/pokedex-hoenn' render={(props) => <HoennDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
+          <Route path='/pokedex-sinnoh' render={(props) => <SinnohDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
+          <Route path='/pokedex-unova' render={(props) => <UnovaDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
+          <Route path='/pokedex-kalos' render={(props) => <KalosDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
+          <Route path='/pokedex-alola' render={(props) => <AlolaDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
           <Route path='/itemdex' render={(props) => <ItemDex url={'http://pokeapi.co/api/v2/item?limit=866'} setButton={this.setButton} {...props}/>} />
           {this.props.user && <Route path='/profile' render={(props) => <Profile setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />}
           <Route path='*' render={() => {return <Redirect to='/' />}} />
@@ -182,12 +216,12 @@ class App extends React.Component {
         
           <footer className={this.state.footer ? 'show' : ''}>
             <div>
-              <button className='p1' onClick={() => this.addToTeam1()}>Team Slot 1</button>
-              <button className='p2' onClick={() => this.addToTeam2()}>Team Slot 2</button>
-              <button className='p3' onClick={() => this.addToTeam3()}>Team Slot 3</button>
-              <button className='p4' onClick={() => this.addToTeam4()}>Team Slot 4</button>
-              <button className='p5' onClick={() => this.addToTeam5()}>Team Slot 5</button>
-              <button className='p6' onClick={() => this.addToTeam6()}>Team Slot 6</button>
+              <button className='p1' onClick={() => this.addToTeam1()}>{this.state.img1 ? <img className='img1' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img1}.png`} alt='Team Slot 1'/> : 'Team Slot 1'}</button>
+              <button className='p2' onClick={() => this.addToTeam2()}>{this.state.img2 ? <img className='img2' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img2}.png`} alt='Team Slot 2'/> : 'Team Slot 2'}</button>
+              <button className='p3' onClick={() => this.addToTeam3()}>{this.state.img3 ? <img className='img3' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img3}.png`} alt='Team Slot 3'/> : 'Team Slot 3'}</button>
+              <button className='p4' onClick={() => this.addToTeam4()}>{this.state.img4 ? <img className='img4' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img4}.png`} alt='Team Slot 4'/> : 'Team Slot 4'}</button>
+              <button className='p5' onClick={() => this.addToTeam5()}>{this.state.img5 ? <img className='img5' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img5}.png`} alt='Team Slot 5'/> : 'Team Slot 5'}</button>
+              <button className='p6' onClick={() => this.addToTeam6()}>{this.state.img6 ? <img className='img6' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img6}.png`} alt='Team Slot 6'/> : 'Team Slot 6'}</button>
             </div>
           </footer>
         

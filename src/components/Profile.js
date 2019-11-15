@@ -4,6 +4,7 @@ import '../sass-css/Profile.scss';
 import axios from 'axios';
 import TeamPokemon from './TeamPokemon';
 import {setUser} from '../psyducks/reducer';
+// import ImageUploader from 'react-images-upload';
 
 class Profile extends Component {
     constructor(props){
@@ -26,6 +27,7 @@ class Profile extends Component {
         this.removeFromTeam4 = this.removeFromTeam4.bind(this);
         this.removeFromTeam5 = this.removeFromTeam5.bind(this);
         this.removeFromTeam6 = this.removeFromTeam6.bind(this);
+        // this.onDrop = this.onDrop.bind(this);
     }
 
     componentDidMount(){
@@ -99,18 +101,34 @@ class Profile extends Component {
         })
     }
 
+    // onDrop(picture) {
+    //     this.setState({
+    //         imgInput: this.state.imgInput.concat(picture),
+    //     });
+    //     console.log(picture)
+    //     console.log(this.state.imgInput)
+    // }
+
     render(){
         return(
             <div className='profile'>
                 <div className='interface'>
                     <div className='user-info'>
                         <div className='image-box'>
-                            <img className='user-img' src={this.props.user.img_url} alt='user profile'/>
+                            <img className='user-img' src={this.props.user.img_url} alt='If you are seeing this, your url was invalid. Please try again!'/>
                             <button onClick={() => {this.toggleEdit(); this.changeLabel();}}>{this.state.label}</button>
                             {this.state.edit
                               ? <div>
-                                    <input onChange={(e) => this.universalInput('imgInput', e.target.value)} placeholder='image url'/>
-                                    <button onClick={() => {this.editPic(); this.toggleEdit(); this.changeLabel();}}>Save</button>
+                                    {/* <ImageUploader 
+                                        withIcon={true}
+                                        buttonText='Choose images'
+                                        onChange={this.onDrop}
+                                        imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                                        maxFileSize={5242880}
+                                        singleImage={true}
+                                    /> */}
+                                    <input onChange={(e) => {this.universalInput('imgInput', e.target.value)}} placeholder='image url'/>
+                                    <button onClick={() => {this.state.imgInput ? this.editPic() : (window.alert("You can't change your profile picture to nothing!")); this.toggleEdit(); this.changeLabel();}}>Save</button>
                                 </div>
                               : <></>
                             }
