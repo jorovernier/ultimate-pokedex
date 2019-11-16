@@ -12,11 +12,23 @@ export default class AlolaDex extends Component{
         info={<div className='bottom'>
                   <img src={'https://stmed.net/sites/default/files/pokemon-sun-and-moon-hd-wallpapers-33515-7379484.jpg'} alt='map of pokemon region' />
                   <div className='region-info'>
-                    <p>Alola is the seventh region in the pokemon games. It is located far away from the other regions.</p>
-                    <p>Fun Fact: This region is based off of Hawaii!</p>
-                    <p>Resident Professor: Kukui</p>
-                    <p>Villainous Gang: Team Skull or Team Rainbow Rocket</p>
-                    <p>Games this region appears in: Sun, Moon, Ultra Sun, Ultra Moon</p>
+                    <p className='main-info'>Alola is the seventh region in the pokemon games. It is located far away from the other regions.</p>
+                    <span>
+                      <h1>Fun Fact:</h1>
+                      <p>This region is based off of Hawaii!</p>
+                    </span>
+                    <span>
+                      <h1>Resident Professor:</h1>
+                      <p>Kukui</p>
+                    </span>
+                    <span>
+                      <h1>Villainous Gang:</h1>
+                      <p>Team Skull or Team Rainbow Rocket</p>
+                    </span>
+                    <span>
+                      <h1>Games this region appears in:</h1>
+                      <p>Sun, Moon, Ultra Sun, Ultra Moon</p>
+                    </span>
                   </div>
                 </div>}
       />

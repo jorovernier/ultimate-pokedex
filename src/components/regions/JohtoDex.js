@@ -12,11 +12,23 @@ export default class JohtoDex extends Component{
         info={<div className='bottom'>
                   <img src={'http://wickedgoodgaming.com/wp-content/uploads/2017/10/johto_by_cogreen20-dbf9mol.png'} alt='map of pokemon region' />
                   <div className='region-info'>
-                    <p>Johto is the second region in the pokemon games. It is located west of the Kanto region and south of the Sinnoh region.</p>
-                    <p>Fun Fact: All of the cities in this region are somehow related to plants!</p>
-                    <p>Resident Professor: Elm</p>
-                    <p>Villainous Gang: Team Rocket</p>
-                    <p>Games this region appears in: Gold, Silver, Crystal, HeartGold, SoulSilver</p>
+                    <p className='main-info'>Johto is the second region in the pokemon games. It is located west of the Kanto region and south of the Sinnoh region.</p>
+                    <span>
+                      <h1>Fun Fact:</h1>
+                      <p>All of the cities in this region are named something somehow related to plants!</p>
+                    </span>
+                    <span>
+                      <h1>Resident Professor:</h1>
+                      <p>Elm</p>
+                    </span>
+                    <span>
+                      <h1>Villainous Gang:</h1>
+                      <p>Team Rocket</p>
+                    </span>
+                    <span>
+                      <h1>Games this region appears in:</h1>
+                      <p>Gold, Silver, Crystal, HeartGold, SoulSilver</p>
+                    </span>
                   </div>
                 </div>}
       />

@@ -12,11 +12,23 @@ export default class KalosDex extends Component{
         info={<div className='bottom'>
                   <img src={'https://media-cerulean.cursecdn.com/attachments/4/847/super__large_kalos_map.jpg'} alt='map of pokemon region' />
                   <div className='region-info'>
-                    <p>Kalos is the sixth region in the pokemon games. It is located far away from the other regions.</p>
-                    <p>Fun Fact: This region is shaped like a 5-pointed star!</p>
-                    <p>Resident Professor: Sycamore</p>
-                    <p>Villainous Gang: Team Flare</p>
-                    <p>Games this region appears in: X, Y</p>
+                    <p className='main-info'>Kalos is the sixth region in the pokemon games. It is located far away from the other regions.</p>
+                    <span>
+                      <h1>Fun Fact:</h1>
+                      <p>This region is shaped like a 5-pointed star!</p>
+                    </span>
+                    <span>
+                      <h1>Resident Professor:</h1>
+                      <p>Sycamore</p>
+                    </span>
+                    <span>
+                      <h1>Villainous Gang:</h1>
+                      <p>Team Flare</p>
+                    </span>
+                    <span>
+                      <h1>Games this region appears in:</h1>
+                      <p>X, Y</p>
+                    </span>
                   </div>
                 </div>}
       />
