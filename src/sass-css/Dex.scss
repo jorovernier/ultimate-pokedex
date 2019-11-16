@@ -117,8 +117,32 @@
       display: flex;
     }
     .region-info {
-      background-color: darkcyan;
+      background-color: $midblue;
+      @extend %border-setting;
       width: 685px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-around;
+      .main-info {
+        color: white;
+        font-size: 20px;
+        margin: 5px;
+      }
+      span {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 5px;
+        h1 {
+          color: $lightblue;
+          font-weight: bold;
+        }
+        p {
+          color: white;
+          text-align: start;
+        }
+      }
     }
   }
 }
@@ -281,6 +305,12 @@
         height: 200px;
         width: 600px;
         margin: 10px;
+        .main-info {
+          margin: 2px;
+        }
+        span {
+          margin: 0px 5px;
+        }
       }
     }
   }
@@ -332,7 +362,9 @@
         max-width: 300px;
       }
       .region-info {
+        justify-content: flex-start;
         width: 300px;
+        overflow: auto;
       }
     }
   }

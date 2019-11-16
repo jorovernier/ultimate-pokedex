@@ -42,6 +42,7 @@
     }
     .just-a-background-div {
       background-color: $darkblue;
+      height: 100vh;
       width: 65%;
       align-self: flex-end;
       .user-team-holder {
@@ -82,15 +83,7 @@
             max-height: 200px;
             margin: 10px;
           }
-          // button {
-          //   // @extend %button;
-          //   // margin: 0px 0px 10px 0px;
-          // }
         }
-        // .name-box {
-        //   color: white;
-        //   margin: 10px;
-        // }
       }
       .just-a-background-div {
         height: auto;
@@ -98,18 +91,22 @@
         .user-team-holder {
           align-items: center;
           .user-team {
+            height: 85vh;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
             .row1 {
               height: 25vh;
-              // margin: 5px 0px 5px 0px;
+              margin: 5px 0px 5px 0px;
             }
             .row2 {
               height: 25vh;
-              // margin: 5px 0px 5px 0px;
+              margin: 5px 0px 5px 0px;
             }
             .row3 {
               height: 25vh;
-              // margin: 5px 0px 5px 0px;
+              margin: 5px 0px 5px 0px;
             }
           }
         }

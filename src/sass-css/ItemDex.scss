@@ -105,22 +105,6 @@
       margin-top: 50px;
     }
   }
-  .bottom {
-    width: 85%;
-    display: flex;
-    justify-content: space-around;
-    align-self: center;
-    margin: 30px 0px 75px 0px;
-    img {
-      @extend %border-setting;
-      max-width: 685px;
-      display: flex;
-    }
-    .region-info {
-      background-color: darkcyan;
-      width: 685px;
-    }
-  }
 }
 
 // ----------------------------------------------------------------------------------------- //
@@ -158,14 +142,6 @@
       }
       .found-display {
         height: 85vh;
-        width: 470px;
-      }
-    }
-    .bottom {
-      img {
-        max-width: 470px;
-      }
-      .region-info {
         width: 470px;
       }
     }
@@ -207,16 +183,6 @@
       }
       .found-display {
         height: 600px;
-        width: 370px;
-      }
-    }
-    .bottom {
-      width: 90%;
-      margin: 0px 0px 20px 0px;
-      img {
-        max-width: 370px;
-      }
-      .region-info {
         width: 370px;
       }
     }
@@ -268,21 +234,6 @@
         width: 600px;
       }
     }
-    .bottom {
-      width: 90%;
-      flex-direction: column;
-      align-items: center;
-      margin: 0px 0px 20px 0px;
-      img {
-        max-width: 600px;
-        margin: 10px;
-      }
-      .region-info {
-        height: 200px;
-        width: 600px;
-        margin: 10px;
-      }
-    }
   }
 }
 
@@ -324,14 +275,6 @@
       }
       .found-display {
         height: 400px;
-        width: 300px;
-      }
-    }
-    .bottom {
-      img {
-        max-width: 300px;
-      }
-      .region-info {
         width: 300px;
       }
     }

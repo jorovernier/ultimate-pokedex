@@ -11,8 +11,8 @@
     justify-content: center;
     .img-name {
         .mon-img {
-            max-width: 190px;
             max-height: 140px;
+            max-width: 190px;
             margin: 10px;
         }
         .name-x {
@@ -57,6 +57,27 @@
     }
 }
 
+@media (max-width: 550px) {
+    .team-pokemon {
+        border-radius: 10px;
+        height: 160px;
+        width: 160px;
+        .img-name {
+            .mon-img {
+                max-height: 110px;
+                max-width: 150px;
+                margin: 5px;
+            }
+            .name-x {
+                .team-mon-name {
+                    font-size: 12px;
+                    margin: 5px;
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 450px) {
     .team-pokemon {
         border-radius: 10px;
@@ -64,11 +85,13 @@
         width: 100px;
         .img-name {
             .mon-img {
+                max-height: 60px;
                 max-width: 90px;
                 margin: 5px;
             }
             .name-x {
                 .team-mon-name {
+                    font-size: 12px;
                     margin: 5px;
                 }
             }

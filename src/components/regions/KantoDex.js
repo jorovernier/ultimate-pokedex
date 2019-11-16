@@ -12,11 +12,23 @@ export default class KantoDex extends Component{
           info={<div className='bottom'>
                   <img src={'https://fsb.zobj.net/crop.php?r=T4qhtsz4TPLSIWpX1PGHKNJpod5_bMs8W9u8mUDAOQcZcZRFWOzicBsaeOiRanyKKBvcUyQc0-DVlshtlQ8zJmeq7MsJ6auVAWTR9uMzUm6GyRujJ9MVLBfrSkFYAUpJMVsuY5lFnjZfZoir'} alt='map of pokemon region' />
                   <div className='region-info'>
-                    <p>Kanto is the first region in the pokemon games. It is located east of the Johto region and south of the Sinnoh region.</p>
-                    <p>Fun Fact: All of the cities in this region are named after colors!</p>
-                    <p>Resident Professor: Oak</p>
-                    <p>Villainous Gang: Team Rocket</p>
-                    <p>Games this region appears in: Red, Green, Blue, Yellow, Gold, Silver, Crystal, FireRed, LeafGreen, HeartGold, SoulSilver, Let's Go Pikachu, Let's Go Eevee</p>
+                    <p className='main-info'>Kanto is the first region in the pokemon games. It is located east of the Johto region and south of the Sinnoh region.</p>
+                    <span>
+                      <h1>Fun Fact:</h1>
+                      <p>All of the cities in this region are named after colors!</p>
+                    </span>
+                    <span>
+                      <h1>Resident Professor:</h1>
+                      <p>Oak</p>
+                    </span>
+                    <span>
+                      <h1>Villainous Gang:</h1>
+                      <p>Team Rocket</p>
+                    </span>
+                    <span>
+                      <h1>Games this region appears in:</h1>
+                      <p>Red, Green, Blue, Yellow, Gold, Silver, Crystal, FireRed, LeafGreen, HeartGold, SoulSilver, Let's Go Pikachu, Let's Go Eevee</p>
+                    </span>
                   </div>
                 </div>}
         />

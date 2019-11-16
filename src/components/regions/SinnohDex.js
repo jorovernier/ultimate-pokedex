@@ -12,11 +12,23 @@ export default class SinnohDex extends Component{
         info={<div className='bottom'>
                   <img src={'https://vignette.wikia.nocookie.net/pokemon/images/4/44/Sinnoh_Pt.jpg/revision/latest?cb=20120111221659'} alt='map of pokemon region' />
                   <div className='region-info'>
-                    <p>Sinnoh is the fourth region in the pokemon games. It is located north of the Kanto, Johto, and Hoenn regions.</p>
-                    {/* <p>Fun Fact: This region is based off of the Japanese main island of Kyushu!</p> */}
-                    <p>Resident Professor: Rowan</p>
-                    <p>Villainous Gang: Team Galactic</p>
-                    <p>Games this region appears in: Diamond, Pearl, Platinum</p>
+                    <p className='main-info'>Sinnoh is the fourth region in the pokemon games. It is located north of the Kanto, Johto, and Hoenn regions.</p>
+                    <span>
+                      <h1>Fun Fact:</h1>
+                      <p>This region is the only one with more than five letters in it's name!</p>
+                    </span>
+                    <span>
+                      <h1>Resident Professor:</h1>
+                      <p>Rowan</p>
+                    </span>
+                    <span>
+                      <h1>Villainous Gang:</h1>
+                      <p>Team Galactic</p>
+                    </span>
+                    <span>
+                      <h1>Games this region appears in:</h1>
+                      <p>Diamond, Pearl, Platinum</p>
+                    </span>
                   </div>
                 </div>}
       />
