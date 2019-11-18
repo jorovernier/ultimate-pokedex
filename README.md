@@ -109,7 +109,7 @@
 - Team Control
     - getTeam => get => /api/get_team
     - addToTeam(1-6) => post => /api/add_to_team
-    - removeFromTeam(1-6) => delete => /api/remove_from_team
+    - removeFromTeam(1-6) => post => /api/remove_from_team
     - changeName => put => /api/change_name/:slot
 
 #

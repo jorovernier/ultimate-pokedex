@@ -9,7 +9,6 @@ const {register, login, logout, userSession, editPic} = require('./controllers/u
 const {addToTeam1, addToTeam2, addToTeam3, addToTeam4, addToTeam5, addToTeam6, getTeam, removeFromTeam1, removeFromTeam2, removeFromTeam3, removeFromTeam4, removeFromTeam5, removeFromTeam6, changeName} = require('./controllers/teamController');
 
 app.use(express.static(`${__dirname}/../build`));
-console.log(`${__dirname}/../build`)
 
 app.use(session({
     secret: SESSION_SECRET,
@@ -50,8 +49,6 @@ const path = require('path')
 app.get('*', (req, res)=>{
   res.sendFile(path.join(__dirname, '../build/index.html'));
 })
-
-console.log(SERVER_PORT)
 
 let port = SERVER_PORT || 6001;
 app.listen(port, () => console.log(`Listening on port ${port}.`));
