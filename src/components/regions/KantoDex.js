@@ -6,7 +6,7 @@ export default class KantoDex extends Component{
   render(){
     return (
         <Pokedex 
-          url={'http://pokeapi.co/api/v2/pokemon?limit=151'} 
+          url={'https://pokeapi.co/api/v2/pokemon?limit=151'} 
           setButton={this.props.setButton}
           img1={this.props.img1} img2={this.props.img2} img3={this.props.img3} img4={this.props.img4} img5={this.props.img5} img6={this.props.img6}
           info={<div className='bottom'>
