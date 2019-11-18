@@ -27,6 +27,7 @@
         - Chart.js
         - FoundDisplay.js
         - FoundItem.js
+        - Home.js
         - Item.js
         - ItemDex.js
         - Pokedex.js
@@ -42,6 +43,7 @@
         - Dex.scss
         - FoundDisplay.scss
         - FoundItem.scss
+        - Home.js
         - Item.scss
         - ItemDex.scss
         - Pokemon.scss
@@ -56,7 +58,8 @@
     - setupProxy.js
 
 **Routes**
-- Login/Register => '/' => AuthComponent.js
+- Home => '/' => Home.js
+- Login/Register => '/login-register' => AuthComponent.js
 - Profile => '/profile' => Profile.js
 - Pokedex => '/pokedex' => Pokedex.js
 - Kanto => '/pokedex-kanto' => KantoDex.js
