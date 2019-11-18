@@ -51,7 +51,7 @@ export default class ItemDex extends Component {
 
   render(){
     const {fetched, loading, items, input, foundItem, found} = this.state;
-    const filtereditems = items.filter(item => item.name.startsWith(input.toLowerCase()));
+    const filtereditems = items.filter(item => item.name.includes(input.toLowerCase()));
     let display;
     if(fetched){
       display = <div className='pokedex-holder'>
