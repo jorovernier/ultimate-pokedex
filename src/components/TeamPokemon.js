@@ -124,7 +124,7 @@ export default class TeamPokemon extends Component {
                     </div>
                     {this.state.edit && <div className='input-save'>
                         <input className='name-input' onChange={(e) => {this.universalInput('nameInput', e.target.value)}} placeholder='New Name!'/>
-                        <button className='save' onClick={() => {this.props.save(this.props.slot, this.state.nameInput); this.toggleEdit(); this.changeLabel()}}>Save</button>
+                        <button className='save' onClick={() => this.state.nameInput.length <= 12 ? (this.props.save(this.props.slot, this.state.nameInput), this.toggleEdit(), this.changeLabel()) : window.alert("Your nickname must be less than 13 characters.")}>Save</button>
                     </div>}
                 </div>
             </div>
