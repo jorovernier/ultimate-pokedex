@@ -10,18 +10,44 @@
 - http-proxy-middleware
 - redux-promise-middleware
 - node-sass
+- chart.js
 
 **File Structure**
 - src/
     - components/
+        - regions/
+            - AlolaDex.js
+            - HoennDex.js
+            - JohtoDex.js
+            - KalosDex.js
+            - KantoDex.js
+            - SinnohDex.js
+            - UnovaDex.js
         - AuthComponent.js
+        - Chart.js
+        - FoundDisplay.js
+        - FoundItem.js
+        - Item.js
+        - ItemDex.js
         - Pokedex.js
         - Pokemon.js
         - Profile.js
+        - TeamPokemon.js
     - psyducks/
-        - store.js
         - reducer.js
-    - App.css
+        - store.js
+    - sass-css/
+        - App.scss
+        - Auth.scss
+        - Dex.scss
+        - FoundDisplay.scss
+        - FoundItem.scss
+        - Item.scss
+        - ItemDex.scss
+        - Pokemon.scss
+        - Profile.scss
+        - TeamPokemon.scss
+        - var-mix-ext.scss
     - App.js
     - App.test.js
     - index.css => reset.css
@@ -29,21 +55,18 @@
     - serviceWorker.js
     - setupProxy.js
 
-**Axios Requests**
-- getAllPokemon => get => `http://pokeapi.co/api/v2/pokemon?limit=807`
-- getPokemonByName => get => `http://pokeapi.co/api/v2/pokemon/${name}`
-
 **Routes**
 - Login/Register => '/' => AuthComponent.js
 - Profile => '/profile' => Profile.js
 - Pokedex => '/pokedex' => Pokedex.js
-- Kanto => '/pokedex-kanto' => Pokedex.js
-- Johto => '/pokedex-johto' => Pokedex.js
-- Hoenn => '/pokedex-hoenn' => Pokedex.js
-- Sinnoh => '/pokedex-sinnoh' => Pokedex.js
-- Unova => '/pokedex-unova' => Pokedex.js
-- Kalos => '/pokedex-kalos' => Pokedex.js
-- Alola => '/pokedex-alola' => Pokedex.js
+- Kanto => '/pokedex-kanto' => KantoDex.js
+- Johto => '/pokedex-johto' => JohtoDex.js
+- Hoenn => '/pokedex-hoenn' => HoennDex.js
+- Sinnoh => '/pokedex-sinnoh' => SinnohDex.js
+- Unova => '/pokedex-unova' => UnovaDex.js
+- Kalos => '/pokedex-kalos' => KalosDex.js
+- Alola => '/pokedex-alola' => AlolaDex.js
+- Items => '/itemdex' => ItemDex.js
 <!-- - Galar => '/pokedex' => Pokedex.js -->
 
 #
@@ -58,21 +81,33 @@
 
 **Server File Structure**
 - db/
+    - add_to_team.sql (1-6)
+    - change_name.sql (1-6)
+    - create_user.sql
+    - edit_profile_pic.sql
+    - find_user.sql
+    - get_team.sql
+    - init.sql
+    - remove_from_team.sql (1-6)
 - server/
-    - index.js
     - controllers/
+        - teamController.js
         - userController.js
+    - index.js
 
 **Endpoints**
 - User Controller
-    - userSession => get => /auth/session
     - register => post => /auth/register
     - login => post => /auth/login
     - logout => delete => /auth/logout
+    - userSession => get => /auth/session
+    - editPic => put => /api/edit_profile_pic
 
 - Team Control
-    - addToTeam => post => /api/add_to_team
-    - removeFromTeam => delete => /api/remove_from_team/:id?
+    - getTeam => get => /api/get_team
+    - addToTeam(1-6) => post => /api/add_to_team
+    - removeFromTeam(1-6) => delete => /api/remove_from_team
+    - changeName => put => /api/change_name/:slot
 
 #
 ## Database
@@ -85,7 +120,8 @@ CREATE TABLE users (
     user_id SERIAL PRIMARY KEY,
     username TEXT UNIQUE NOT NULL,
     password TEXT NOT NULL,
-    email TEXT UNIQUE NOT NULL
+    email TEXT UNIQUE NOT NULL,
+    img_url TEXT
 );
 ```
 
@@ -93,12 +129,18 @@ CREATE TABLE users (
 ```sql
 CREATE TABLE team (
     team_id SERIAL PRIMARY KEY,
-    p1 INTEGER NOT NULL,
-    p2 INTEGER NOT NULL,
-    p3 INTEGER NOT NULL,
-    p4 INTEGER NOT NULL,
-    p5 INTEGER NOT NULL,
-    p6 INTEGER NOT NULL,
+    p1 INTEGER,
+    p1_name VARCHAR(12),
+    p2 INTEGER,
+    p2_name VARCHAR(12),
+    p3 INTEGER,
+    p3_name VARCHAR(12),
+    p4 INTEGER,
+    p4_name VARCHAR(12),
+    p5 INTEGER,
+    p5_name VARCHAR(12),
+    p6 INTEGER,
+    p6_name VARCHAR(12),
     user_id INTEGER REFERENCES users(user_id)
 );
 ```
