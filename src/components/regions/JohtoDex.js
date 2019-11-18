@@ -10,7 +10,7 @@ export default class JohtoDex extends Component{
         setButton={this.props.setButton}
         img1={this.props.img1} img2={this.props.img2} img3={this.props.img3} img4={this.props.img4} img5={this.props.img5} img6={this.props.img6}
         info={<div className='bottom'>
-                  <img src={'http://wickedgoodgaming.com/wp-content/uploads/2017/10/johto_by_cogreen20-dbf9mol.png'} alt='map of pokemon region' />
+                  <img src={'https://vignette.wikia.nocookie.net/dreampkmn/images/1/11/Mapa_Johto_Gen_4.png/revision/latest?cb=20130326133414&path-prefix=es'} alt='map of pokemon region' />
                   <div className='region-info'>
                     <p className='main-info'>Johto is the second region in the pokemon games. It is located west of the Kanto region and south of the Sinnoh region.</p>
                     <span>
