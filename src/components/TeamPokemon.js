@@ -6,8 +6,12 @@ export default class TeamPokemon extends Component {
     constructor(props){
         super(props)
         this.state = {
-            teamPokemon: []
+            teamPokemon: [],
+            edit: false,
+            nameInput: '',
+            label: 'Rename'
         }
+        this.universalInput = this.universalInput.bind(this);
     }
     
     componentDidMount(){
@@ -16,6 +20,30 @@ export default class TeamPokemon extends Component {
           teamPokemon: response.data
         });
         }).catch(err => console.log(err))
+    }
+
+    toggleEdit(){
+        this.setState({
+            edit: !this.state.edit
+        })
+    }
+
+    changeLabel(){
+        if(this.state.label === 'Rename'){
+        this.setState({
+          label: 'Cancel'
+        })
+        } else if(this.state.label === 'Cancel'){
+          this.setState({
+            label: 'Rename'
+          })
+        }
+    }
+
+    universalInput(prop, val){
+        this.setState({
+            [prop]: val
+        })
     }
     
     render(){
@@ -85,12 +113,19 @@ export default class TeamPokemon extends Component {
         }
         return(
             <div className='team-pokemon'>
-                <div className='img-name'>
+                <div className='x-img'>
+                    <button className='x' onClick={() => this.props.remove()}></button>
                     <img className='mon-img' src={`https://img.pokemondb.net/artwork/${teamPokemon.name}.jpg`} alt={`${teamPokemon.name}`} />
-                    <div className='name-x'>
-                        <div className='team-mon-name'>{fixedName}</div>
-                        <button className='x' onClick={() => this.props.remove()}></button>
+                </div>
+                <div className='name-rename-input'>
+                    <div className='name-rename'>
+                        <div className='team-mon-name'>{this.props.name ? this.props.name : fixedName}</div>
+                        <button className='rename' onClick={() => {this.toggleEdit(); this.changeLabel()}}>{this.state.label}</button>
                     </div>
+                    {this.state.edit && <div className='input-save'>
+                        <input className='name-input' onChange={(e) => {this.universalInput('nameInput', e.target.value)}} placeholder='New Name!'/>
+                        <button className='save' onClick={() => {this.props.save(this.props.slot, this.state.nameInput); this.toggleEdit(); this.changeLabel()}}>Save</button>
+                    </div>}
                 </div>
             </div>
         )
