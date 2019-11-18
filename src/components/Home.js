@@ -17,7 +17,10 @@ export default class AuthComponent extends Component {
         return (
             <div className='main'>
                 <div className='text'>
-                    <div className='welcome'>Welcome to the Ultimate Pokedex!</div>
+                    <div className='top'>
+                        <div className='welcome'>Welcome to the Ultimate Pokedex!</div>
+                        <img src='https://www.smashbros.com/assets_v2/img/fighter/pikachu/main.png' alt='happy pikachu' />
+                    </div>
                     <p className='directions'>Click on the links in the header to search for pokemon and items. If you'd like to add pokemon to your team, go to the register page and create an account or login if you've already made one.</p>
                 </div>
             </div>
