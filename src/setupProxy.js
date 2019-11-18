@@ -3,14 +3,14 @@ module.exports = function(app) {
   app.use(
     '/api',
     proxy({
-      target: 'http://localhost:6000',
+      target: 'http://localhost:6001',
       changeOrigin: true,
     })
   );
   app.use(
     '/auth',
     proxy({
-      target: 'http://localhost:6000',
+      target: 'http://localhost:6001',
       changeOrigin: true,
     })
   );

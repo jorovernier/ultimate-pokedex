@@ -44,22 +44,22 @@ class Profile extends Component {
     }
 
     removeFromTeam1(){
-        axios.delete('/api/add_to_team1').then(this.getTeam())
+        axios.post('/api/add_to_team1').then(this.getTeam())
     }
     removeFromTeam2(){
-        axios.delete('/api/add_to_team2').then(this.getTeam())
+        axios.post('/api/add_to_team2').then(this.getTeam())
     }
     removeFromTeam3(){
-        axios.delete('/api/add_to_team3').then(this.getTeam())
+        axios.post('/api/add_to_team3').then(this.getTeam())
     }
     removeFromTeam4(){
-        axios.delete('/api/add_to_team4').then(this.getTeam())
+        axios.post('/api/add_to_team4').then(this.getTeam())
     }
     removeFromTeam5(){
-        axios.delete('/api/add_to_team5').then(this.getTeam())
+        axios.post('/api/add_to_team5').then(this.getTeam())
     }
     removeFromTeam6(){
-        axios.delete('/api/add_to_team6').then(this.getTeam())
+        axios.post('/api/add_to_team6').then(this.getTeam())
     }
 
     getTeam(){
