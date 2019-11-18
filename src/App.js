@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import {setUser} from './psyducks/reducer';
 import './sass-css/App.scss';
 import logo from './images/pokeball-icon.png';
+import Home from './components/Home';
 import AuthComponent from './components/AuthComponent';
 import Profile from './components/Profile';
 import Pokedex from './components/Pokedex';
@@ -172,9 +173,10 @@ class App extends React.Component {
             </div>
             <span className='nav-box'>
               <span className={this.state.hamburger ? 'hamburger' : ''}>
+                <NavLink className='nav' activeClassName='active' exact to='/'>Home</NavLink>
                 {this.props.user 
                   ? <NavLink className='nav' activeClassName='active' to='/profile' >Profile</NavLink> 
-                  : <NavLink className='nav' activeClassName='active' exact to='/' >Register/Login</NavLink>
+                  : <NavLink className='nav' activeClassName='active' to='/login-register' >Register/Login</NavLink>
                 }
                 <NavLink className='nav' activeClassName='active' to='/pokedex' >Pokedex</NavLink>
                 <NavLink className='nav' activeClassName='active' to='/pokedex-kanto' >Kanto</NavLink>
@@ -199,7 +201,8 @@ class App extends React.Component {
 
         </header>
         <Switch>
-          <Route exact path='/' render={(props) => <AuthComponent setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
+          <Route exact path='/' render={(props) => <Home setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
+          <Route path='/login-register' render={(props) => <AuthComponent setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
           <Route path='/pokedex' render={(props) => <Pokedex url={'http://pokeapi.co/api/v2/pokemon?limit=807'} img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
           <Route path='/pokedex-kanto' render={(props) => <KantoDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
           <Route path='/pokedex-johto' render={(props) => <JohtoDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
