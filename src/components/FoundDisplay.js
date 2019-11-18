@@ -3,9 +3,14 @@ import StatsChart from './Chart';
 import '../sass-css/FoundDisplay.scss';
 
 export default class FoundDisplay extends Component {
+    prettify(name){
+        return name.split('-').map(function capitalize(part) {
+            return part.charAt(0).toUpperCase() + part.slice(1);
+        }).join(' ');
+    }
     render(){
         let mappedEncounters = this.props.encounters.map(
-            (encounter) => <div className='encounter' key={encounter.location_area.name} >{encounter.location_area.name}</div>);
+            (encounter) => <div className='encounter' key={encounter.location_area.name} >{this.prettify(encounter.location_area.name)}</div>);
         let encounterDisplay;
         if(this.props.encounters.length === 0){
             encounterDisplay = <div className='no-encounter'>This pokemon cannot be found in the wild.</div>;

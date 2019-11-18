@@ -12,6 +12,7 @@
     "express-session": "^1.17.0",
     "http-proxy-middleware": "^0.20.0",
     "massive": "^6.1.1",
+    "node-sass": "^4.13.0",
     "react": "^16.11.0",
     "react-chartjs-2": "^2.8.0",
     "react-dom": "^16.11.0",
