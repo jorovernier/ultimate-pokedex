@@ -79,6 +79,23 @@
     }
 }
 
+@media (max-height: 900px) {
+    .team-pokemon {
+        height: 190px;
+        width: 190px;
+        .x-img {
+            .x {
+                margin: -15px -10px;
+            }
+        }
+        .name-rename-input {
+            .input-save {
+                margin: -3px 20px;
+            }
+        }
+    }
+}
+
 @media (max-width: 1000px) {
     .team-pokemon {
         height: 200px;
