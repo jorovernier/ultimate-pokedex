@@ -30,14 +30,13 @@
         background-color: lightgrey;
         @extend %border-setting;
         height: 65vh;
-        min-height: 0;
         width: 410px;
         display: flex;
         flex-direction: column;
         align-items: center;
-        overflow: scroll;
+        overflow: auto;
       }
-      .random {
+      .random-move {
         background: none;
         outline: none;
         border: none;
@@ -45,10 +44,10 @@
         align-items: center;
         justify-content: center;
         img {
-          max-height: 96px;
-          height: 40px;
-          max-width: 90px;
-          width: 35px;
+          max-height: 64px;
+          height: 48px;
+          max-width: 64px;
+          width: 48px;
         }
       }
     }
@@ -96,7 +95,7 @@
         }
       }
     }
-    .found-display {
+    .found-display{
       background-color: lightgrey;
       @extend %border-setting;
       height: 80vh;
@@ -104,50 +103,6 @@
       display: flex;
       @include center(center);
       margin-top: 50px;
-    }
-  }
-  .bottom {
-    width: 85%;
-    display: flex;
-    justify-content: space-around;
-    align-self: center;
-    margin: 30px 0px 75px 0px;
-    img {
-      @extend %border-setting;
-      max-height: 280px;
-      max-width: 685px;
-      display: flex;
-    }
-    .kanto-map {
-      max-height: 330px;
-    }
-    .region-info {
-      background-color: $midblue;
-      @extend %border-setting;
-      width: 685px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: space-around;
-      .main-info {
-        color: white;
-        font-size: 20px;
-        margin: 5px;
-      }
-      span {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        margin: 5px 20px;
-        h1 {
-          color: $lightblue;
-          font-weight: bold;
-        }
-        p {
-          color: white;
-          text-align: start;
-        }
-      }
     }
   }
 }
@@ -164,12 +119,12 @@
           height: 70vh;
           width: 410px;
         }
-        .random {
+        .random-move {
           img {
-            max-height: 96px;
-            height: 30px;
-            max-width: 90px;
-            width: 25px;
+            max-height: 64px;
+            height: 40px;
+            max-width: 64px;
+            width: 40px;
           }
         }
       }
@@ -188,17 +143,6 @@
       .found-display {
         height: 85vh;
         width: 470px;
-      }
-    }
-    .bottom {
-      img {
-        max-width: 470px;
-      }
-      .region-info {
-        width: 470px;
-        span {
-          margin: 5px 15px;
-        }
       }
     }
   }
@@ -242,16 +186,6 @@
         width: 370px;
       }
     }
-    .bottom {
-      width: 90%;
-      margin: 0px 0px 20px 0px;
-      img {
-        max-width: 370px;
-      }
-      .region-info {
-        width: 370px;
-      }
-    }
   }
 }
 
@@ -272,12 +206,12 @@
           height: 300px;
           width: 550px;
         }
-        .random {
+        .random-move {
           img {
-            max-height: 66px;
-            height: 25px;
-            max-width: 60px;
-            width: 22px;
+            max-height: 64px;
+            height: 32px;
+            max-width: 64px;
+            width: 32px;
           }
         }
       }
@@ -300,27 +234,6 @@
         width: 600px;
       }
     }
-    .bottom {
-      width: 90%;
-      flex-direction: column;
-      align-items: center;
-      margin: 0px 0px 20px 0px;
-      img {
-        max-width: 600px;
-        margin: 10px;
-      }
-      .region-info {
-        height: 200px;
-        width: 600px;
-        margin: 10px;
-        .main-info {
-          margin: 2px;
-        }
-        span {
-          margin: 0px 5px;
-        }
-      }
-    }
   }
 }
 
@@ -339,12 +252,12 @@
           height: 300px;
           width: 250px;
         }
-        .random {
+        .random-move {
           img {
-            max-height: 66px;
-            height: 25px;
-            max-width: 60px;
-            width: 22px;
+            max-height: 64px;
+            height: 24px;
+            max-width: 64px;
+            width: 24px;
           }
         }
       }
@@ -363,16 +276,6 @@
       .found-display {
         height: 400px;
         width: 300px;
-      }
-    }
-    .bottom {
-      img {
-        max-width: 300px;
-      }
-      .region-info {
-        justify-content: flex-start;
-        width: 300px;
-        overflow: scroll;
       }
     }
   }

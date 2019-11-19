@@ -1,21 +1,21 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import Item from './Item';
-import FoundItem from './FoundItem';
-import '../sass-css/ItemDex.scss';
+import Move from './Move';
+import FoundMove from './FoundMove';
+import '../sass-css/MoveDex.scss';
 
-export default class ItemDex extends Component {
+export default class Movedex extends Component {
   constructor(props){
     super(props);
     this.state = {
-      items : [],        
-      fetched : false,
-      loading : false,
-      input: '',
-      foundItem: [],
-      found: false,
-      encounters: []
-    };
+        moves : [],        
+        fetched : false,
+        loading : false,
+        input: '',
+        foundMove: [],
+        found: false,
+        pokemon: []
+    }
     this.onSpriteClick = this.onSpriteClick.bind(this);
     this.universalInput = this.universalInput.bind(this);
   }
@@ -24,9 +24,9 @@ export default class ItemDex extends Component {
     this.setState({
       loading : true
     });
-    axios.get(`${this.props.url}`).then(response => {
+    axios.get('https://pokeapi.co/api/v2/move?limit=746').then(response => {
       this.setState({
-        items : response.data.results,
+        moves : response.data.results,
         loading : false,
         fetched : true
       });
@@ -35,9 +35,9 @@ export default class ItemDex extends Component {
   }
 
   onSpriteClick(name){
-    axios.get(`https://pokeapi.co/api/v2/item/${name}/`).then(response => {
+    axios.get(`https://pokeapi.co/api/v2/move/${name}/`).then(response => {
       this.setState({
-        foundItem: response.data,
+        foundMove: response.data,
         found: true
       });
     });
@@ -50,19 +50,19 @@ export default class ItemDex extends Component {
   }
 
   render(){
-    const {fetched, loading, items, input, foundItem, found} = this.state;
-    const filteredItems = items.filter(item => item.name.includes(input.toLowerCase()));
+    const {fetched, loading, moves, input, foundMove, found, pokemon} = this.state;
+    const filteredMoves = moves.filter(move => move.name.startsWith(input.toLowerCase()));
     let display;
     if(fetched){
       display = <div className='pokedex-holder'>
-                  <input onChange={(e) => this.universalInput('input', e.target.value)} placeholder='Search the Itemdex!'/>
+                  <input onChange={(e) => this.universalInput('input', e.target.value)} placeholder='Search the Movedex!'/>
                   {!input && (<div className='pokedex'>
-                    {items.map((item) => <Item action={this.onSpriteClick} key={item.name} item={item}/>)}
+                    {moves.map((move) => <Move action={this.onSpriteClick} key={move.name} move={move}/>)}
                   </div>)}
                   {input && (<div className='pokedex'>
-                    {filteredItems.map((item) => <Item action={this.onSpriteClick} key={item.name} item={item}/>)}
+                    {filteredMoves.map((move) => <Move action={this.onSpriteClick} key={move.name} move={move}/>)}
                   </div>)}
-                  <button className='random-item' onClick={() => this.onSpriteClick(items[Math.floor(Math.random()*items.length)].name)}>
+                  <button className='random-move' onClick={() => this.onSpriteClick(moves[Math.floor(Math.random()*moves.length)].name)}>
                     <img src='https://cdn.bulbagarden.net/upload/archive/8/8e/20090709005535%21Spr_3r_000.png' alt='sprite of question mark' />
                   </button>
                 </div>;
@@ -78,9 +78,9 @@ export default class ItemDex extends Component {
 
     let foundDisplay;
     if(found){
-      foundDisplay = <FoundItem item={foundItem} />
+      foundDisplay = <FoundMove move={foundMove}/>
     } else {
-      foundDisplay = <div>Search for an item or click the question mark for a surprise!</div>;
+      foundDisplay = <div>Search for a move or click the question mark for a surprise!</div>;
     }
 
     return (

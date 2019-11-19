@@ -4,6 +4,7 @@ import {Switch, NavLink, Route, withRouter, Redirect} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {setUser} from './psyducks/reducer';
 import './sass-css/App.scss';
+import './index.css';
 import logo from './images/pokeball-icon.png';
 import Home from './components/Home';
 import AuthComponent from './components/AuthComponent';
@@ -17,6 +18,7 @@ import UnovaDex from './components/regions/UnovaDex';
 import KalosDex from './components/regions/KalosDex';
 import AlolaDex from './components/regions/AlolaDex';
 import ItemDex from './components/ItemDex';
+import MoveDex from './components/MoveDex';
 
 class App extends React.Component {
   constructor(props){
@@ -187,6 +189,7 @@ class App extends React.Component {
                 <NavLink className='nav' activeClassName='active' to='/pokedex-kalos' >Kalos</NavLink>
                 <NavLink className='nav' activeClassName='active' to='/pokedex-alola' >Alola</NavLink>
                 <NavLink className='nav' activeClassName='active' to='/itemdex' >Items</NavLink>
+                <NavLink className='nav' activeClassName='active' to='/movedex' >Moves</NavLink>
                 {this.props.user && <button className='logout' onClick={() => {
                   axios.delete('/auth/logout').then(() => {
                     this.props.setUser(null);
@@ -212,6 +215,7 @@ class App extends React.Component {
           <Route path='/pokedex-kalos' render={(props) => <KalosDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
           <Route path='/pokedex-alola' render={(props) => <AlolaDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
           <Route path='/itemdex' render={(props) => <ItemDex url={'https://pokeapi.co/api/v2/item?limit=866'} setButton={this.setButton} {...props}/>} />
+          <Route path='/movedex' render={(props) => <MoveDex setButton={this.setButton} {...props}/>} />
           {this.props.user && <Route path='/profile' render={(props) => <Profile setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />}
           <Route path='*' render={() => {return <Redirect to='/' />}} />
         </Switch>
