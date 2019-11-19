@@ -52,6 +52,8 @@
 @media (max-width: 800px) {
     .main {
         .text {
+            justify-content: flex-start;
+            overflow: auto;
             .top {
                 display: flex;
                 align-items: center;

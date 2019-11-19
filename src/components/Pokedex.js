@@ -43,7 +43,6 @@ class Pokedex extends Component{
     this.props.sendID(0);
     this.props.setButton(true);
     this.getTeam();
-    // this.props.setTeam(this.state.p1, this.state.p2, this.state.p3, this.state.p4, this.state.p5, this.state.p6);
   }
 
   onSpriteClick(name){

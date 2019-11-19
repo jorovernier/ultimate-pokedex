@@ -1,0 +1,54 @@
+@import 'var-mix-ext';
+
+.move-box {
+  width: 410px;
+  display: flex;
+  @include center(center);
+  .move {
+    background-color: grey;
+    border-radius: 10px;
+    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    outline: none;
+    font-size: 20px;
+    font-weight: bold;
+  }
+}
+
+// ----------------------------------------------------------------------------------------- //
+
+@media (max-width: 1150px) {
+  .move-box {
+    width: 300px;
+    .move {
+      width: 290px;
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------------------- //
+
+@media (max-width: 850px) {
+  .move-box {
+    width: 550px;
+    .move {
+      width: 550px;
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------------------- //
+
+@media (max-width: 610px) {
+  .move-box {
+    width: 250px;
+    .move {
+      width: 250px;
+    }
+  }
+}
