@@ -21,6 +21,8 @@ export default class ItemDex extends Component {
   }
 
   componentDidMount(){
+    this.props.setButton(false);
+    this.props.setFooter(false);
     this.setState({
       loading : true
     });
@@ -31,7 +33,6 @@ export default class ItemDex extends Component {
         fetched : true
       });
     });
-    this.props.setButton(false);
   }
 
   onSpriteClick(name){

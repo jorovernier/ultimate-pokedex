@@ -216,9 +216,9 @@ class App extends React.Component {
           <Route path='/pokedex-unova' render={(props) => <UnovaDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
           <Route path='/pokedex-kalos' render={(props) => <KalosDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
           <Route path='/pokedex-alola' render={(props) => <AlolaDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
-          <Route path='/itemdex' render={(props) => <ItemDex url={'https://pokeapi.co/api/v2/item?limit=866'} setButton={this.setButton} {...props}/>} />
-          <Route path='/movedex' render={(props) => <MoveDex setButton={this.setButton} {...props}/>} />
-          <Route path='/search-by-move' render={(props) => <SearchByMove setButton={this.setButton} {...props}/>} />
+          <Route path='/itemdex' render={(props) => <ItemDex url={'https://pokeapi.co/api/v2/item?limit=866'} setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
+          <Route path='/movedex' render={(props) => <MoveDex setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
+          <Route path='/search-by-move' render={(props) => <SearchByMove setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
           {this.props.user && <Route path='/profile' render={(props) => <Profile setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />}
           <Route path='*' render={() => {return <Redirect to='/' />}} />
         </Switch>

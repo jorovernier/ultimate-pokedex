@@ -22,6 +22,8 @@ export default class SearchByMove extends Component {
   }
 
   componentDidMount(){
+    this.props.setButton(false);
+    this.props.setFooter(false);
     this.setState({
       loading : true
     });
@@ -32,7 +34,6 @@ export default class SearchByMove extends Component {
         fetched : true
       });
     });
-    this.props.setButton(false);
     axios.get('https://pokeapi.co/api/v2/pokemon?limit=807').then(response => {
       this.setState({
         pokemon: response.data.results
