@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Move from './Move';
-import FoundMove from './FoundMove';
-import '../sass-css/MoveDex.scss';
+import '../sass-css/SearchByMove.scss';
 
-export default class Movedex extends Component {
+export default class SearchByMove extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -13,10 +12,13 @@ export default class Movedex extends Component {
       loading : false,
       input: '',
       foundMove: [],
-      found: false
+      found: false,
+      pokemon: [],
+      moveMon: ['test']
     }
     this.onSpriteClick = this.onSpriteClick.bind(this);
     this.universalInput = this.universalInput.bind(this);
+    this.moveMons = this.moveMons.bind(this);
   }
 
   componentDidMount(){
@@ -31,6 +33,11 @@ export default class Movedex extends Component {
       });
     });
     this.props.setButton(false);
+    axios.get('https://pokeapi.co/api/v2/pokemon?limit=807').then(response => {
+      this.setState({
+        pokemon: response.data.results
+      });
+    });
   }
 
   onSpriteClick(name){
@@ -40,6 +47,23 @@ export default class Movedex extends Component {
         found: true
       });
     });
+    this.state.moveMon.splice(0, this.state.moveMon.length);
+    this.moveMons();
+  }
+
+  moveMons(){
+    for(var i = 0; i < this.state.pokemon.length; i++){
+      axios.get(`https://pokeapi.co/api/v2/pokemon/${this.state.pokemon[i].name}/`).then(response => {
+        let stateMove = this.state.foundMove.name;
+        let moveMon = this.state.moveMon;
+        response.data.moves.map(function(mapMove, index){
+          return mapMove.move.name === stateMove ? moveMon.push(response.data.name) : <></>
+        });
+        this.setState({
+          moveMon: moveMon
+        });
+      });
+    }
   }
 
   universalInput(prop, val){
@@ -48,8 +72,14 @@ export default class Movedex extends Component {
     })
   }
 
+  prettify(move){
+    return move.split('-').map(function capitalize(part) {
+        return part.charAt(0).toUpperCase() + part.slice(1);
+    }).join(' ');
+  }
+
   render(){
-    const {fetched, loading, moves, input, foundMove, found} = this.state;
+    const {fetched, loading, moves, input, found} = this.state;
     const filteredMoves = moves.filter(move => move.name.startsWith(input.toLowerCase()));
     let display;
     if(fetched){
@@ -72,11 +102,29 @@ export default class Movedex extends Component {
       display = <div/>;
     }
 
+    let mappedMon = this.state.moveMon.map((mon) => {
+        if(mon === 'minior-red-meteor'){
+            mon = 'minior-meteor'
+        } else if(mon === 'mimikyu-disguised'){
+            mon = 'mimikyu'
+        };
+        return (
+            <div className='move-mon-box' key={mon}>
+                <div className='img'>
+                    <img src={`https://img.pokemondb.net/sprites/sun-moon/icon/${mon}.png`} alt={`sprite of ${mon}`} />
+                </div>
+                <h1>{this.prettify(mon)}</h1>
+            </div>
+        )
+    })
+
     let foundDisplay;
     if(found){
-      foundDisplay = <FoundMove move={foundMove}/>
+      foundDisplay = <div className='move-mon-display'>
+                        {mappedMon}
+                     </div>
     } else {
-      foundDisplay = <div>Search for a move and click on it's name!</div>;
+      foundDisplay = <div>Search for a move and click on it's name to find a Pokemon that can learn it!</div>;
     }
 
     return (
