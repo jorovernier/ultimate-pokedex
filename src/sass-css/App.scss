@@ -30,7 +30,7 @@
         }
       }
       .nav-box {
-        width: 700px;
+        width: 800px;
         display: flex;
         justify-content: space-around;
         font-weight: 500;
@@ -47,7 +47,7 @@
           @extend %button;
         }
         span {
-          width: 650px;
+          width: 770px;
           display: flex;
           justify-content: space-between;
         }
@@ -167,7 +167,7 @@
             background-color: white;
             border-left: 2px solid $darkblue;
             border-bottom: 2px solid $darkblue;
-            height: 260px;
+            height: 350px;
           }
           .burger-ler {
             display: flex;

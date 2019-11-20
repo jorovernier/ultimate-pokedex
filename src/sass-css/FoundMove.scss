@@ -14,7 +14,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: space-around;
+        justify-content: space-evenly;
         .move-images {
             display: flex;
             flex-direction: column;
@@ -38,20 +38,6 @@
                 @extend %foundmargin;
             }
         }
-        .effect {
-            background-color: white;
-            height: 300px;
-            width: 350px;
-            @extend %border-setting;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            overflow: auto;
-            p {
-                margin: 5px;
-            }
-        }
         .power-pp-accuracy {
             width: 300px;
             display: flex;
@@ -63,7 +49,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin: 5px 5px;
+                margin: 2px;
                 h2 {
                     font-weight: bold;
                     @extend %foundmargin;
@@ -83,7 +69,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin: 5px 5px;
+                margin: 2px;
                 h2 {
                     font-weight: bold;
                     @extend %foundmargin;
@@ -103,7 +89,7 @@
                 display: flex;
                 flex-direction: column;
                 align-items: center;
-                margin: 5px 5px;
+                margin: 2px;
                 h2 {
                     font-weight: bold;
                     @extend %foundmargin;
@@ -115,6 +101,25 @@
                     div {
                         @extend %foundmargin;
                     }
+                }
+            }
+        }
+        .text-row {
+            display: flex;
+            align-content: center;
+            .effect {
+                background-color: white;
+                height: 200px;
+                width: 400px;
+                @extend %border-setting;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                margin: 0px 2px;
+                overflow: auto;
+                p {
+                    margin: 5px;
                 }
             }
         }
@@ -140,11 +145,16 @@
                     max-height: 300px;
                 }
             }
-            .effect {
-                height: 300px;
-                flex-direction: row;
-                align-items: flex-start;
-                justify-content: center;
+            .text-row {
+                flex-direction: column;
+                .effect {
+                    height: 200px;
+                    width: 350px;
+                    flex-direction: row;
+                    align-items: flex-start;
+                    justify-content: center;
+                    margin: 3px;
+                }
             }
         }
     }
@@ -160,21 +170,19 @@
             max-height: 540px;
             width: 320px;
             overflow-y: scroll;
+            justify-content: space-evenly;
             .move-images {
+                margin: 2px;
                 .damage-img {
                     max-height: 200px;
                     max-width: 300px;
+                    margin: 1px;
                 }
                 .type-img {
                     max-height: 200px;
                     max-width: 300px;
+                    margin: 1px;
                 }
-            }
-            .effect {
-                height: 180px;
-                width: 300px;
-                flex-direction: row;
-                justify-content: center;
             }
             .power-pp-accuracy {
                 width: 315px;
@@ -201,6 +209,14 @@
                             font-size: 12px;
                         }
                     }
+                }
+            }
+            .text-row {
+                .effect {
+                    height: 100px;
+                    width: 305px;
+                    flex-direction: row;
+                    justify-content: center;
                 }
             }
         }
@@ -230,60 +246,62 @@
                     max-width: 190px;
                 }
             }
-                    .name {
-                        display: flex;
-                        justify-content: space-around;
-                        h1 {
-                            font-size: 14px;
-                        }
-                        .dex-num {
-                            font-size: 14px;
+            .name {
+                display: flex;
+                justify-content: space-around;
+                h1 {
+                    font-size: 14px;
+                }
+                .dex-num {
+                    font-size: 14px;
+                }
+            }
+            .power-pp-accuracy {
+                flex-direction: row;
+                width: 195px;
+                .power-box {
+                    h2 {
+                        font-size: 12px;
+                    }
+                    .power {
+                        width: 80px;
+                        margin: 5px;
+                        div {
+                            font-size: 10px;
                         }
                     }
-                    .effect {
-                        height: 160px;
-                        width: 300px;
+                }
+                .pp-box {
+                    h2 {
+                        font-size: 12px;
                     }
-                    .power-pp-accuracy {
-                        flex-direction: row;
-                        width: 195px;
-                        .power-box {
-                            h2 {
-                                font-size: 12px;
-                            }
-                            .power {
-                                width: 80px;
-                                margin: 5px;
-                                div {
-                                    font-size: 10px;
-                                }
-                            }
-                        }
-                        .pp-box {
-                            h2 {
-                                font-size: 12px;
-                            }
-                            .pp {
-                                width: 80px;
-                                margin: 5px;
-                                div {
-                                    font-size: 10px;
-                                }
-                            }
-                        }
-                        .accuracy-box {
-                            h2 {
-                                font-size: 12px;
-                            }
-                            .accuracy {
-                                width: 80px;
-                                margin: 5px;
-                                div {
-                                    font-size: 10px;
-                                }
-                            }
+                    .pp {
+                        width: 80px;
+                        margin: 5px;
+                        div {
+                            font-size: 10px;
                         }
                     }
+                }
+                .accuracy-box {
+                    h2 {
+                        font-size: 12px;
+                    }
+                    .accuracy {
+                        width: 80px;
+                        margin: 5px;
+                        div {
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+            .text-row {
+                .effect {
+                    height: 100px;
+                    width: 400px;
+                }
+            }
         }
     }
 }
@@ -300,7 +318,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: space-evenly;
             overflow: scroll;
             .move-images{
                 .damage-img {
@@ -322,13 +340,6 @@
                         .dex-num {
                             font-size: 20px;
                         }
-                    }
-                    .effect {
-                        width: 230px;
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
-                        justify-content: flex-start;
                     }
                     .power-pp-accuracy {
                         width: 240px;
@@ -372,6 +383,15 @@
                             }
                         }
                     }
+            .text-row {
+                .effect {
+                    width: 230px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: flex-start;
+                }
+            }
         }
     }
 }

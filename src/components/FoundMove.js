@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
-import axios from 'axios';
 import '../sass-css/FoundMove.scss';
 
 export default class FoundMove extends Component {
     constructor(props){
         super(props)
         this.state = {
-            pokemon: [],
             moveMon: []
         }
     }
+    
     prettify(move){
         return move.split('-').map(function capitalize(part) {
             return part.charAt(0).toUpperCase() + part.slice(1);
@@ -17,32 +16,14 @@ export default class FoundMove extends Component {
     }
 
     componentDidMount(){
-        axios.get('https://pokeapi.co/api/v2/pokemon?limit=807').then(response => {
-            this.setState({
-            pokemon: response.data.results
-            })
-            for(var i = 0; i < this.state.pokemon.length; i++){
-                axios.get(`https://pokeapi.co/api/v2/pokemon/${this.state.pokemon[i].name}/`).then(response => {
-                    response.data.moves.map(function(move){
-                        
-                    })
-                  if(response.data.moves === this.props.move.name){
-                    this.setState({
-                        moveMon: response.data.name
-                    })
-                  };
-                })
-            }
-        });
+        this.setState({
+            loading : true
+          });
     }
 
-    // axios.get()
     render(){
         const {move} = this.props;
-        // console.log(this.state.pokemon)
-        console.log(this.state.moveMon)
         let moveName = move.name;
-
         let category;
         if(move.damage_class.name === 'physical'){
             category = 'https://www.serebii.net/attackdex-dp/type/physical.png'
@@ -136,13 +117,6 @@ export default class FoundMove extends Component {
             fixed = move.effect_entries[0].effect
         }
 
-        // let statChange;
-        // if(move.stat_changes.length > 0){
-        //     statChange = (move.stat_changes)
-        // } else {
-        //     statChange = 'No stat changes.'
-        // }
-        // console.log(statChange)
         return(
             <div className='move-base-display' style={{backgroundColor: secondary}} >
                 <div className='move-display' style={{backgroundColor: primary}} >
@@ -177,11 +151,14 @@ export default class FoundMove extends Component {
                         </div>
                     </div>
 
-                    <div className='effect'>
-                        <p>
-                            {fixed}
-                        </p>
-                    </div>
+                    <span className='text-row'>
+                        <div className='effect'>
+                            <p>
+                                {fixed}
+                            </p>
+                        </div>
+                    </span>
+
                 </div>
             </div>
         )

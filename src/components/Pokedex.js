@@ -125,7 +125,7 @@ class Pokedex extends Component{
       <div className='page'>
         <div className='top'>
           {display}
-          <div className='found-display'>
+          <div className={found ? 'found-display' : 'not-found'}>
             {foundDisplay}
           </div>
         </div>

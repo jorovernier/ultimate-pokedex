@@ -62,9 +62,6 @@ export default class ItemDex extends Component {
                   {input && (<div className='pokedex'>
                     {filteredItems.map((item) => <Item action={this.onSpriteClick} key={item.name} item={item}/>)}
                   </div>)}
-                  <button className='random-item' onClick={() => this.onSpriteClick(items[Math.floor(Math.random()*items.length)].name)}>
-                    <img src='https://cdn.bulbagarden.net/upload/archive/8/8e/20090709005535%21Spr_3r_000.png' alt='sprite of question mark' />
-                  </button>
                 </div>;
     } else if(loading && !fetched){
       display = <div className='pokedex-holder-loading'>
@@ -78,16 +75,16 @@ export default class ItemDex extends Component {
 
     let foundDisplay;
     if(found){
-      foundDisplay = <FoundItem item={foundItem} />
+      foundDisplay = <FoundItem item={foundItem}/>
     } else {
-      foundDisplay = <div>Search for an item or click the question mark for a surprise!</div>;
+      foundDisplay = <div>Search for an item and click on it's image!</div>;
     }
 
     return (
       <div className='page'>
         <div className='top'>
           {display}
-          <div className='found-display'>
+          <div className={found ? 'found-display' : 'not-found'}>
             {foundDisplay}
           </div>
         </div>
