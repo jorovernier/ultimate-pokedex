@@ -57,42 +57,42 @@ module.exports = {
     removeFromTeam1: (req,res,next) => {
         const db = req.app.get('db');
         const {user_id} = req.session.user;
-        db.add_to_team1(user_id).then(pokemon => {
+        db.remove_from_team1(user_id).then(pokemon => {
             res.status(200).send(pokemon);
         }).catch(err => {res.status(500).send(console.log(err))})
     },
     removeFromTeam2: (req,res,next) => {
         const db = req.app.get('db');
         const {user_id} = req.session.user;
-        db.add_to_team2(user_id).then(pokemon => {
+        db.remove_from_team2(user_id).then(pokemon => {
             res.status(200).send(pokemon);
         }).catch(err => {res.status(500).send(console.log(err))})
     },
     removeFromTeam3: (req,res,next) => {
         const db = req.app.get('db');
         const {user_id} = req.session.user;
-        db.add_to_team3(user_id).then(pokemon => {
+        db.remove_from_team3(user_id).then(pokemon => {
             res.status(200).send(pokemon);
         }).catch(err => {res.status(500).send(console.log(err))})
     },
     removeFromTeam4: (req,res,next) => {
         const db = req.app.get('db');
         const {user_id} = req.session.user;
-        db.add_to_team4(user_id).then(pokemon => {
+        db.remove_from_team4(user_id).then(pokemon => {
             res.status(200).send(pokemon);
         }).catch(err => {res.status(500).send(console.log(err))})
     },
     removeFromTeam5: (req,res,next) => {
         const db = req.app.get('db');
         const {user_id} = req.session.user;
-        db.add_to_team5(user_id).then(pokemon => {
+        db.remove_from_team5(user_id).then(pokemon => {
             res.status(200).send(pokemon);
         }).catch(err => {res.status(500).send(console.log(err))})
     },
     removeFromTeam6: (req,res,next) => {
         const db = req.app.get('db');
         const {user_id} = req.session.user;
-        db.add_to_team6(user_id).then(pokemon => {
+        db.remove_from_team6(user_id).then(pokemon => {
             res.status(200).send(pokemon);
         }).catch(err => {res.status(500).send(console.log(err))})
     },
