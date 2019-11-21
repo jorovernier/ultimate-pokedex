@@ -20,6 +20,7 @@ import AlolaDex from './components/regions/AlolaDex';
 import ItemDex from './components/ItemDex';
 import MoveDex from './components/MoveDex';
 import SearchByMove from './components/SearchByMove';
+import Types from './components/Types';
 
 class App extends React.Component {
   constructor(props){
@@ -192,11 +193,12 @@ class App extends React.Component {
                 <NavLink className='nav' activeClassName='active' to='/itemdex' >Items</NavLink>
                 <NavLink className='nav' activeClassName='active' to='/movedex' >Moves</NavLink>
                 <NavLink className='nav' activeClassName='active' to='/search-by-move' >Move-Search</NavLink>
+                <NavLink className='nav' activeClassName='active' to='/types' >Types</NavLink>
                 {this.props.user && <button className='logout' onClick={() => {
                   axios.delete('/auth/logout').then(() => {
                     this.props.setUser(null);
                   });
-                  window.alert('See you later!')
+                  window.alert('See you later!');
                 }} >Logout</button>
                 }
               </span>
@@ -219,6 +221,7 @@ class App extends React.Component {
           <Route path='/itemdex' render={(props) => <ItemDex url={'https://pokeapi.co/api/v2/item?limit=866'} setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
           <Route path='/movedex' render={(props) => <MoveDex setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
           <Route path='/search-by-move' render={(props) => <SearchByMove setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
+          <Route path='/types' render={(props) => <Types setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
           {this.props.user && <Route path='/profile' render={(props) => <Profile setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />}
           <Route path='*' render={() => {return <Redirect to='/' />}} />
         </Switch>
