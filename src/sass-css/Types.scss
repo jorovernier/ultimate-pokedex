@@ -1,0 +1,205 @@
+@import 'var-mix-ext';
+
+%type-setting {
+    background-color: white;
+    @extend %border-setting;
+    margin: 5px;
+    .main-img {
+        min-width: 90px;
+        margin: 5px;
+    }
+    .weak-strong {
+        display: flex;
+        align-items: center;
+        .def-off {
+            min-height: 325px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .bad {
+                @extend %badeffects;
+            }
+            .good {
+                @extend %goodeffects;
+            }
+            .neutral {
+                @extend %neutraleffects;
+            }
+        }
+        .def-off-spec {
+            min-height: 376px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .bad {
+                @extend %badeffects;
+            }
+            .good {
+                @extend %goodeffects;
+            }
+            .neutral {
+                @extend %neutraleffects;
+            }
+        }
+    }
+}
+
+%goodeffects {
+    border-radius: 10px;
+    background-color: green;
+    padding: 5px;
+    margin: 5px;
+    h2 {
+        color: rgb(124, 207, 124);
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+            margin: 1px;
+        }
+    }
+}
+
+%badeffects {
+    border-radius: 10px;
+    background-color: red;
+    padding: 5px;
+    margin: 5px;
+    h2 {
+        color: rgb(252, 168, 168);
+    }
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+            margin: 1px;
+        }
+    }
+}
+
+%neutraleffects {
+    border-radius: 10px;
+    background-color: grey;
+    padding: 5px;
+    margin: 5px;
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+            margin: 1px;
+        }
+    }
+}
+
+.main {
+    width: 100%;
+    .backdrop {
+        width: 80%;
+        background-color: $darkblue;
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 69px;
+        .column1 {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            .normal {
+                @extend %type-setting;
+            }
+            .fire {
+                @extend %type-setting;
+            }
+            .fighting {
+                @extend %type-setting;
+            }
+            .water {
+                @extend %type-setting;
+            }
+            .flying {
+                @extend %type-setting;
+            }
+            .grass {
+                @extend %type-setting;
+            }
+            .poison {
+                @extend %type-setting;
+            }
+            .electric {
+                @extend %type-setting;
+            }
+            .ground {
+                @extend %type-setting;
+            }
+        }
+        .column2 {
+            width: 45%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            .psychic {
+                @extend %type-setting;
+            }
+            .rock {
+                @extend %type-setting;
+            }
+            .ice {
+                @extend %type-setting;
+            }
+            .bug {
+                @extend %type-setting;
+            }
+            .dragon {
+                @extend %type-setting;
+            }
+            .ghost {
+                @extend %type-setting;
+            }
+            .dark {
+                @extend %type-setting;
+            }
+            .steel {
+                @extend %type-setting;
+            }
+            .fairy {
+                @extend %type-setting;
+            }
+        }
+    }
+}
+
+@media (max-width: 850px) {
+    .main {
+        .backdrop {
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly;
+            margin-top: 69px;
+            .column1 {
+                width: 300px;
+            }
+            .column2 {
+                width: 300px;
+            }
+        }
+    }
+}
+
+@media (max-width: 450px) {
+    .main {
+        .backdrop {
+            .column1 {
+                width: 250px;
+            }
+            .column2 {
+                width: 250px;
+            }
+        }
+    }
+}
