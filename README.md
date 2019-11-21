@@ -27,13 +27,18 @@
         - Chart.js
         - FoundDisplay.js
         - FoundItem.js
+        - FoundMove.js
         - Home.js
         - Item.js
         - ItemDex.js
+        - Move.js
+        - MoveDex.js
         - Pokedex.js
         - Pokemon.js
         - Profile.js
+        - SearchByMove.js
         - TeamPokemon.js
+        - Types.js
     - psyducks/
         - reducer.js
         - store.js
@@ -43,12 +48,17 @@
         - Dex.scss
         - FoundDisplay.scss
         - FoundItem.scss
+        - FoundMove.js
         - Home.js
         - Item.scss
         - ItemDex.scss
+        - Move.scss
+        - MoveDex.scss
         - Pokemon.scss
         - Profile.scss
+        - SearchByMove.scss
         - TeamPokemon.scss
+        - Types.scss
         - var-mix-ext.scss
     - App.js
     - App.test.js
@@ -69,8 +79,11 @@
 - Unova => '/pokedex-unova' => UnovaDex.js
 - Kalos => '/pokedex-kalos' => KalosDex.js
 - Alola => '/pokedex-alola' => AlolaDex.js
-- Items => '/itemdex' => ItemDex.js
 <!-- - Galar => '/pokedex' => Pokedex.js -->
+- Items => '/itemdex' => ItemDex.js
+- Moves => '/movedex' => MoveDex.js
+- Move-Search => '/search-by-move' => SearchByMove.js
+- Types => '/types/ => Types.js
 
 #
 ## Back-End
