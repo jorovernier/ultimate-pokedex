@@ -2,12 +2,10 @@
 
 .move-box {
   width: 410px;
-  display: flex;
-  @include center(center);
   .move {
     background-color: grey;
     border-radius: 10px;
-    width: 400px;
+    width: 390px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -26,7 +24,7 @@
   .move-box {
     width: 300px;
     .move {
-      width: 290px;
+      width: 280px;
     }
   }
 }
@@ -37,7 +35,7 @@
   .move-box {
     width: 550px;
     .move {
-      width: 550px;
+      width: 530px;
     }
   }
 }
@@ -48,7 +46,7 @@
   .move-box {
     width: 250px;
     .move {
-      width: 250px;
+      width: 230px;
     }
   }
 }
