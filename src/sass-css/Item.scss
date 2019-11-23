@@ -2,12 +2,10 @@
 
 .item-box {
   width: 410px;
-  display: flex;
-  @include center(center);
   .item {
     background-color: grey;
     border-radius: 10px;
-    width: 400px;
+    width: 370px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -35,7 +33,7 @@
   .item-box {
     width: 300px;
     .item {
-      width: 290px;
+      width: 260px;
     }
   }
 }
@@ -46,7 +44,7 @@
   .item-box {
     width: 550px;
     .item {
-      width: 550px;
+      width: 510px;
     }
   }
 }
@@ -57,7 +55,7 @@
   .item-box {
     width: 250px;
     .item {
-      width: 250px;
+      width: 210px;
     }
   }
 }
