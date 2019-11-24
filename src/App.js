@@ -34,7 +34,8 @@ class App extends React.Component {
       img3: '',
       img4: '',
       img5: '',
-      img6: ''
+      img6: '',
+      title: 'Login'
     }
     this.addToTeam1 = this.addToTeam1.bind(this);
     this.addToTeam2 = this.addToTeam2.bind(this);
@@ -52,6 +53,7 @@ class App extends React.Component {
     this.img4 = this.img4.bind(this);
     this.img5 = this.img5.bind(this);
     this.img6 = this.img6.bind(this);
+    this.changeTitle = this.changeTitle.bind(this);
   }
   addToTeam1(){
     if(this.props.id > 0){
@@ -166,6 +168,12 @@ class App extends React.Component {
     });
   }
 
+  changeTitle(title){
+    this.setState({
+      title: title
+    })
+  }
+
   render(){
     return (
       <div className="App">
@@ -180,7 +188,7 @@ class App extends React.Component {
                 <NavLink className='nav' activeClassName='active' exact to='/'>Home</NavLink>
                 {this.props.user 
                   ? <NavLink className='nav' activeClassName='active' to='/profile' >Profile</NavLink> 
-                  : <NavLink className='nav' activeClassName='active' to='/login-register' >Register/Login</NavLink>
+                  : <NavLink className='nav' activeClassName='active' to='/login-register' >{this.state.title}</NavLink>
                 }
                 <NavLink className='nav' activeClassName='active' to='/pokedex' >Pokedex</NavLink>
                 <NavLink className='nav' activeClassName='active' to='/pokedex-kanto' >Kanto</NavLink>
@@ -208,21 +216,21 @@ class App extends React.Component {
 
         </header>
         <Switch>
-          <Route exact path='/' render={(props) => <Home setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
-          <Route path='/login-register' render={(props) => <AuthComponent setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
-          <Route path='/pokedex' render={(props) => <Pokedex url={'https://pokeapi.co/api/v2/pokemon?limit=807'} img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
-          <Route path='/pokedex-kanto' render={(props) => <KantoDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
-          <Route path='/pokedex-johto' render={(props) => <JohtoDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
-          <Route path='/pokedex-hoenn' render={(props) => <HoennDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
-          <Route path='/pokedex-sinnoh' render={(props) => <SinnohDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
-          <Route path='/pokedex-unova' render={(props) => <UnovaDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
-          <Route path='/pokedex-kalos' render={(props) => <KalosDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
-          <Route path='/pokedex-alola' render={(props) => <AlolaDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} {...props}/>} />
-          <Route path='/itemdex' render={(props) => <ItemDex url={'https://pokeapi.co/api/v2/item?limit=866'} setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
-          <Route path='/movedex' render={(props) => <MoveDex setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
-          <Route path='/search-by-move' render={(props) => <SearchByMove setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
-          <Route path='/types' render={(props) => <Types setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />
-          {this.props.user && <Route path='/profile' render={(props) => <Profile setButton={this.setButton} setFooter={this.setFooter} {...props}/>} />}
+          <Route exact path='/' render={(props) => <Home setButton={this.setButton} setFooter={this.setFooter} changeTitle={this.changeTitle} {...props}/>} />
+          <Route path='/login-register' render={(props) => <AuthComponent setButton={this.setButton} setFooter={this.setFooter} changeTitle={this.changeTitle} {...props}/>} />
+          <Route path='/pokedex' render={(props) => <Pokedex url={'https://pokeapi.co/api/v2/pokemon?limit=807'} img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} changeTitle={this.changeTitle} {...props}/>} />
+          <Route path='/pokedex-kanto' render={(props) => <KantoDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} changeTitle={this.changeTitle} {...props}/>} />
+          <Route path='/pokedex-johto' render={(props) => <JohtoDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} changeTitle={this.changeTitle} {...props}/>} />
+          <Route path='/pokedex-hoenn' render={(props) => <HoennDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} changeTitle={this.changeTitle} {...props}/>} />
+          <Route path='/pokedex-sinnoh' render={(props) => <SinnohDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} changeTitle={this.changeTitle} {...props}/>} />
+          <Route path='/pokedex-unova' render={(props) => <UnovaDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} changeTitle={this.changeTitle} {...props}/>} />
+          <Route path='/pokedex-kalos' render={(props) => <KalosDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} changeTitle={this.changeTitle} {...props}/>} />
+          <Route path='/pokedex-alola' render={(props) => <AlolaDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} changeTitle={this.changeTitle} {...props}/>} />
+          <Route path='/itemdex' render={(props) => <ItemDex url={'https://pokeapi.co/api/v2/item?limit=866'} setButton={this.setButton} setFooter={this.setFooter} changeTitle={this.changeTitle} {...props}/>} />
+          <Route path='/movedex' render={(props) => <MoveDex setButton={this.setButton} setFooter={this.setFooter} changeTitle={this.changeTitle} {...props}/>} />
+          <Route path='/search-by-move' render={(props) => <SearchByMove setButton={this.setButton} setFooter={this.setFooter} changeTitle={this.changeTitle} {...props}/>} />
+          <Route path='/types' render={(props) => <Types setButton={this.setButton} setFooter={this.setFooter} changeTitle={this.changeTitle} {...props}/>} />
+          {this.props.user && <Route path='/profile' render={(props) => <Profile setButton={this.setButton} setFooter={this.setFooter} changeTitle={this.changeTitle} {...props}/>} />}
           <Route path='*' render={() => {return <Redirect to='/' />}} />
         </Switch>
         {this.state.button && this.props.user && <button className={this.state.footer ? 'move-up' : 'footer-toggle'} onClick={this.toggleFooter}></button>}

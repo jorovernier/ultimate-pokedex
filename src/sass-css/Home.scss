@@ -32,13 +32,13 @@
         display: flex;
         align-items: center;
         justify-content: space-around;
-        .directions {
+        .about {
             background-color: white;
             @extend %border-setting;
             border-color: $darkblue;
             color: $darkblue;
             height: 30vh;
-            width: 30vw;
+            width: 32vw;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
@@ -51,6 +51,15 @@
             p {
                 font-size: 20px;
                 margin: 0px 15px;
+                a {
+                    color: $dexred;
+                }
+                a:visited {
+                    color: #800015;
+                }
+                a:hover {
+                    color: $dexred;
+                }
             }
         }
         .disclaimer {
@@ -59,13 +68,13 @@
             border-color: $darkblue;
             color: $darkblue;
             height: 30vh;
-            width: 30vw;
+            width: 32vw;
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
             h1 {
-                width: 35vw;
+                width: 30vw;
                 font-size: 48px;
                 font-weight: bold;
             }
@@ -80,7 +89,7 @@
 @media (max-width: 1350px) {
     .main {
         .b-row {
-            .directions {
+            .about {
                 p {
                     font-size: 16px;
                 }
@@ -100,20 +109,30 @@
             min-height: 20vh;
             height: auto;
             margin-top: 50px;
+            h1 {
+                font-size: 36px;
+            }
         }
         .b-row {
             height: 50vh;
             flex-direction: column;
             justify-content: space-between;
-            .directions {
+            .about {
                 min-height: 20vh;
                 height: auto;
                 width: 60vw;
+                h1 {
+                    font-size: 36px;
+                }
             }
             .disclaimer {
                 min-height: 20vh;
                 height: auto;
                 width: 60vw;
+                h1 {
+                    font-size: 36px;
+                    width: 50vw;
+                }
             }
         }
     }
@@ -130,7 +149,7 @@
             }
         }
         .b-row {
-            .directions {
+            .about {
                 h1 {
                     font-size: 24px;
                 }
@@ -162,7 +181,7 @@
             }
         }
         .b-row {
-            .directions {
+            .about {
                 h1 {
                     font-size: 20px;
                 }
