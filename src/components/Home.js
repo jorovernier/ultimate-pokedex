@@ -11,6 +11,7 @@ export default class AuthComponent extends Component {
     componentDidMount(){
         this.props.setButton(false);
         this.props.setFooter(false);
+        this.props.changeTitle('Login');
     }
 
     render(){
@@ -21,13 +22,13 @@ export default class AuthComponent extends Component {
                     <img className='happy-pikachu' src='https://www.smashbros.com/assets_v2/img/fighter/pikachu/main.png' alt='happy pikachu' />
                 </div>
                 <div className='b-row'>
-                    <div className='directions'>
-                        <h1>Directions</h1>
-                        <p>Click on the links in the header to find information on Pokemon, items, and attacks. On the Pokedex pages, click the pokemon image to get it's information. If you'd like to add Pokemon to your team, go to the register page and create an account or login if you've already made one. To add Pokemon, look for the black arrow at the bottom of the screen on the Pokedex pages. This will bring up your footer!</p>
+                    <div className='about'>
+                        <h1>About</h1>
+                        <p>This is my first full-stack website. I wanted to make something that would be useful so I decided to make this Pokedex! I get all the information from the <a href='https://pokeapi.co/'>Pokeapi</a>. If you find a bug that I somehow haven't noticed, you can reach me through my <a href='https://github.com/jorovernier'>github</a>. Thanks for visiting and have fun!</p>
                     </div>
                     <div className='disclaimer'>
-                        <h1>Disclaimer</h1>
-                        <p>This site is a work in progress! There are some problems such as slowdown upon searching on the Move Search page and flexbox issues on Safari. All information is from the pokeapi.</p>
+                        <h1>Page Information</h1>
+                        <p>To get information on a pokemon or item from their respective pages, click on it's sprite. To get information on a move from the Moves page, click on it's name. If you log in, look for the black arrow at the bottom of the Pokedex pages to add pokemon to your team.</p>
                     </div>
                 </div>
             </div>

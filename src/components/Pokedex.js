@@ -42,6 +42,7 @@ class Pokedex extends Component{
     });
     this.props.sendID(0);
     this.props.setButton(true);
+    this.props.changeTitle('Login');
     this.getTeam();
   }
 

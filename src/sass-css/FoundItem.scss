@@ -243,15 +243,12 @@
             .effect {
                 width: 240px;
                 display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: flex-start;
-                overflow: auto;
+                align-items: flex-start;
+                justify-content: center;
+                overflow: scroll;
                 div {
                     width: 200px;
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-around;
+                    justify-content: flex-start;
                 }
             }
             .hold-mon {

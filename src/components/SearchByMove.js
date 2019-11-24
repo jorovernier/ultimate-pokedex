@@ -24,6 +24,7 @@ export default class SearchByMove extends Component {
   componentDidMount(){
     this.props.setButton(false);
     this.props.setFooter(false);
+    this.props.changeTitle('Login');
     this.setState({
       loading : true
     });

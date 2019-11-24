@@ -29,6 +29,7 @@ export default class AuthComponent extends Component {
     componentDidMount(){
         this.props.setButton(false);
         this.props.setFooter(false);
+        this.props.changeTitle('Login');
     }
 
     render(){

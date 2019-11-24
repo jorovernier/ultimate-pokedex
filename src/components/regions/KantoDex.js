@@ -8,6 +8,7 @@ export default class KantoDex extends Component{
         <Pokedex 
           url={'https://pokeapi.co/api/v2/pokemon?limit=151'} 
           setButton={this.props.setButton}
+          changeTitle={this.props.changeTitle}
           img1={this.props.img1} img2={this.props.img2} img3={this.props.img3} img4={this.props.img4} img5={this.props.img5} img6={this.props.img6}
           info={<div className='bottom'>
                   <img className='kanto-map' src={'https://fsb.zobj.net/crop.php?r=T4qhtsz4TPLSIWpX1PGHKNJpod5_bMs8W9u8mUDAOQcZcZRFWOzicBsaeOiRanyKKBvcUyQc0-DVlshtlQ8zJmeq7MsJ6auVAWTR9uMzUm6GyRujJ9MVLBfrSkFYAUpJMVsuY5lFnjZfZoir'} alt='map of pokemon region' />

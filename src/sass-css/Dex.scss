@@ -375,9 +375,12 @@
         max-width: 300px;
       }
       .region-info {
+        height: auto;
         justify-content: flex-start;
         width: 300px;
-        overflow: scroll;
+        span {
+          margin: 3px;
+        }
       }
     }
   }
