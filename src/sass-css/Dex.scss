@@ -25,6 +25,7 @@
       margin-top: 50px;
       input {
         outline-color: red;
+        margin: 4%;
       }
       .pokedex {
         background-color: lightgrey;
@@ -161,12 +162,14 @@
       height: 100vh;
       .pokedex-holder {
         height: 85vh;
+        input {
+          margin: 4.2%;
+        }
         .pokedex {
           height: 70vh;
           width: 410px;
         }
         .random {
-          margin-top: 20px;
           img {
             max-height: 96px;
             height: 30px;
@@ -220,6 +223,9 @@
       .pokedex-holder {
         height: 600px;
         width: 370px;
+        input {
+          margin: 3.9%;
+        }
         .pokedex {
           height: 500px;
           width: 300px;
@@ -273,6 +279,9 @@
       .pokedex-holder {
         height: 400px;
         width: 600px;
+        input {
+          margin: 2.25%;
+        }
         .pokedex {
           height: 300px;
           width: 550px;
@@ -340,6 +349,9 @@
       .pokedex-holder {
         height: 400px;
         width: 300px;
+        input {
+          margin: 4.5%;
+        }
         .pokedex {
           height: 300px;
           width: 250px;
