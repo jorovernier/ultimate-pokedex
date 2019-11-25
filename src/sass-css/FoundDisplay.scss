@@ -11,15 +11,17 @@
         @extend %border-setting;
         height: 75vh;
         width: 850px;
+        display: flex;
+        justify-content: space-around;
         .col1 {
             height: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-evenly;
             .top {
                 width: 370px;
-                max-height: 455px;
+                max-height: 440px;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -132,7 +134,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-around;
             .chart {
                 background-color: white;
                 @extend %border-setting;
@@ -174,8 +176,7 @@
         .display {
             height: 80vh;
             width: 420px;
-            flex-direction: column;
-            justify-content: space-between;
+            display: block;
             overflow: scroll;
             .col1 {
                 .top {
