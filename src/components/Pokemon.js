@@ -9,6 +9,12 @@ export default class Pokemon extends Component {
     }
     render(){
         const {pokemon} = this.props;
+        let species = pokemon.name;
+        if(species.endsWith('-alola')){
+            species = 'Alolan ' + species.charAt(0).toUpperCase() + species.slice(1).replace('alola', '');
+        } else if(species.endsWith('-mega')){
+            species = 'Mega ' + species.charAt(0).toUpperCase() + species.slice(1).replace('mega', '');
+        }
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 // This changes the names from pokeapi into ones readable by the pokemon db to get the sprites for the pokedex display.
         let forPMDB = pokemon.name;
@@ -36,7 +42,7 @@ export default class Pokemon extends Component {
                     <button className='sprite' onClick={() => {this.props.action(pokemon.name)}}>
                         <img src={forPMDB === 'floette-eternal' ? 'https://cdn.bulbagarden.net/upload/0/05/670EMS.png' : `https://img.pokemondb.net/sprites/sun-moon/icon/${forPMDB}.png`} alt={`sprite of ${forPMDB}`} />
                     </button>
-                    <div className='name'> {this.prettify(pokemon.name)} </div>
+                    <div className='name'> {this.prettify(species)} </div>
                 </div>
             </div>
         );

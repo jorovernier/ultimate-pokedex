@@ -20,6 +20,11 @@ export default class FoundDisplay extends Component {
 
         const {pokemon} = this.props;
         let species = pokemon.name;
+        if(species.endsWith('-alola')){
+            species = 'Alolan ' + species.charAt(0).toUpperCase() + species.slice(1).replace('alola', '');
+        } else if(species.endsWith('-mega')){
+            species = 'Mega ' + species.charAt(0).toUpperCase() + species.slice(1).replace('mega', '');
+        }
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 // This changes the names from pokeapi into ones readable by the pokemon db to get the official art for the found display.
         let forPMDB = pokemon.name;

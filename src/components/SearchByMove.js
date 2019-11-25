@@ -105,17 +105,36 @@ export default class SearchByMove extends Component {
     }
 
     let mappedMon = this.state.moveMon.map((mon) => {
-        if(mon === 'minior-red-meteor'){
-            mon = 'minior-meteor'
-        } else if(mon === 'mimikyu-disguised'){
-            mon = 'mimikyu'
-        };
+      if(mon === 'minior-red-meteor'){
+        mon = 'minior-meteor'
+      } else if(mon === 'mimikyu-disguised'){
+        mon = 'mimikyu'
+      } else if(mon === 'raticate-totem-alola'){
+        mon = 'raticate-alolan'
+      } else if(mon === 'greninja-battle-bond'){
+        mon = 'greninja'
+      } else if(mon.startsWith('pikachu')){
+        mon = 'pikachu'
+      } else if(mon.startsWith('castform')){
+        mon = 'castform'
+      } else if(mon.endsWith('-alola')){
+        mon = mon.replace('-alola', '-alolan')
+      } else if(mon.split('-').includes('totem')){
+        mon = mon.replace('-totem', '')
+      };
+
+      let species = mon;
+      if(species.endsWith('-alolan')){
+        species = 'Alolan ' + species.charAt(0).toUpperCase() + species.slice(1).replace('alolan', '');
+      } else if(species.endsWith('-mega')){
+        species = 'Mega ' + species.charAt(0).toUpperCase() + species.slice(1).replace('mega', '');
+      }
         return (
             <div className='move-mon-box' key={mon}>
                 <div className='img'>
                     <img src={`https://img.pokemondb.net/sprites/sun-moon/icon/${mon}.png`} alt={`sprite of ${mon}`} />
                 </div>
-                <h1>{this.prettify(mon)}</h1>
+                <h1>{this.prettify(species)}</h1>
             </div>
         )
     })
