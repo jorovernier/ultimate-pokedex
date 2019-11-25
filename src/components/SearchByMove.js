@@ -35,7 +35,7 @@ export default class SearchByMove extends Component {
         fetched : true
       });
     });
-    axios.get('https://pokeapi.co/api/v2/pokemon?limit=807').then(response => {
+    axios.get('https://pokeapi.co/api/v2/pokemon?limit=964').then(response => {
       this.setState({
         pokemon: response.data.results
       });
