@@ -27,69 +27,15 @@ export default class FoundDisplay extends Component {
             forPMDB = 'minior-meteor'
         } else if(forPMDB === 'mimikyu-disguised'){
             forPMDB = 'mimikyu'
+        } else if(forPMDB === 'raticate-totem-alola'){
+            forPMDB = 'raticate-alolan'
+        } else if(forPMDB === 'greninja-battle-bond'){
+            forPMDB = 'greninja'
+        } else if(forPMDB.endsWith('-alola')){
+            forPMDB = forPMDB.replace('-alola', '-alolan')
+        } else if(forPMDB.includes('-totem')){
+            forPMDB = forPMDB.replace('-totem', '')
         };
-//---------------------------------------------------------------------------------------------------------------------------------------------------
-// This fixes the lowercase names and the ones with dashes in them purely for looks.
-        let upperSpecies = species.charAt(0).toUpperCase() + species.substring(1);
-        if(upperSpecies === 'Nidoran-f'){
-            upperSpecies = 'Nidoran F'
-        } else if(upperSpecies === 'Nidoran-m'){
-            upperSpecies = 'Nidoran M'
-        } else if(upperSpecies === 'Deoxys-normal'){
-            upperSpecies = 'Deoxys'
-        } else if(upperSpecies === 'Wormadam-plant'){
-            upperSpecies = 'Wormadam'
-        } else if(upperSpecies === 'Mime-jr'){
-            upperSpecies = 'Mime Jr.'
-        } else if(upperSpecies === 'Porygon-z'){
-            upperSpecies = 'Porygon Z'
-        } else if(upperSpecies === 'Giratina-altered'){
-            upperSpecies = 'Giratina'
-        } else if(upperSpecies === 'Shaymin-land'){
-            upperSpecies = 'Shaymin'
-        } else if(upperSpecies === 'Basculin-red-striped'){
-            upperSpecies = 'Basculin'
-        } else if(upperSpecies === 'Darmanitan-standard'){
-            upperSpecies = 'Darmanitan'
-        } else if(upperSpecies === 'Tornadus-incarnate'){
-            upperSpecies = 'Tornadus'
-        } else if(upperSpecies === 'Thundurus-incarnate'){
-            upperSpecies = 'Thundurus'
-        } else if(upperSpecies === 'Landorus-incarnate'){
-            upperSpecies = 'Landorus'
-        } else if(upperSpecies === 'Keldeo-ordinary'){
-            upperSpecies = 'Keldeo'
-        } else if(upperSpecies === 'Meloetta-aria'){
-            upperSpecies = 'Meloetta'
-        } else if(upperSpecies === 'Meowstic-male'){
-            upperSpecies = 'Meowstic'
-        } else if(upperSpecies === 'Aegislash-shield'){
-            upperSpecies = 'Aegislash'
-        } else if(upperSpecies === 'Pumpkaboo-average'){
-            upperSpecies = 'Pumpkaboo'
-        } else if(upperSpecies === 'Gourgeist-average'){
-            upperSpecies = 'Gourgeist'
-        } else if(upperSpecies === 'Oricorio-baile'){
-            upperSpecies = 'Oricorio'
-        } else if(upperSpecies === 'Lycanroc-midday'){
-            upperSpecies = 'Lycanroc'
-        } else if(upperSpecies === 'Wishiwashi-solo'){
-            upperSpecies = 'Wishiwashi'
-        } else if(upperSpecies === 'Type-null'){
-            upperSpecies = 'Type Null'
-        } else if(upperSpecies === 'Minior-red-meteor'){
-            upperSpecies = 'Minior'
-        } else if(upperSpecies === 'Mimikyu-disguised'){
-            upperSpecies = 'Mimikyu'
-        } else if(upperSpecies === 'Tapu-koko'){
-            upperSpecies = 'Tapu Koko'
-        } else if(upperSpecies === 'Tapu-lele'){
-            upperSpecies = 'Tapu Lele'
-        } else if(upperSpecies === 'Tapu-bulu'){
-            upperSpecies = 'Tapu Bulu'
-        } else if(upperSpecies === 'Tapu-fini'){
-            upperSpecies = 'Tapu Fini'
-        }
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 // These are being accessed by the wall of if statements.
         let url; // Used as url if the pokemon has only one type.
@@ -298,27 +244,41 @@ export default class FoundDisplay extends Component {
         let abilities;
         if(pokemon.abilities.length === 1){
             abilities = <span>
-                            <h1>{pokemon.abilities[0].ability.name.charAt(0).toUpperCase() + pokemon.abilities[0].ability.name.substring(1)}</h1>
+                            <h1>{this.prettify(pokemon.abilities[0].ability.name)}</h1>
                         </span>
         } else if(pokemon.abilities.length === 2){
             abilities = <span>
-                            <h1>{pokemon.abilities[1].ability.name.charAt(0).toUpperCase() + pokemon.abilities[1].ability.name.substring(1)}</h1>
+                            <h1>{this.prettify(pokemon.abilities[1].ability.name)}</h1>
                             <div>
                                 <h2>Hidden Ability:</h2>
-                                <h1>{pokemon.abilities[0].ability.name.charAt(0).toUpperCase() + pokemon.abilities[0].ability.name.substring(1)}</h1>
+                                <h1>{this.prettify(pokemon.abilities[0].ability.name)}</h1>
                             </div>
                         </span>
         } else if(pokemon.abilities.length === 3){
             abilities = <span>
-                            <h1>{pokemon.abilities[2].ability.name.charAt(0).toUpperCase() + pokemon.abilities[2].ability.name.substring(1)}</h1>
-                            <h1>{pokemon.abilities[1].ability.name.charAt(0).toUpperCase() + pokemon.abilities[1].ability.name.substring(1)}</h1>
+                            <h1>{this.prettify(pokemon.abilities[2].ability.name)}</h1>
+                            <h1>{this.prettify(pokemon.abilities[1].ability.name)}</h1>
                             <div>
                                 <h2>Hidden Ability:</h2>
-                                <h1>{pokemon.abilities[0].ability.name.charAt(0).toUpperCase() + pokemon.abilities[0].ability.name.substring(1)}</h1>
+                                <h1>{this.prettify(pokemon.abilities[0].ability.name)}</h1>
                             </div>
                         </span>
         }
-    
+        let src;
+        if(forPMDB === 'floette-eternal'){
+            src = 'https://cdn.bulbagarden.net/upload/2/29/AZ%27s_Floette.png'
+        } else if(pokemon.name === 'castform-sunny'){
+            src = 'https://img.pokemondb.net/artwork/vector/castform-sunny.png'
+        } else if(pokemon.name === 'castform-snowy'){
+            src = 'https://img.pokemondb.net/artwork/vector/castform-snowy.png'
+        } else if(pokemon.name === 'castform-rainy'){
+            src = 'https://img.pokemondb.net/artwork/vector/castform-rainy.png'
+        } else if(pokemon.name === 'pikachu-cosplay'){
+            src = 'https://cdn.bulbagarden.net/upload/2/28/Spr_6o_025_C.png'
+        } else {
+            src = `https://img.pokemondb.net/artwork/${forPMDB}.jpg`
+        }
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------
         return(
             <div className='base-display' style={{backgroundColor: secondary}} >
@@ -326,9 +286,9 @@ export default class FoundDisplay extends Component {
                     <div className='col1'>
 
                         <div className='top'>
-                            <img className='mon-img' src={`https://img.pokemondb.net/artwork/${forPMDB}.jpg`} alt={`sprite of ${pokemon.name}`} />
+                            <img className='mon-img' src={src} alt={`${pokemon.name}`} />
                             <div className='name-num'>
-                                <h1>{upperSpecies}</h1>
+                                <h1>{this.prettify(species)}</h1>
                                 <div className='dex-num'>Dex #: {pokemon.id}</div>
                             </div>
                         </div>

@@ -11,13 +11,8 @@
         @extend %border-setting;
         height: 75vh;
         width: 850px;
-        // display: flex;
-        // flex-direction: row;
-        // align-items: center;
-        // justify-content: flex-start;
         .col1 {
             height: auto;
-            // width: 370px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -30,6 +25,7 @@
                 align-items: center;
                 justify-content: center;
                 .mon-img {
+                    background-color: white;
                     @extend %border-setting;
                     max-width: 500px;
                     @extend %foundmargin;

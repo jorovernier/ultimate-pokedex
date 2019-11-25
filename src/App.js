@@ -17,6 +17,7 @@ import SinnohDex from './components/regions/SinnohDex';
 import UnovaDex from './components/regions/UnovaDex';
 import KalosDex from './components/regions/KalosDex';
 import AlolaDex from './components/regions/AlolaDex';
+import FormDex from './components/FormDex';
 import ItemDex from './components/ItemDex';
 import MoveDex from './components/MoveDex';
 import SearchByMove from './components/SearchByMove';
@@ -198,6 +199,7 @@ class App extends React.Component {
                 <NavLink className='nav' activeClassName='active' to='/pokedex-unova' >Unova</NavLink>
                 <NavLink className='nav' activeClassName='active' to='/pokedex-kalos' >Kalos</NavLink>
                 <NavLink className='nav' activeClassName='active' to='/pokedex-alola' >Alola</NavLink>
+                <NavLink className='nav' activeClassName='active' to='/formdex' >Forms</NavLink>
                 <NavLink className='nav' activeClassName='active' to='/itemdex' >Items</NavLink>
                 <NavLink className='nav' activeClassName='active' to='/movedex' >Moves</NavLink>
                 <NavLink className='nav' activeClassName='active' to='/search-by-move' >Move-Search</NavLink>
@@ -226,6 +228,7 @@ class App extends React.Component {
           <Route path='/pokedex-unova' render={(props) => <UnovaDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} changeTitle={this.changeTitle} {...props}/>} />
           <Route path='/pokedex-kalos' render={(props) => <KalosDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} changeTitle={this.changeTitle} {...props}/>} />
           <Route path='/pokedex-alola' render={(props) => <AlolaDex img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} changeTitle={this.changeTitle} {...props}/>} />
+          <Route path='/formdex' render={(props) => <FormDex url={'https://pokeapi.co/api/v2/pokemon?offset=807&limit=125'} img1={this.img1} img2={this.img2} img3={this.img3} img4={this.img4} img5={this.img5} img6={this.img6} setButton={this.setButton} changeTitle={this.changeTitle} {...props}/>} />
           <Route path='/itemdex' render={(props) => <ItemDex url={'https://pokeapi.co/api/v2/item?limit=866'} setButton={this.setButton} setFooter={this.setFooter} changeTitle={this.changeTitle} {...props}/>} />
           <Route path='/movedex' render={(props) => <MoveDex setButton={this.setButton} setFooter={this.setFooter} changeTitle={this.changeTitle} {...props}/>} />
           <Route path='/search-by-move' render={(props) => <SearchByMove setButton={this.setButton} setFooter={this.setFooter} changeTitle={this.changeTitle} {...props}/>} />

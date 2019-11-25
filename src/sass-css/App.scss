@@ -30,7 +30,7 @@
         }
       }
       .nav-box {
-        width: 800px;
+        width: 900px;
         display: flex;
         justify-content: space-around;
         font-weight: 500;
@@ -45,9 +45,10 @@
         }
         .logout {
           @extend %button;
+          padding: 5px;
         }
         span {
-          width: 790px;
+          width: 890px;
           display: flex;
           justify-content: space-between;
         }
@@ -127,6 +128,27 @@
 
 // ----------------------------------------------------------------------------------------- //
 
+@media (max-width: 950px) {
+  .App {
+    header {
+      .logo-nav {
+        .logo-box {
+          img {
+            max-height: 50px;
+          }
+        }
+        .nav-box {
+          span {
+            width: 800px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// ----------------------------------------------------------------------------------------- //
+
 @media (max-width: 850px) {
   .App {
     header {
@@ -137,7 +159,7 @@
           }
         }
         .nav-box {
-          max-width: 30px;
+          width: 30px;
           flex-direction: column;
           .nav {
             flex-direction: column;
