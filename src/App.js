@@ -105,11 +105,9 @@ class App extends React.Component {
     }
   }
 
-  toggleBurger(){
-    this.setState((prevState) => {
-      return {
-        hamburger: !prevState.hamburger
-      }
+  toggleBurger(boolean){
+    this.setState({
+      hamburger: boolean
     })
   }
   
@@ -181,29 +179,30 @@ class App extends React.Component {
         <header>
 
           <div className='logo-nav'>
-            <div className='logo-box'>
-              <img src={logo} alt='logo' />
-            </div>
+                <NavLink onClick={() => this.toggleBurger(false)} className='nav' exact to='/'>
+                  <div className='logo-box'>
+                    <img src={logo} alt='logo' />
+                  </div>
+                </NavLink>
             <span className='nav-box'>
               <span className={this.state.hamburger ? 'hamburger' : ''}>
-                <NavLink className='nav' activeClassName='active' exact to='/'>Home</NavLink>
                 {this.props.user 
-                  ? <NavLink className='nav' activeClassName='active' to='/profile' >Profile</NavLink> 
-                  : <NavLink className='nav' activeClassName='active' to='/login-register' >{this.state.title}</NavLink>
+                  ? <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/profile' >Profile</NavLink> 
+                  : <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/login-register' >{this.state.title}</NavLink>
                 }
-                <NavLink className='nav' activeClassName='active' to='/pokedex' >Pokedex</NavLink>
-                <NavLink className='nav' activeClassName='active' to='/pokedex-kanto' >Kanto</NavLink>
-                <NavLink className='nav' activeClassName='active' to='/pokedex-johto' >Johto</NavLink>
-                <NavLink className='nav' activeClassName='active' to='/pokedex-hoenn' >Hoenn</NavLink>
-                <NavLink className='nav' activeClassName='active' to='/pokedex-sinnoh' >Sinnoh</NavLink>
-                <NavLink className='nav' activeClassName='active' to='/pokedex-unova' >Unova</NavLink>
-                <NavLink className='nav' activeClassName='active' to='/pokedex-kalos' >Kalos</NavLink>
-                <NavLink className='nav' activeClassName='active' to='/pokedex-alola' >Alola</NavLink>
-                <NavLink className='nav' activeClassName='active' to='/formdex' >Forms</NavLink>
-                <NavLink className='nav' activeClassName='active' to='/itemdex' >Items</NavLink>
-                <NavLink className='nav' activeClassName='active' to='/movedex' >Moves</NavLink>
-                <NavLink className='nav' activeClassName='active' to='/search-by-move' >Move-Search</NavLink>
-                <NavLink className='nav' activeClassName='active' to='/types' >Types</NavLink>
+                <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/pokedex' >Pokedex</NavLink>
+                <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/pokedex-kanto' >Kanto</NavLink>
+                <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/pokedex-johto' >Johto</NavLink>
+                <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/pokedex-hoenn' >Hoenn</NavLink>
+                <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/pokedex-sinnoh' >Sinnoh</NavLink>
+                <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/pokedex-unova' >Unova</NavLink>
+                <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/pokedex-kalos' >Kalos</NavLink>
+                <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/pokedex-alola' >Alola</NavLink>
+                <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/formdex' >Forms</NavLink>
+                <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/itemdex' >Items</NavLink>
+                <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/movedex' >Moves</NavLink>
+                <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/search-by-move' >Move-Search</NavLink>
+                <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/types' >Types</NavLink>
                 {this.props.user && <button className='logout' onClick={() => {
                   axios.delete('/auth/logout').then(() => {
                     this.props.setUser(null);
@@ -212,7 +211,7 @@ class App extends React.Component {
                 }} >Logout</button>
                 }
               </span>
-              <button className='burger-ler' onClick={this.toggleBurger}>☰</button>
+              <button className='burger-ler' onClick={() => this.toggleBurger(!this.state.hamburger)}>☰</button>
             </span>
           </div>
 
