@@ -104,7 +104,7 @@ export default class SearchByMove extends Component {
       display = <div/>;
     }
 
-    let mappedMon = this.state.moveMon.map((mon) => {
+    let mappedMon = this.state.moveMon.map((mon, index) => {
       if(mon === 'minior-red-meteor'){
         mon = 'minior-meteor'
       } else if(mon === 'mimikyu-disguised'){
@@ -130,7 +130,7 @@ export default class SearchByMove extends Component {
         species = 'Mega ' + species.charAt(0).toUpperCase() + species.slice(1).replace('mega', '');
       }
         return (
-            <div className='move-mon-box' key={mon}>
+            <div className='move-mon-box' key={index}>
                 <div className='img'>
                     <img src={`https://img.pokemondb.net/sprites/sun-moon/icon/${mon}.png`} alt={`sprite of ${mon}`} />
                 </div>
