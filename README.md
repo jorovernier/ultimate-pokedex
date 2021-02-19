@@ -1,5 +1,9 @@
 # Ultimate Pokedex
 
+[![site status](https://img.shields.io/website?down_color=critical&down_message=offline&up_color=success&up_message=online&url=https%3A%2F%2Ftheultimatepokedex.xyz)](https://img.shields.io/website?down_color=critical&down_message=offline&up_color=success&up_message=online&url=https%3A%2F%2Ftheultimatepokedex.xyz)
+[![lines of code](https://img.shields.io/tokei/lines/github/jorovernier/ultimate-pokedex?color=ff69b4)](https://img.shields.io/tokei/lines/github/jorovernier/ultimate-pokedex?color=ff69b4)
+[![repo size](https://img.shields.io/github/repo-size/jorovernier/ultimate-pokedex?color=blueviolet)](https://img.shields.io/github/repo-size/jorovernier/ultimate-pokedex?color=blueviolet)
+
 ## Front-End
 
 **Dependencies**
@@ -17,6 +21,7 @@
     - components/
         - regions/
             - AlolaDex.js
+            - GalarDex.js
             - HoennDex.js
             - JohtoDex.js
             - KalosDex.js
@@ -79,7 +84,7 @@
 - Unova => '/pokedex-unova' => UnovaDex.js
 - Kalos => '/pokedex-kalos' => KalosDex.js
 - Alola => '/pokedex-alola' => AlolaDex.js
-<!-- - Galar => '/pokedex' => Pokedex.js -->
+- Galar => '/pokedex-galar' => GalarDex.js
 - Items => '/itemdex' => ItemDex.js
 - Moves => '/movedex' => MoveDex.js
 - Move-Search => '/search-by-move' => SearchByMove.js
@@ -125,6 +130,7 @@
     - removeFromTeam(1-6) => post => /api/remove_from_team
     - changeName => put => /api/change_name/:slot
 
+<!-- 
 #
 ## Database
 
@@ -159,4 +165,4 @@ CREATE TABLE team (
     p6_name VARCHAR(12),
     user_id INTEGER REFERENCES users(user_id)
 );
-```
+``` -->

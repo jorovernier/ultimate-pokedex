@@ -40,7 +40,7 @@ export default class Pokemon extends Component {
             <div className='pokemon-box'>
                 <div className='pokemon'>
                     <button className='sprite' onClick={() => {this.props.action(pokemon.name)}}>
-                        <img src={forPMDB === 'floette-eternal' ? 'https://img.pokemondb.net/sprites/sun-moon/icon/floette.png' : `https://img.pokemondb.net/sprites/sun-moon/icon/${forPMDB}.png`} alt={`sprite of ${forPMDB}`} />
+                        <img src={forPMDB === 'floette-eternal' ? 'https://img.pokemondb.net/sprites/sun-moon/icon/floette.png' : `https://img.pokemondb.net/sprites/sword-shield/icon/${forPMDB}.png`} alt={`sprite of ${forPMDB}`} />
                     </button>
                     <div className='name'> {this.prettify(species)} </div>
                 </div>

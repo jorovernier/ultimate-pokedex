@@ -25,6 +25,12 @@ export default class FoundDisplay extends Component {
         } else if(species.endsWith('-mega')){
             species = 'Mega ' + species.charAt(0).toUpperCase() + species.slice(1).replace('mega', '');
         }
+
+        // let switcher = false;
+        // if(species.includes('deoxys')){
+        //     switcher = true;
+        // }
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 // This changes the names from pokeapi into ones readable by the pokemon db to get the official art for the found display.
         let forPMDB = pokemon.name;
@@ -292,6 +298,7 @@ export default class FoundDisplay extends Component {
 
                         <div className='top'>
                             <img className='mon-img' src={src} alt={`${pokemon.name}`} />
+                            {/* {switcher && (<button>?</button>)} */}
                             <div className='name-num'>
                                 <h1>{this.prettify(species)}</h1>
                                 <div className='dex-num'>Dex #: {pokemon.id}</div>
