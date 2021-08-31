@@ -1,6 +1,24 @@
 import React, {Component} from 'react';
 import StatsChart from './Chart';
 import '../sass-css/FoundDisplay.scss';
+import normal from '../images/type-icons/normal.png';
+import fire from '../images/type-icons/fire.png';
+import fighting from '../images/type-icons/fighting.png';
+import water from '../images/type-icons/water.png';
+import flying from '../images/type-icons/flying.png';
+import grass from '../images/type-icons/grass.png';
+import poison from '../images/type-icons/poison.png';
+import electric from '../images/type-icons/electric.png';
+import ground from '../images/type-icons/ground.png';
+import psychic from '../images/type-icons/psychic.png';
+import rock from '../images/type-icons/rock.png';
+import ice from '../images/type-icons/ice.png';
+import bug from '../images/type-icons/bug.png';
+import dragon from '../images/type-icons/dragon.png';
+import ghost from '../images/type-icons/ghost.png';
+import dark from '../images/type-icons/dark.png';
+import steel from '../images/type-icons/steel.png';
+import fairy from '../images/type-icons/fairy.png';
 
 export default class FoundDisplay extends Component {
     prettify(name){
@@ -58,114 +76,114 @@ export default class FoundDisplay extends Component {
 // If the pokemon has 2 types this will render the second type. -------------------------------------------------------------------------------------
         if(pokemon.types.length > 1){
             if(pokemon.types[0].type.name === 'normal'){
-                url1 = 'https://cdn.bulbagarden.net/upload/3/39/NormalIC_Big.png';
+                url1 = `${normal}`;
                 secondary = '#5c5c3d';
             } else if(pokemon.types[0].type.name === 'fire'){
-                url1 = 'https://cdn.bulbagarden.net/upload/2/26/FireIC_Big.png';
+                url1 = `${fire}`;
                 secondary = '#cc5200';
             } else if(pokemon.types[0].type.name === 'fighting'){
-                url1 = 'https://cdn.bulbagarden.net/upload/6/67/FightingIC_Big.png';
+                url1 = `${fighting}`;
                 secondary = '#990000';
             } else if(pokemon.types[0].type.name === 'water'){
-                url1 = 'https://cdn.bulbagarden.net/upload/5/56/WaterIC_Big.png';
+                url1 = `${water}`;
                 secondary = '#003b72';
             } else if(pokemon.types[0].type.name === 'flying'){
-                url1 = 'https://cdn.bulbagarden.net/upload/c/cb/FlyingIC_Big.png';
+                url1 = `${flying}`;
                 secondary = '#86d3fb';
             } else if(pokemon.types[0].type.name === 'grass'){
-                url1 = 'https://cdn.bulbagarden.net/upload/7/74/GrassIC_Big.png';
+                url1 = `${grass}`;
                 secondary = '#28a428';
             } else if(pokemon.types[0].type.name === 'poison'){
-                url1 = 'https://cdn.bulbagarden.net/upload/3/3d/PoisonIC_Big.png';
+                url1 = `${poison}`;
                 secondary = '#732673';
             } else if(pokemon.types[0].type.name === 'electric'){
-                url1 = 'https://cdn.bulbagarden.net/upload/4/4a/ElectricIC_Big.png';
+                url1 = `${electric}`;
                 secondary = '#cccc00';
             } else if(pokemon.types[0].type.name === 'ground'){
-                url1 = 'https://cdn.bulbagarden.net/upload/8/8f/GroundIC_Big.png';
+                url1 = `${ground}`;
                 secondary = '#b38600';
             } else if(pokemon.types[0].type.name === 'psychic'){
-                url1 = 'https://cdn.bulbagarden.net/upload/6/60/PsychicIC_Big.png';
+                url1 = `${psychic}`;
                 secondary = '#800080';
             } else if(pokemon.types[0].type.name === 'rock'){
-                url1 = 'https://cdn.bulbagarden.net/upload/c/ce/RockIC_Big.png';
+                url1 = `${rock}`;
                 secondary = '#dfbf9f';
             } else if(pokemon.types[0].type.name === 'ice'){
-                url1 = 'https://cdn.bulbagarden.net/upload/6/6f/IceIC_Big.png';
+                url1 = `${ice}`;
                 secondary = '#00cccc';
             } else if(pokemon.types[0].type.name === 'bug'){
-                url1 = 'https://cdn.bulbagarden.net/upload/c/c8/BugIC_Big.png';
+                url1 = `${bug}`;
                 secondary = '#808000';
             } else if(pokemon.types[0].type.name === 'dragon'){
-                url1 = 'https://cdn.bulbagarden.net/upload/4/48/DragonIC_Big.png';
+                url1 = `${dragon}`;
                 secondary = '#9933ff';
             } else if(pokemon.types[0].type.name === 'ghost'){
-                url1 = 'https://cdn.bulbagarden.net/upload/7/73/GhostIC_Big.png';
+                url1 = `${ghost}`;
                 secondary = '#4d374b';
             } else if(pokemon.types[0].type.name === 'dark'){
-                url1 = 'https://cdn.bulbagarden.net/upload/5/56/DarkIC_Big.png';
+                url1 = `${dark}`;
                 secondary = '#28283e';
             } else if(pokemon.types[0].type.name === 'steel'){
-                url1 = 'https://cdn.bulbagarden.net/upload/d/d4/SteelIC_Big.png';
+                url1 = `${steel}`;
                 secondary = '#404040';
             } else if(pokemon.types[0].type.name === 'fairy'){
-                url1 = 'https://cdn.bulbagarden.net/upload/7/73/FairyIC_Big.png';
+                url1 = `${fairy}`;
                 secondary = '#cc0066';
             }
 // If the pokemon has 2 types this will render the first type. ------------------------------------------------------------------------------------
             if(pokemon.types[1].type.name === 'normal'){
-                url2 = 'https://cdn.bulbagarden.net/upload/3/39/NormalIC_Big.png';
+                url2 = `${normal}`;
                 primary = '#ffffe6';
             } else if(pokemon.types[1].type.name === 'fire'){
-                url2 = 'https://cdn.bulbagarden.net/upload/2/26/FireIC_Big.png';
+                url2 = `${fire}`;
                 primary = '#ffc299';
             } else if(pokemon.types[1].type.name === 'fighting'){
-                url2 = 'https://cdn.bulbagarden.net/upload/6/67/FightingIC_Big.png';
+                url2 = `${fighting}`;
                 primary = '#ffdab3';
             } else if(pokemon.types[1].type.name === 'water'){
-                url2 = 'https://cdn.bulbagarden.net/upload/5/56/WaterIC_Big.png';
+                url2 = `${water}`;
                 primary = '#86d3fb';
             } else if(pokemon.types[1].type.name === 'flying'){
-                url2 = 'https://cdn.bulbagarden.net/upload/c/cb/FlyingIC_Big.png';
+                url2 = `${flying}`;
                 primary = '#e6ffff';
             } else if(pokemon.types[1].type.name === 'grass'){
-                url2 = 'https://cdn.bulbagarden.net/upload/7/74/GrassIC_Big.png';
+                url2 = `${grass}`;
                 primary = '#84e184';
             } else if(pokemon.types[1].type.name === 'poison'){
-                url2 = 'https://cdn.bulbagarden.net/upload/3/3d/PoisonIC_Big.png';
+                url2 = `${poison}`;
                 primary = '#ecc6ec';
             } else if(pokemon.types[1].type.name === 'electric'){
-                url2 = 'https://cdn.bulbagarden.net/upload/4/4a/ElectricIC_Big.png';
+                url2 = `${electric}`;
                 primary = '#ffff33';
             } else if(pokemon.types[1].type.name === 'ground'){
-                url2 = 'https://cdn.bulbagarden.net/upload/8/8f/GroundIC_Big.png';
+                url2 = `${ground}`;
                 primary = '#e6ccb3';
             } else if(pokemon.types[1].type.name === 'psychic'){
-                url2 = 'https://cdn.bulbagarden.net/upload/6/60/PsychicIC_Big.png';
+                url2 = `${psychic}`;
                 primary = '#ff80df';
             } else if(pokemon.types[1].type.name === 'rock'){
-                url2 = 'https://cdn.bulbagarden.net/upload/c/ce/RockIC_Big.png';
+                url2 = `${rock}`;
                 primary = '#dfbf9f';
             } else if(pokemon.types[1].type.name === 'ice'){
-                url2 = 'https://cdn.bulbagarden.net/upload/6/6f/IceIC_Big.png';
+                url2 = `${ice}`;
                 primary = '#e6ffff';
             } else if(pokemon.types[1].type.name === 'bug'){
-                url2 = 'https://cdn.bulbagarden.net/upload/c/c8/BugIC_Big.png';
+                url2 = `${bug}`;
                 primary = '#dfff80';
             } else if(pokemon.types[1].type.name === 'dragon'){
-                url2 = 'https://cdn.bulbagarden.net/upload/4/48/DragonIC_Big.png';
+                url2 = `${dragon}`;
                 primary = '#ffe6e6';
             } else if(pokemon.types[1].type.name === 'ghost'){
-                url2 = 'https://cdn.bulbagarden.net/upload/7/73/GhostIC_Big.png';
+                url2 = `${ghost}`;
                 primary = '#ccaad5';
             } else if(pokemon.types[1].type.name === 'dark'){
-                url2 = 'https://cdn.bulbagarden.net/upload/5/56/DarkIC_Big.png';
+                url2 = `${dark}`;
                 primary = '#bdaea8';
             } else if(pokemon.types[1].type.name === 'steel'){
-                url2 = 'https://cdn.bulbagarden.net/upload/d/d4/SteelIC_Big.png';
+                url2 = `${steel}`;
                 primary = '#d9d9d9';
             } else if(pokemon.types[1].type.name === 'fairy'){
-                url2 = 'https://cdn.bulbagarden.net/upload/7/73/FairyIC_Big.png';
+                url2 = `${fairy}`;
                 primary = '#ffcce6';
             }
             types =  <div className='type'>
@@ -176,75 +194,75 @@ export default class FoundDisplay extends Component {
         // If the pokemon has 1 type this will render that type. ------------------------------------------------------------------------------------------
         else {
             if(pokemon.types[0].type.name === 'normal'){
-                url = 'https://cdn.bulbagarden.net/upload/3/39/NormalIC_Big.png';
+                url = `${normal}`;
                 primary = '#ffffe6';
                 secondary = '#5c5c3d';
             } else if(pokemon.types[0].type.name === 'fire'){
-                url = 'https://cdn.bulbagarden.net/upload/2/26/FireIC_Big.png';
+                url = `${fire}`;
                 primary = '#ffc299';
                 secondary = '#cc5200';
             } else if(pokemon.types[0].type.name === 'fighting'){
-                url = 'https://cdn.bulbagarden.net/upload/6/67/FightingIC_Big.png';
+                url = `${fighting}`;
                 primary = '#ffdab3';
                 secondary = '#990000';
             } else if(pokemon.types[0].type.name === 'water'){
-                url = 'https://cdn.bulbagarden.net/upload/5/56/WaterIC_Big.png';
+                url = `${water}`;
                 primary = '#86d3fb';
                 secondary = '#003b72';
             } else if(pokemon.types[0].type.name === 'flying'){
-                url = 'https://cdn.bulbagarden.net/upload/c/cb/FlyingIC_Big.png';
+                url = `${flying}`;
                 primary = '#e6ffff';
                 secondary = '#86d3fb';
             } else if(pokemon.types[0].type.name === 'grass'){
-                url = 'https://cdn.bulbagarden.net/upload/7/74/GrassIC_Big.png';
+                url = `${grass}`;
                 primary = '#84e184';
                 secondary = '#28a428';
             } else if(pokemon.types[0].type.name === 'poison'){
-                url = 'https://cdn.bulbagarden.net/upload/3/3d/PoisonIC_Big.png';
+                url = `${poison}`;
                 primary = '#ecc6ec';
                 secondary = '#732673';
             } else if(pokemon.types[0].type.name === 'electric'){
-                url = 'https://cdn.bulbagarden.net/upload/4/4a/ElectricIC_Big.png';
+                url = `${electric}`;
                 primary = '#ffff33';
                 secondary = '#cccc00';
             } else if(pokemon.types[0].type.name === 'ground'){
-                url = 'https://cdn.bulbagarden.net/upload/8/8f/GroundIC_Big.png';
+                url = `${ground}`;
                 primary = '#e6ccb3';
                 secondary = '#b38600';
             } else if(pokemon.types[0].type.name === 'psychic'){
-                url = 'https://cdn.bulbagarden.net/upload/6/60/PsychicIC_Big.png';
+                url = `${psychic}`;
                 primary = '#ff80df';
                 secondary = '#800080';
             } else if(pokemon.types[0].type.name === 'rock'){
-                url = 'https://cdn.bulbagarden.net/upload/c/ce/RockIC_Big.png';
+                url = `${rock}`;
                 primary = '#dfbf9f';
                 secondary = '#6a5048';
             } else if(pokemon.types[0].type.name === 'ice'){
-                url = 'https://cdn.bulbagarden.net/upload/6/6f/IceIC_Big.png';
+                url = `${ice}`;
                 primary = '#e6ffff';
                 secondary = '#00cccc';
             } else if(pokemon.types[0].type.name === 'bug'){
-                url = 'https://cdn.bulbagarden.net/upload/c/c8/BugIC_Big.png';
+                url = `${bug}`;
                 primary = '#dfff80';
                 secondary = '#808000';
             } else if(pokemon.types[0].type.name === 'dragon'){
-                url = 'https://cdn.bulbagarden.net/upload/4/48/DragonIC_Big.png';
+                url = `${dragon}`;
                 primary = '#ffe6e6';
                 secondary = '#9933ff';
             } else if(pokemon.types[0].type.name === 'ghost'){
-                url = 'https://cdn.bulbagarden.net/upload/7/73/GhostIC_Big.png';
+                url = `${ghost}`;
                 primary = '#ccaad5';
                 secondary = '#4d374b';
             } else if(pokemon.types[0].type.name === 'dark'){
-                url = 'https://cdn.bulbagarden.net/upload/5/56/DarkIC_Big.png';
+                url = `${dark}`;
                 primary = '#bdaea8';
                 secondary = '#28283e';
             } else if(pokemon.types[0].type.name === 'steel'){
-                url = 'https://cdn.bulbagarden.net/upload/d/d4/SteelIC_Big.png';
+                url = `${steel}`;
                 primary = '#d9d9d9';
                 secondary = '#404040';
             } else if(pokemon.types[0].type.name === 'fairy'){
-                url = 'https://cdn.bulbagarden.net/upload/7/73/FairyIC_Big.png';
+                url = `${fairy}`;
                 primary = '#ffcce6';
                 secondary = '#cc0066';
             }

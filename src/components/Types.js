@@ -1,30 +1,25 @@
 import React, {Component} from 'react';
 import '../sass-css/Types.scss';
+import normal from '../images/type-icons/normal.png';
+import fire from '../images/type-icons/fire.png';
+import fighting from '../images/type-icons/fighting.png';
+import water from '../images/type-icons/water.png';
+import flying from '../images/type-icons/flying.png';
+import grass from '../images/type-icons/grass.png';
+import poison from '../images/type-icons/poison.png';
+import electric from '../images/type-icons/electric.png';
+import ground from '../images/type-icons/ground.png';
+import psychic from '../images/type-icons/psychic.png';
+import rock from '../images/type-icons/rock.png';
+import ice from '../images/type-icons/ice.png';
+import bug from '../images/type-icons/bug.png';
+import dragon from '../images/type-icons/dragon.png';
+import ghost from '../images/type-icons/ghost.png';
+import dark from '../images/type-icons/dark.png';
+import steel from '../images/type-icons/steel.png';
+import fairy from '../images/type-icons/fairy.png';
 
 export default class AuthComponent extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            normal: 'https://cdn.bulbagarden.net/upload/3/39/NormalIC_Big.png',
-            fire: 'https://cdn.bulbagarden.net/upload/2/26/FireIC_Big.png',
-            fighting: 'https://cdn.bulbagarden.net/upload/6/67/FightingIC_Big.png',
-            water: 'https://cdn.bulbagarden.net/upload/5/56/WaterIC_Big.png',
-            flying: 'https://cdn.bulbagarden.net/upload/c/cb/FlyingIC_Big.png',
-            grass: 'https://cdn.bulbagarden.net/upload/7/74/GrassIC_Big.png',
-            poison: 'https://cdn.bulbagarden.net/upload/3/3d/PoisonIC_Big.png',
-            electric: 'https://cdn.bulbagarden.net/upload/4/4a/ElectricIC_Big.png',
-            ground: 'https://cdn.bulbagarden.net/upload/8/8f/GroundIC_Big.png',
-            psychic: 'https://cdn.bulbagarden.net/upload/6/60/PsychicIC_Big.png',
-            rock: 'https://cdn.bulbagarden.net/upload/c/ce/RockIC_Big.png',
-            ice: 'https://cdn.bulbagarden.net/upload/6/6f/IceIC_Big.png',
-            bug: 'https://cdn.bulbagarden.net/upload/c/c8/BugIC_Big.png',
-            dragon: 'https://cdn.bulbagarden.net/upload/4/48/DragonIC_Big.png',
-            ghost: 'https://cdn.bulbagarden.net/upload/7/73/GhostIC_Big.png',
-            dark: 'https://cdn.bulbagarden.net/upload/5/56/DarkIC_Big.png',
-            steel: 'https://cdn.bulbagarden.net/upload/d/d4/SteelIC_Big.png',
-            fairy: 'https://cdn.bulbagarden.net/upload/7/73/FairyIC_Big.png'
-        }
-    }
 
     componentDidMount(){
         this.props.setButton(false);
@@ -33,7 +28,6 @@ export default class AuthComponent extends Component {
     }
 
     render(){
-        const {normal, fire, fighting, water, flying, grass, poison, electric, ground, psychic, rock, ice, bug, dragon, ghost, dark, steel, fairy} = this.state;
         return (
             <div className='main'>
                 <div className='backdrop'>

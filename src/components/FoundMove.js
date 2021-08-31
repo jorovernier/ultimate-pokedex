@@ -1,5 +1,23 @@
 import React, {Component} from 'react';
 import '../sass-css/FoundMove.scss';
+import normal from '../images/type-icons/normal.png';
+import fire from '../images/type-icons/fire.png';
+import fighting from '../images/type-icons/fighting.png';
+import water from '../images/type-icons/water.png';
+import flying from '../images/type-icons/flying.png';
+import grass from '../images/type-icons/grass.png';
+import poison from '../images/type-icons/poison.png';
+import electric from '../images/type-icons/electric.png';
+import ground from '../images/type-icons/ground.png';
+import psychic from '../images/type-icons/psychic.png';
+import rock from '../images/type-icons/rock.png';
+import ice from '../images/type-icons/ice.png';
+import bug from '../images/type-icons/bug.png';
+import dragon from '../images/type-icons/dragon.png';
+import ghost from '../images/type-icons/ghost.png';
+import dark from '../images/type-icons/dark.png';
+import steel from '../images/type-icons/steel.png';
+import fairy from '../images/type-icons/fairy.png';
 
 export default class FoundMove extends Component {
     constructor(props){
@@ -37,79 +55,78 @@ export default class FoundMove extends Component {
         let primary;
         let secondary;
         if(move.type.name === 'normal'){
-            url = 'https://cdn.bulbagarden.net/upload/3/39/NormalIC_Big.png';
+            url = `${normal}`;
             primary = '#ffffe6';
             secondary = '#5c5c3d';
         } else if(move.type.name === 'fire'){
-            url = 'https://cdn.bulbagarden.net/upload/2/26/FireIC_Big.png';
+            url = `${fire}`;
             primary = '#ffc299';
             secondary = '#cc5200';
         } else if(move.type.name === 'fighting'){
-            url = 'https://cdn.bulbagarden.net/upload/6/67/FightingIC_Big.png';
+            url = `${fighting}`;
             primary = '#ffdab3';
             secondary = '#990000';
         } else if(move.type.name === 'water'){
-            url = 'https://cdn.bulbagarden.net/upload/5/56/WaterIC_Big.png';
+            url = `${water}`;
             primary = '#86d3fb';
             secondary = '#003b72';
         } else if(move.type.name === 'flying'){
-            url = 'https://cdn.bulbagarden.net/upload/c/cb/FlyingIC_Big.png';
+            url = `${flying}`;
             primary = '#e6ffff';
             secondary = '#86d3fb';
         } else if(move.type.name === 'grass'){
-            url = 'https://cdn.bulbagarden.net/upload/7/74/GrassIC_Big.png';
+            url = `${grass}`;
             primary = '#84e184';
             secondary = '#28a428';
         } else if(move.type.name === 'poison'){
-            url = 'https://cdn.bulbagarden.net/upload/3/3d/PoisonIC_Big.png';
+            url = `${poison}`;
             primary = '#ecc6ec';
             secondary = '#732673';
         } else if(move.type.name === 'electric'){
-            url = 'https://cdn.bulbagarden.net/upload/4/4a/ElectricIC_Big.png';
+            url = `${electric}`;
             primary = '#ffff33';
             secondary = '#cccc00';
         } else if(move.type.name === 'ground'){
-            url = 'https://cdn.bulbagarden.net/upload/8/8f/GroundIC_Big.png';
+            url = `${ground}`;
             primary = '#e6ccb3';
             secondary = '#b38600';
         } else if(move.type.name === 'psychic'){
-            url = 'https://cdn.bulbagarden.net/upload/6/60/PsychicIC_Big.png';
+            url = `${psychic}`;
             primary = '#ff80df';
             secondary = '#800080';
         } else if(move.type.name === 'rock'){
-            url = 'https://cdn.bulbagarden.net/upload/c/ce/RockIC_Big.png';
+            url = `${rock}`;
             primary = '#dfbf9f';
             secondary = '#6a5048';
         } else if(move.type.name === 'ice'){
-            url = 'https://cdn.bulbagarden.net/upload/6/6f/IceIC_Big.png';
+            url = `${ice}`;
             primary = '#e6ffff';
             secondary = '#00cccc';
         } else if(move.type.name === 'bug'){
-            url = 'https://cdn.bulbagarden.net/upload/c/c8/BugIC_Big.png';
+            url = `${bug}`;
             primary = '#dfff80';
             secondary = '#808000';
         } else if(move.type.name === 'dragon'){
-            url = 'https://cdn.bulbagarden.net/upload/4/48/DragonIC_Big.png';
+            url = `${dragon}`;
             primary = '#ffe6e6';
             secondary = '#9933ff';
         } else if(move.type.name === 'ghost'){
-            url = 'https://cdn.bulbagarden.net/upload/7/73/GhostIC_Big.png';
+            url = `${ghost}`;
             primary = '#ccaad5';
             secondary = '#4d374b';
         } else if(move.type.name === 'dark'){
-            url = 'https://cdn.bulbagarden.net/upload/5/56/DarkIC_Big.png';
+            url = `${dark}`;
             primary = '#bdaea8';
             secondary = '#28283e';
         } else if(move.type.name === 'steel'){
-            url = 'https://cdn.bulbagarden.net/upload/d/d4/SteelIC_Big.png';
+            url = `${steel}`;
             primary = '#d9d9d9';
             secondary = '#404040';
         } else if(move.type.name === 'fairy'){
-            url = 'https://cdn.bulbagarden.net/upload/7/73/FairyIC_Big.png';
+            url = `${fairy}`;
             primary = '#ffcce6';
             secondary = '#cc0066';
         }
-
         let fixed;
         if(move.effect_entries[0].effect.includes('$effect_chance')){
             fixed = move.effect_entries[0].effect.replace('$effect_chance', move.effect_chance)

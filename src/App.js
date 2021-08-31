@@ -18,7 +18,6 @@ import UnovaDex from './components/regions/UnovaDex';
 import KalosDex from './components/regions/KalosDex';
 import AlolaDex from './components/regions/AlolaDex';
 import GalarDex from './components/regions/GalarDex';
-// import FormDex from './components/FormDex';
 import ItemDex from './components/ItemDex';
 import MoveDex from './components/MoveDex';
 import SearchByMove from './components/SearchByMove';
@@ -200,7 +199,6 @@ class App extends React.Component {
                 <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/pokedex-kalos' >Kalos</NavLink>
                 <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/pokedex-alola' >Alola</NavLink>
                 <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/pokedex-galar' >Galar</NavLink>
-                {/* <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/formdex' >Forms</NavLink> */}
                 <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/itemdex' >Items</NavLink>
                 <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/movedex' >Moves</NavLink>
                 <NavLink onClick={() => this.toggleBurger(false)} className='nav' activeClassName='active' to='/search-by-move' >Move-Search</NavLink>

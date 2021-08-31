@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import '../sass-css/FoundItem.scss';
+import pokedollar from '../images/pokedollar.png';
 
 export default class FoundItem extends Component {
     prettify(name){
@@ -15,7 +16,7 @@ export default class FoundItem extends Component {
         if(item.cost === 0){
             bought = <div className='cost'>Cannot be bought.</div>
         } else {
-            bought = <div className='cost'><img src={'https://cdn.bulbagarden.net/upload/8/8c/Pok%C3%A9monDollar.png'} alt='pokedollar sprite'/>{item.cost}</div>
+            bought = <div className='cost'><img src={pokedollar} alt='pokedollar sprite'/>{item.cost}</div>
         }
         let mappedHoldMons = item.held_by_pokemon.map(item => <div key={item.pokemon.name}>{this.prettify(item.pokemon.name)}</div>)
         if(item.held_by_pokemon.length === 0){
