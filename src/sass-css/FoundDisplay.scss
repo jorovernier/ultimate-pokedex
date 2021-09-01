@@ -35,10 +35,26 @@
                 .name-num {
                     display: flex;
                     justify-content: space-around;
+                    align-items: center;
+                    .mega-switch {
+                        border-color: black;
+                        border-radius: 50px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        img {
+                            max-height: 40px;
+                            max-width: 40px;
+                        }
+                    }
                     h1 {
                         font-weight: bold;
                         font-size: 20px;
                         @extend %foundmargin;
+                    }
+                    .mega-back {
+                        border-color: black;
+                        border-radius: 50px;
                     }
                     .dex-num {
                         font-size: 20px;

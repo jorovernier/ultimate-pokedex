@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import StatsChart from './Chart';
 import '../sass-css/FoundDisplay.scss';
 import normal from '../images/type-icons/normal.png';
@@ -21,12 +22,21 @@ import steel from '../images/type-icons/steel.png';
 import fairy from '../images/type-icons/fairy.png';
 
 export default class FoundDisplay extends Component {
+
     prettify(name){
         return name.split('-').map(function capitalize(part) {
             return part.charAt(0).toUpperCase() + part.slice(1);
         }).join(' ');
     }
+
+    goOnGetIt(mon){
+        axios.get(`https://pokeapi.co/api/v2/pokemon/${mon}`).then(response => {
+            this.props.onSpriteClick(response.data.name);
+        })
+    }
+
     render(){
+
         let mappedEncounters = this.props.encounters.map(
             (encounter) => <div className='encounter' key={encounter.location_area.name} >{this.prettify(encounter.location_area.name)}</div>);
         let encounterDisplay;
@@ -43,11 +53,16 @@ export default class FoundDisplay extends Component {
         } else if(species.endsWith('-mega')){
             species = 'Mega ' + species.charAt(0).toUpperCase() + species.slice(1).replace('mega', '');
         }
-
-        // let switcher = false;
-        // if(species.includes('deoxys')){
-        //     switcher = true;
-        // }
+        
+        let megaSwitcher = false;
+        let megaStone = '';
+        if(species.includes('venusaur')){
+            megaSwitcher = true;
+            megaStone = 'venusaur';
+        } else if(species.includes('blastoise')){
+            megaSwitcher = true;
+            megaStone = 'blastoisin';
+        }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 // This changes the names from pokeapi into ones readable by the pokemon db to get the official art for the found display.
@@ -308,6 +323,8 @@ export default class FoundDisplay extends Component {
             src = `https://img.pokemondb.net/artwork/${forPMDB}.jpg`
         }
 
+
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------
         return(
             <div className='base-display' style={{backgroundColor: secondary}} >
@@ -316,10 +333,10 @@ export default class FoundDisplay extends Component {
 
                         <div className='top'>
                             <img className='mon-img' src={src} alt={`${pokemon.name}`} />
-                            {/* {switcher && (<button>?</button>)} */}
                             <div className='name-num'>
+                                {megaSwitcher && (<button className='mega-switch' onClick={() => this.goOnGetIt(species+'-mega')}><img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${megaStone}ite.png`} alt={`sprite of ${megaStone}`} /></button>)}
                                 <h1>{this.prettify(species)}</h1>
-                                <div className='dex-num'>Dex #: {pokemon.id}</div>
+                                {!pokemon.name.includes('-mega') ? <div className='dex-num'>Dex #: {pokemon.id}</div> : <div className='dex-num'><button className='mega-back' onClick={() => {this.props.onSpriteClick(pokemon.species.name)}}>Back</button></div>}
                             </div>
                         </div>
 

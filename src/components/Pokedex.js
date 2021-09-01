@@ -117,7 +117,7 @@ class Pokedex extends Component{
 
     let foundDisplay;
     if(found){
-      foundDisplay = <FoundDisplay pokemon={foundPokemon} encounters={this.state.encounters}/>
+      foundDisplay = <FoundDisplay onSpriteClick={this.onSpriteClick} pokemon={foundPokemon} encounters={this.state.encounters}/>
     } else {
       foundDisplay = <div>Search for a pokemon or click the egg for a surprise!</div>;
     }
