@@ -52,17 +52,177 @@ export default class FoundDisplay extends Component {
             species = 'Alolan ' + species.charAt(0).toUpperCase() + species.slice(1).replace('alola', '');
         } else if(species.endsWith('-mega')){
             species = 'Mega ' + species.charAt(0).toUpperCase() + species.slice(1).replace('mega', '');
+        } else if(species.endsWith('-primal')){
+            species = 'Primal ' + species.charAt(0).toUpperCase() + species.slice(1).replace('primal', '');
+        } else if(species.endsWith('-galar')){
+            species = 'Galarian ' + species.charAt(0).toUpperCase() + species.slice(1).replace('galar', '');
         }
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+// This allows users to mega-evolve pokemon with that ability.
         
         let megaSwitcher = false;
+        let twoMegas = false;
         let megaStone = '';
+        let megaStones = [];
+        let tail = '-mega';
         if(species.includes('venusaur')){
             megaSwitcher = true;
             megaStone = 'venusaur';
+        } else if(species.includes('charizard')){
+            megaSwitcher = true;
+            twoMegas = true;
+            megaStones = ['charizardite-x','charizardite-y'];
         } else if(species.includes('blastoise')){
             megaSwitcher = true;
             megaStone = 'blastoisin';
+        } else if(species.includes('beedrill')){
+            megaSwitcher = true;
+            megaStone = 'beedrill';
+        } else if(species.includes('pidgeot')){
+            megaSwitcher = true;
+            megaStone = 'pidgeot';
+        } else if(species.includes('alakazam')){
+            megaSwitcher = true;
+            megaStone = 'alakaz';
+        } else if(species.includes('slowbro')){
+            megaSwitcher = true;
+            megaStone = 'slowbron';
+        } else if(species.includes('gengar')){
+            megaSwitcher = true;
+            megaStone = 'gengar';
+        } else if(species.includes('kangaskhan')){
+            megaSwitcher = true;
+            megaStone = 'kangaskhan';
+        } else if(species.includes('pinsir')){
+            megaSwitcher = true;
+            megaStone = 'pinsir';
+        } else if(species.includes('gyarados')){
+            megaSwitcher = true;
+            megaStone = 'gyarados';
+        } else if(species.includes('aerodactyl')){
+            megaSwitcher = true;
+            megaStone = 'aerodactyl';
+        } else if(species.includes('mewtwo')){
+            megaSwitcher = true;
+            twoMegas = true;
+            megaStones = ['mewtwonite-x','mewtwonite-y'];
+        } else if(species.includes('ampharos')){
+            megaSwitcher = true;
+            megaStone = 'ampharos';
+        } else if(species.includes('steelix')){
+            megaSwitcher = true;
+            megaStone = 'steelix';
+        } else if(species.includes('scizor')){
+            megaSwitcher = true;
+            megaStone = 'scizor';
+        } else if(species.includes('heracross')){
+            megaSwitcher = true;
+            megaStone = 'heracron';
+        } else if(species.includes('houndoom')){
+            megaSwitcher = true;
+            megaStone = 'houndoomin';
+        } else if(species.includes('tyranitar')){
+            megaSwitcher = true;
+            megaStone = 'tyranitar';
+        } else if(species.includes('sceptile')){
+            megaSwitcher = true;
+            megaStone = 'sceptil';
+        } else if(species.includes('blaziken')){
+            megaSwitcher = true;
+            megaStone = 'blaziken';
+        } else if(species.includes('swampert')){
+            megaSwitcher = true;
+            megaStone = 'swampert';
+        } else if(species.includes('gardevoir')){
+            megaSwitcher = true;
+            megaStone = 'gardevoir';
+        } else if(species.includes('sableye')){
+            megaSwitcher = true;
+            megaStone = 'sablen';
+        } else if(species.includes('mawile')){
+            megaSwitcher = true;
+            megaStone = 'mawil';
+        } else if(species.includes('aggron')){
+            megaSwitcher = true;
+            megaStone = 'aggron';
+        } else if(species.includes('medicham')){
+            megaSwitcher = true;
+            megaStone = 'medicham';
+        } else if(species.includes('manectric')){
+            megaSwitcher = true;
+            megaStone = 'manect';
+        } else if(species.includes('sharpedo')){
+            megaSwitcher = true;
+            megaStone = 'sharpedon';
+        } else if(species.includes('camerupt')){
+            megaSwitcher = true;
+            megaStone = 'camerupt';
+        } else if(species.includes('altaria')){
+            megaSwitcher = true;
+            megaStone = 'altarian';
+        } else if(species.includes('banette')){
+            megaSwitcher = true;
+            megaStone = 'banett';
+        } else if(species.includes('absol')){
+            megaSwitcher = true;
+            megaStone = 'absol';
+        } else if(species.includes('glalie')){
+            megaSwitcher = true;
+            megaStone = 'glalit';
+        } else if(species.includes('salamence')){
+            megaSwitcher = true;
+            megaStone = 'salamenc';
+        } else if(species.includes('metagross')){
+            megaSwitcher = true;
+            megaStone = 'metagross';
+        } else if(species.includes('latias')){
+            megaSwitcher = true;
+            megaStone = 'latias';
+        } else if(species.includes('latios')){
+            megaSwitcher = true;
+            megaStone = 'latios';
+        } else if(species.includes('lopunny')){
+            megaSwitcher = true;
+            megaStone = 'lopunn';
+        } else if(species.includes('garchomp')){
+            megaSwitcher = true;
+            megaStone = 'garchomp';
+        } else if(species.includes('lucario')){
+            megaSwitcher = true;
+            megaStone = 'lucarion';
+        } else if(species.includes('abomasnow')){
+            megaSwitcher = true;
+            megaStone = 'abomas';
+        } else if(species.includes('gallade')){
+            megaSwitcher = true;
+            megaStone = 'gallad';
+        } else if(species.includes('audino')){
+            megaSwitcher = true;
+            megaStone = 'audin';
+        } else if(species.includes('diancie')){
+            megaSwitcher = true;
+            megaStone = 'dianc';
+        } else if(species.includes('kyogre')){
+            megaSwitcher = true;
+            megaStone = 'dianc';
+            tail = '-primal';
+        } else if(species.includes('groudon')){
+            megaSwitcher = true;
+            megaStone = 'dianc';
+            tail = '-primal';
+        } else if(species.includes('rayquaza')){
+            megaSwitcher = true;
+            megaStone = 'dianc';
         }
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+// This allows users to change forms of pokemon with multiple forms.
+
+        // let formSwitcher = false;
+        //  else if(species.includes('')){
+        //     formswitcher = true;
+        //     tail = '';
+        // }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 // This changes the names from pokeapi into ones readable by the pokemon db to get the official art for the found display.
@@ -71,14 +231,10 @@ export default class FoundDisplay extends Component {
             forPMDB = 'minior-meteor'
         } else if(forPMDB === 'mimikyu-disguised'){
             forPMDB = 'mimikyu'
-        } else if(forPMDB === 'raticate-totem-alola'){
-            forPMDB = 'raticate-alolan'
-        } else if(forPMDB === 'greninja-battle-bond'){
-            forPMDB = 'greninja'
         } else if(forPMDB.endsWith('-alola')){
             forPMDB = forPMDB.replace('-alola', '-alolan')
-        } else if(forPMDB.includes('-totem')){
-            forPMDB = forPMDB.replace('-totem', '')
+        } else if(forPMDB.includes('-galar')){
+            forPMDB = forPMDB.replace('-galar', '-galarian')
         };
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 // These are being accessed by the wall of if statements.
@@ -88,7 +244,7 @@ export default class FoundDisplay extends Component {
         let types; // Used for what will be rendered conditionally based on amount of types.
         let primary; // Used for conditional color scheme based on type.
         let secondary; // Used for conditional color scheme based on type.
-// If the pokemon has 2 types this will render the second type. -------------------------------------------------------------------------------------
+    // If the pokemon has 2 types this will render the second type. -------------------------------------------------------------------------------------
         if(pokemon.types.length > 1){
             if(pokemon.types[0].type.name === 'normal'){
                 url1 = `${normal}`;
@@ -145,7 +301,7 @@ export default class FoundDisplay extends Component {
                 url1 = `${fairy}`;
                 secondary = '#cc0066';
             }
-// If the pokemon has 2 types this will render the first type. ------------------------------------------------------------------------------------
+    // If the pokemon has 2 types this will render the first type. ------------------------------------------------------------------------------------
             if(pokemon.types[1].type.name === 'normal'){
                 url2 = `${normal}`;
                 primary = '#ffffe6';
@@ -206,7 +362,7 @@ export default class FoundDisplay extends Component {
                         <img className='type-img' src={url1} alt={`sprite of ${pokemon.types[0].type.name} type logo`}/>
                     </div>
         } 
-        // If the pokemon has 1 type this will render that type. ------------------------------------------------------------------------------------------
+    // If the pokemon has 1 type this will render that type. ------------------------------------------------------------------------------------------
         else {
             if(pokemon.types[0].type.name === 'normal'){
                 url = `${normal}`;
@@ -285,6 +441,7 @@ export default class FoundDisplay extends Component {
                         <img className='type-img' src={url} alt={`sprite of ${pokemon.types[0].type.name} type logo`}/>
                     </div>
         }
+//---------------------------------------------------------------------------------------------------------------------------------------------------
         let abilities;
         if(pokemon.abilities.length === 1){
             abilities = <span>
@@ -308,6 +465,7 @@ export default class FoundDisplay extends Component {
                             </div>
                         </span>
         }
+//---------------------------------------------------------------------------------------------------------------------------------------------------
         let src;
         if(forPMDB === 'floette-eternal'){
             src = 'https://cdn.bulbagarden.net/upload/2/29/AZ%27s_Floette.png'
@@ -334,9 +492,29 @@ export default class FoundDisplay extends Component {
                         <div className='top'>
                             <img className='mon-img' src={src} alt={`${pokemon.name}`} />
                             <div className='name-num'>
-                                {megaSwitcher && (<button className='mega-switch' onClick={() => this.goOnGetIt(species+'-mega')}><img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${megaStone}ite.png`} alt={`sprite of ${megaStone}`} /></button>)}
+                                {megaSwitcher && (
+                                    !twoMegas 
+                                    ? <button className='mega-switch' onClick={() => this.goOnGetIt(species+tail)}>
+                                        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${megaStone}ite.png`} alt={`sprite of ${megaStone}`} />
+                                      </button>
+                                    : <div style={{display: species.includes('-mega') ? 'none' : 'flex'}}>
+                                        <button className='mega-switch' onClick={() => this.goOnGetIt(species+'-mega-x')}>
+                                            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${megaStones[0]}.png`} alt={`sprite of ${megaStones[0]}`} />
+                                        </button>
+                                        <button className='mega-switch' onClick={() => this.goOnGetIt(species+'-mega-y')}>
+                                            <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${megaStones[1]}.png`} alt={`sprite of ${megaStones[1]}`} />
+                                        </button>
+                                      </div>
+                                )}
+                                {/* {formSwitcher && (
+                                    <button onClick={() => this.goOnGetIt(species+tail)}>
+                                        {tail.split('-').map(function capitalize(part) {
+                                            return part.charAt(0).toUpperCase() + part.slice(1);
+                                        })}
+                                    </button>
+                                )} */}
                                 <h1>{this.prettify(species)}</h1>
-                                {!pokemon.name.includes('-mega') ? <div className='dex-num'>Dex #: {pokemon.id}</div> : <div className='dex-num'><button className='mega-back' onClick={() => {this.props.onSpriteClick(pokemon.species.name)}}>Back</button></div>}
+                                {pokemon.id<899 ? <div className='dex-num'>Dex #: {pokemon.id}</div> : <div className='dex-num'><button className='mega-back' onClick={() => {this.props.onSpriteClick(pokemon.species.name)}}>Back</button></div>}
                             </div>
                         </div>
 
