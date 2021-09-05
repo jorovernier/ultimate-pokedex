@@ -81,6 +81,9 @@ export default class FoundDisplay extends Component {
             encounterDisplay = mappedEncounters;
         }
 
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+// This cleans up pokemon names with two words.
+
         const {pokemon} = this.props;
         let species = pokemon.name;
         if(species.endsWith('-alola')){
@@ -92,6 +95,7 @@ export default class FoundDisplay extends Component {
         } else if(species.endsWith('-primal')){
             species = 'Primal ' + species.charAt(0).toUpperCase() + species.slice(1).replace('primal', '');
         }
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 // This allows users to mega-evolve pokemon with that ability.
         
@@ -251,7 +255,7 @@ export default class FoundDisplay extends Component {
         }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-// This allows users to change forms of pokemon with multiple forms.
+// This allows users to switch forms of pokemon with multiple forms.
 
         let formSwitcher = false;
         let formsArray = [];
@@ -352,7 +356,8 @@ export default class FoundDisplay extends Component {
             : <option key={index} value={pokemon.species.name+form}>Selected</option>)
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-// This changes the names from pokeapi into ones readable by the pokemon db to get the official art for the found display.
+// This changes the names from PokeAPI into ones readable by Pokemon DB to get the official art for the found display.
+
         let forPMDB = pokemon.name;
         if(forPMDB === 'minior-red-meteor'){
             forPMDB = 'minior-meteor'
@@ -371,6 +376,7 @@ export default class FoundDisplay extends Component {
         } else if(forPMDB.includes('-galar')){
             forPMDB = forPMDB.replace('-galar', '-galarian')
         };
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 // These are being accessed by the wall of if statements.
         let url; // Used as url if the pokemon has only one type.
@@ -576,7 +582,9 @@ export default class FoundDisplay extends Component {
                         <img className='type-img' src={url} alt={`sprite of ${pokemon.types[0].type.name} type logo`}/>
                     </div>
         }
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------
+        
         let abilities;
         if(pokemon.abilities.length === 1){
             abilities = <span>
@@ -600,7 +608,10 @@ export default class FoundDisplay extends Component {
                             </div>
                         </span>
         }
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------
+// To keep things mostly dyanmic, any differing urls are hard coded in here to display images properly.
+
         let src;
         if(forPMDB === 'floette-eternal'){
             src = 'https://cdn.bulbagarden.net/upload/2/29/AZ%27s_Floette.png'
@@ -615,7 +626,9 @@ export default class FoundDisplay extends Component {
         } else {
             src = `https://img.pokemondb.net/artwork/${forPMDB}.jpg`
         }
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------
+// Other forms of pokemon have high dex numbers in the PokeAPI, so this replaces the dex number based on certain conditions.
 
         let dexNum;
         if (pokemon.name.includes('-mega')){
@@ -633,6 +646,7 @@ export default class FoundDisplay extends Component {
         }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
+
         return(
             <div className='base-display' style={{backgroundColor: secondary}} >
                 <div className='display' style={{backgroundColor: primary}} >
@@ -659,7 +673,7 @@ export default class FoundDisplay extends Component {
                                 {dexNum}
                             </div>
                             {formSwitcher && (
-                                <select name='Forms' id='form-select' defaultValue={this.state.value} onChange={this.formFetch}>
+                                <select name='Forms' id='form-select' value={this.state.value} onChange={this.formFetch}>
                                     {options}
                                 </select>
                             )}

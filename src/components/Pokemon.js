@@ -90,6 +90,7 @@ export default class Pokemon extends Component {
         }
     }
     render(){
+
         const {pokemon} = this.props;
         let species = pokemon.name;
         if(species.endsWith('-alola')){
@@ -97,8 +98,10 @@ export default class Pokemon extends Component {
         } else if(species.endsWith('-galar')){
             species = 'Galar ' + species.charAt(0).toUpperCase() + species.slice(1).replace('galar', '');
         }
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-// This changes the names from pokeapi into ones readable by the pokemon db to get the sprites for the pokedex display.
+// This changes the names from PokeAPI into ones readable by Pokemon DB to get the official art for the found display.
+
         let forPMDB = pokemon.name;
         if(forPMDB === 'minior-red-meteor'){
             forPMDB = 'minior-meteor'
@@ -113,7 +116,9 @@ export default class Pokemon extends Component {
         } else if(forPMDB.split('-').includes('galar')){
             forPMDB = forPMDB.replace('-galar', 'galarian')
         };
+
 //---------------------------------------------------------------------------------------------------------------------------------------------------
+
         return (
             <div className='pokemon-box'>
                 <div className='pokemon'>
