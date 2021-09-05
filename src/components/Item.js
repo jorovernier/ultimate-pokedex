@@ -15,6 +15,8 @@ export default class Item extends Component {
             fixedName = 'tm-normal'
         } else if(fixedName.startsWith('hm')){
             fixedName = 'hm-normal'
+        } else if(fixedName.startsWith('data-card')){
+            fixedName = 'data-card'
         };
 
         return (

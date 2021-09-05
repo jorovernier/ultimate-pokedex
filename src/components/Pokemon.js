@@ -104,18 +104,14 @@ export default class Pokemon extends Component {
             forPMDB = 'minior-meteor'
         } else if(forPMDB === 'mimikyu-disguised'){
             forPMDB = 'mimikyu'
-        } else if(forPMDB === 'raticate-totem-alola'){
-            forPMDB = 'raticate-alolan'
-        } else if(forPMDB === 'greninja-battle-bond'){
-            forPMDB = 'greninja'
         } else if(forPMDB.startsWith('pikachu')){
             forPMDB = 'pikachu'
         } else if(forPMDB.startsWith('castform')){
             forPMDB = 'castform'
         } else if(forPMDB.endsWith('-alola')){
             forPMDB = forPMDB.replace('-alola', '-alolan')
-        } else if(forPMDB.split('-').includes('totem')){
-            forPMDB = forPMDB.replace('-totem', '')
+        } else if(forPMDB.split('-').includes('galar')){
+            forPMDB = forPMDB.replace('-galar', 'galarian')
         };
 //---------------------------------------------------------------------------------------------------------------------------------------------------
         return (
