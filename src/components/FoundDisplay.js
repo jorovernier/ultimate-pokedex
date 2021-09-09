@@ -25,9 +25,11 @@ export default class FoundDisplay extends Component {
     constructor(props){
         super(props)
         this.state = {
-            value: ''
+            value: '',
+            imgIndex: 0
         }
         this.formFetch = this.formFetch.bind(this);
+        this.imageChange = this.imageChange.bind(this);
     }
 
     componentDidMount(){
@@ -70,6 +72,14 @@ export default class FoundDisplay extends Component {
         })
     }
 
+    imageChange(amount) {
+        if(this.state.imgIndex+1<amount){
+            this.setState({imgIndex: this.state.imgIndex+1})
+        } else {
+            this.setState({imgIndex: 0})
+        }
+    }
+
     render(){
 
         let mappedEncounters = this.props.encounters.map(
@@ -88,6 +98,10 @@ export default class FoundDisplay extends Component {
         let species = pokemon.name;
         if(species.endsWith('-alola')){
             species = 'Alolan ' + species.charAt(0).toUpperCase() + species.slice(1).replace('alola', '');
+        } else if(species.endsWith('-standard-galar')){
+            species = pokemon.name
+        } else if(species.endsWith('-zen-galar')){
+            species = pokemon.name
         } else if(species.endsWith('-galar')){
             species = 'Galarian ' + species.charAt(0).toUpperCase() + species.slice(1).replace('galar', '');
         } else if(species.endsWith('-mega')){
@@ -106,152 +120,152 @@ export default class FoundDisplay extends Component {
         let tail = '-mega';
         if(species.includes('venusaur')){
             megaSwitcher = true;
-            megaStone = 'venusaur';
+            megaStone = 'venusaurite';
         } else if(species.includes('charizard')){
             megaSwitcher = true;
             twoMegas = true;
             megaStones = ['charizardite-x','charizardite-y'];
         } else if(species.includes('blastoise')){
             megaSwitcher = true;
-            megaStone = 'blastoisin';
+            megaStone = 'blastoisinite';
         } else if(species.includes('beedrill')){
             megaSwitcher = true;
-            megaStone = 'beedrill';
+            megaStone = 'beedrillite';
         } else if(species.includes('pidgeot')){
             megaSwitcher = true;
-            megaStone = 'pidgeot';
+            megaStone = 'pidgeotite';
         } else if(species.includes('alakazam')){
             megaSwitcher = true;
-            megaStone = 'alakaz';
+            megaStone = 'alakazite';
         } else if(species.includes('slowbro')){
             megaSwitcher = true;
-            megaStone = 'slowbron';
+            megaStone = 'slowbronite';
         } else if(species.includes('gengar')){
             megaSwitcher = true;
-            megaStone = 'gengar';
+            megaStone = 'gengarite';
         } else if(species.includes('kangaskhan')){
             megaSwitcher = true;
-            megaStone = 'kangaskhan';
+            megaStone = 'kangaskhanite';
         } else if(species.includes('pinsir')){
             megaSwitcher = true;
-            megaStone = 'pinsir';
+            megaStone = 'pinsirite';
         } else if(species.includes('gyarados')){
             megaSwitcher = true;
-            megaStone = 'gyarados';
+            megaStone = 'gyaradosite';
         } else if(species.includes('aerodactyl')){
             megaSwitcher = true;
-            megaStone = 'aerodactyl';
+            megaStone = 'aerodactylite';
         } else if(species.includes('mewtwo')){
             megaSwitcher = true;
             twoMegas = true;
             megaStones = ['mewtwonite-x','mewtwonite-y'];
         } else if(species.includes('ampharos')){
             megaSwitcher = true;
-            megaStone = 'ampharos';
+            megaStone = 'ampharosite';
         } else if(species.includes('steelix')){
             megaSwitcher = true;
-            megaStone = 'steelix';
+            megaStone = 'steelixite';
         } else if(species.includes('scizor')){
             megaSwitcher = true;
-            megaStone = 'scizor';
+            megaStone = 'scizorite';
         } else if(species.includes('heracross')){
             megaSwitcher = true;
-            megaStone = 'heracron';
+            megaStone = 'heracronite';
         } else if(species.includes('houndoom')){
             megaSwitcher = true;
-            megaStone = 'houndoomin';
+            megaStone = 'houndoominite';
         } else if(species.includes('tyranitar')){
             megaSwitcher = true;
-            megaStone = 'tyranitar';
+            megaStone = 'tyranitarite';
         } else if(species.includes('sceptile')){
             megaSwitcher = true;
-            megaStone = 'sceptil';
+            megaStone = 'sceptilite';
         } else if(species.includes('blaziken')){
             megaSwitcher = true;
-            megaStone = 'blaziken';
+            megaStone = 'blazikenite';
         } else if(species.includes('swampert')){
             megaSwitcher = true;
-            megaStone = 'swampert';
+            megaStone = 'swampertite';
         } else if(species.includes('gardevoir')){
             megaSwitcher = true;
-            megaStone = 'gardevoir';
+            megaStone = 'gardevoirite';
         } else if(species.includes('sableye')){
             megaSwitcher = true;
-            megaStone = 'sablen';
+            megaStone = 'sablenite';
         } else if(species.includes('mawile')){
             megaSwitcher = true;
-            megaStone = 'mawil';
+            megaStone = 'mawilite';
         } else if(species.includes('aggron')){
             megaSwitcher = true;
-            megaStone = 'aggron';
+            megaStone = 'aggronite';
         } else if(species.includes('medicham')){
             megaSwitcher = true;
-            megaStone = 'medicham';
+            megaStone = 'medichamite';
         } else if(species.includes('manectric')){
             megaSwitcher = true;
-            megaStone = 'manect';
+            megaStone = 'manectite';
         } else if(species.includes('sharpedo')){
             megaSwitcher = true;
-            megaStone = 'sharpedon';
+            megaStone = 'sharpedonite';
         } else if(species.includes('camerupt')){
             megaSwitcher = true;
-            megaStone = 'camerupt';
+            megaStone = 'cameruptite';
         } else if(species.includes('altaria')){
             megaSwitcher = true;
-            megaStone = 'altarian';
+            megaStone = 'altarianite';
         } else if(species.includes('banette')){
             megaSwitcher = true;
-            megaStone = 'banett';
+            megaStone = 'banettite';
         } else if(species.includes('absol')){
             megaSwitcher = true;
-            megaStone = 'absol';
+            megaStone = 'absolite';
         } else if(species.includes('glalie')){
             megaSwitcher = true;
-            megaStone = 'glalit';
+            megaStone = 'glalitite';
         } else if(species.includes('salamence')){
             megaSwitcher = true;
-            megaStone = 'salamenc';
+            megaStone = 'salamencite';
         } else if(species.includes('metagross')){
             megaSwitcher = true;
-            megaStone = 'metagross';
+            megaStone = 'metagrossite';
         } else if(species.includes('latias')){
             megaSwitcher = true;
-            megaStone = 'latias';
+            megaStone = 'latiasite';
         } else if(species.includes('latios')){
             megaSwitcher = true;
-            megaStone = 'latios';
+            megaStone = 'latiosite';
         } else if(species.includes('lopunny')){
             megaSwitcher = true;
-            megaStone = 'lopunn';
+            megaStone = 'lopunnite';
         } else if(species.includes('garchomp')){
             megaSwitcher = true;
-            megaStone = 'garchomp';
+            megaStone = 'garchompite';
         } else if(species.includes('lucario')){
             megaSwitcher = true;
-            megaStone = 'lucarion';
+            megaStone = 'lucarionite';
         } else if(species.includes('abomasnow')){
             megaSwitcher = true;
-            megaStone = 'abomas';
+            megaStone = 'abomasite';
         } else if(species.includes('gallade')){
             megaSwitcher = true;
-            megaStone = 'gallad';
+            megaStone = 'galladite';
         } else if(species.includes('audino')){
             megaSwitcher = true;
-            megaStone = 'audin';
+            megaStone = 'audinite';
         } else if(species.includes('diancie')){
             megaSwitcher = true;
-            megaStone = 'dianc';
+            megaStone = 'diancite';
         } else if(species.includes('kyogre')){
             megaSwitcher = true;
-            megaStone = 'dianc';
+            megaStone = 'mega-bracelet';
             tail = '-primal';
         } else if(species.includes('groudon')){
             megaSwitcher = true;
-            megaStone = 'dianc';
+            megaStone = 'mega-bracelet';
             tail = '-primal';
         } else if(species.includes('rayquaza')){
             megaSwitcher = true;
-            megaStone = 'dianc';
+            megaStone = 'mega-bracelet';
         }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -280,7 +294,10 @@ export default class FoundDisplay extends Component {
         } else if(species.includes('basculin')){
             formSwitcher = true;
             formsArray = ['-red-striped', '-blue-striped'];
-        } else if(species.includes('darmanitan')){
+        } else if(species === 'darmanitan-standard'){
+            formSwitcher = true;
+            formsArray = ['-standard', '-zen'];
+        } else if(species === 'darmanitan-zen'){
             formSwitcher = true;
             formsArray = ['-standard', '-zen'];
         } else if(species.includes('meloetta')){
@@ -349,11 +366,50 @@ export default class FoundDisplay extends Component {
         } else if(species.includes('calyrex')){
             formSwitcher = true;
             formsArray = ['', '-ice-rider', '-shadow-rider'];
+        } else if(species.includes('-standard-galar')){
+            formSwitcher = true;
+            formsArray = ['-standard-galar', '-zen-galar'];
+        } else if(species.includes('-zen-galar')){
+            formSwitcher = true;
+            formsArray = ['-standard-galar', '-zen-galar'];
         }
 
-        let options = formsArray.map((form, index) => pokemon.species.name+form !== species 
-            ? <option key={index} value={pokemon.species.name+form}>{this.prettify(pokemon.species.name+form)}</option> 
-            : <option key={index} value={pokemon.species.name+form}>Selected</option>)
+        let options = formsArray.map((form, index) => 
+            pokemon.species.name+form !== species 
+                ? <option key={index} value={pokemon.species.name+form}>{this.prettify(pokemon.species.name+form)}</option> 
+                : <option key={index} value={pokemon.species.name+form}>Selected</option>
+        )
+
+//---------------------------------------------------------------------------------------------------------------------------------------------------
+// This sets the extra images of pokemon that have purely aesthetic form differences.
+
+        let imageSwitcher = false;
+        let images = [];
+        if (species.includes('cherrim')){
+            imageSwitcher = true;
+            images = ['-overcast', '-sunny'];
+        } else if (species.includes('gastrodon')){
+            imageSwitcher = true;
+            images = ['-west', '-east'];
+        } else if (species.includes('deerling')){
+            imageSwitcher = true;
+            images = ['-spring', '-summer', '-autumn', '-winter'];
+        } else if (species.includes('sawsbuck')){
+            imageSwitcher = true;
+            images = ['-spring', '-summer', '-autumn', '-winter'];
+        } else if (species.includes('morpeko')){
+            imageSwitcher = true;
+            images = ['-full-belly', '-hangry'];
+        }
+
+        let isTooHigh = false;
+        let imgNum = this.state.imgIndex+1;
+        if (imgNum>images.length){
+            isTooHigh = true;
+        }
+
+        console.log(imgNum)
+        console.log(images.length)
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 // This changes the names from PokeAPI into ones readable by Pokemon DB to get the official art for the found display.
@@ -371,6 +427,10 @@ export default class FoundDisplay extends Component {
             forPMDB = 'necrozma-dawn-wings'
         } else if(forPMDB === 'morpeko'){
             forPMDB = 'morpeko-full-belly'
+        } else if(forPMDB.includes('-standard-galar')){
+            forPMDB = 'darmanitan-galarian-standard'
+        } else if(forPMDB.includes('-zen-galar')){
+            forPMDB = 'darmanitan-galarian-zen'
         } else if(forPMDB.endsWith('-alola')){
             forPMDB = forPMDB.replace('-alola', '-alolan')
         } else if(forPMDB.includes('-galar')){
@@ -644,7 +704,7 @@ export default class FoundDisplay extends Component {
         } else {
             dexNum = <div className='dex-num'>Dex #: {pokemon.id}</div>
         }
-
+        
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 
         return(
@@ -653,12 +713,13 @@ export default class FoundDisplay extends Component {
                     <div className='col1'>
 
                         <div className='top'>
-                            <img className='mon-img' src={src} alt={`${pokemon.name}`} />
+                            <img className='mon-img' src={imageSwitcher ? !isTooHigh ? `https://img.pokemondb.net/artwork/${pokemon.species.name+images[this.state.imgIndex]}.jpg` : `https://img.pokemondb.net/artwork/${pokemon.species.name+images[0]}.jpg` : src} alt={`${pokemon.name}`} />
+                            {imageSwitcher && <button onClick={() => this.imageChange(images.length)}></button>}
                             <div className='name-num'>
                                 {megaSwitcher && (
                                     !twoMegas 
                                     ? <button className='mega-switch' onClick={() => this.megaFetch(species+tail)}>
-                                        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${megaStone}ite.png`} alt={`sprite of ${megaStone}`} />
+                                        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/${megaStone}.png`} alt={`sprite of ${megaStone}`} />
                                       </button>
                                     : <div style={{display: species.includes('-mega') ? 'none' : 'flex'}}>
                                         <button className='mega-switch' onClick={() => this.megaFetch(species+'-mega-x')}>

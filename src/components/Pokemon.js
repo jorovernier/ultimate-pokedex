@@ -95,12 +95,14 @@ export default class Pokemon extends Component {
         let species = pokemon.name;
         if(species.endsWith('-alola')){
             species = 'Alolan ' + species.charAt(0).toUpperCase() + species.slice(1).replace('alola', '');
+        } else if(species.includes('-standard-galar')){
+            species = 'Galarian Darmanitan';
         } else if(species.endsWith('-galar')){
-            species = 'Galar ' + species.charAt(0).toUpperCase() + species.slice(1).replace('galar', '');
+            species = 'Galarian ' + species.charAt(0).toUpperCase() + species.slice(1).replace('galar', '');
         }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
-// This changes the names from PokeAPI into ones readable by Pokemon DB to get the official art for the found display.
+// This changes the names from PokeAPI into ones readable by Pokemon DB to get the official sprite for the Pokedex.
 
         let forPMDB = pokemon.name;
         if(forPMDB === 'minior-red-meteor'){
@@ -113,8 +115,10 @@ export default class Pokemon extends Component {
             forPMDB = 'castform'
         } else if(forPMDB.endsWith('-alola')){
             forPMDB = forPMDB.replace('-alola', '-alolan')
+        } else if(forPMDB.includes('-standard-galar')){
+            forPMDB = 'darmanitan-galarian-standard'
         } else if(forPMDB.split('-').includes('galar')){
-            forPMDB = forPMDB.replace('-galar', 'galarian')
+            forPMDB = forPMDB.replace('-galar', '-galarian')
         };
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------

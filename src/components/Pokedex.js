@@ -34,11 +34,44 @@ class Pokedex extends Component{
       loading : true
     });
     axios.get(`${this.props.url}`).then(response => {
-      this.setState({
-        species : response.data.results,
-        loading : false,
-        fetched : true
-      });
+      if(this.props.stitch){
+        let firstSet = response.data.results;
+        axios.get(`${this.props.url2}`).then(response => {
+          let secondSet = response.data.results;
+          let combined = firstSet.concat(secondSet);
+          if(this.props.region === 'alola'){
+            axios.get('https://pokeapi.co/api/v2/pokemon?limit=2&offset=988').then(response => {
+              let rats = response.data.results;
+              let alolaSecondSet = rats.concat(secondSet);
+              let finished = firstSet.concat(alolaSecondSet);
+              this.setState({
+                species : finished,
+                loading : false,
+                fetched : true
+              })
+            })
+          } else if(this.props.region === 'galar'){
+            combined.splice(106, 1);
+            this.setState({
+              species : combined,
+              loading : false,
+              fetched : true
+            })
+          } else {
+            this.setState({
+              species : combined,
+              loading : false,
+              fetched : true
+            })
+          }
+        })
+      } else {
+        this.setState({
+          species : response.data.results,
+          loading : false,
+          fetched : true
+        });
+      };
     });
     this.props.sendID(0);
     this.props.setButton(true);
