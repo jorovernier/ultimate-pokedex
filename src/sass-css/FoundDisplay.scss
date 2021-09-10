@@ -32,6 +32,10 @@
                     max-width: 500px;
                     @extend %foundmargin;
                 }
+                .image-switch {
+                    border-color: black;
+                    border-radius: 50px;
+                }
                 .name-num {
                     display: flex;
                     justify-content: space-around;
@@ -196,7 +200,7 @@
             overflow: scroll;
             .col1 {
                 .top {
-                    max-height: 350px;
+                    max-height: 370px;
                     .mon-img {
                         max-height: 300px;
                     }
@@ -251,7 +255,7 @@
             overflow-y: scroll;
             .col1 {
                 .top {
-                    max-height: 250px;
+                    max-height: 270px;
                     .mon-img {
                         max-height: 200px;
                         max-width: 300px;
@@ -445,7 +449,7 @@
                 overflow: visible;
                 .top {
                     width: 235px;
-                    max-height: 200px;
+                    max-height: 230px;
                     padding: 0px;
                     .mon-img {
                         max-width: 100px;

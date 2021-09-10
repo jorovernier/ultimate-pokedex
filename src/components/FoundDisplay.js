@@ -98,16 +98,16 @@ export default class FoundDisplay extends Component {
         let species = pokemon.name;
         if(species.endsWith('-alola')){
             species = 'Alolan ' + species.charAt(0).toUpperCase() + species.slice(1).replace('alola', '');
-        } else if(species.endsWith('-standard-galar')){
-            species = pokemon.name
-        } else if(species.endsWith('-zen-galar')){
-            species = pokemon.name
         } else if(species.endsWith('-galar')){
             species = 'Galarian ' + species.charAt(0).toUpperCase() + species.slice(1).replace('galar', '');
         } else if(species.endsWith('-mega')){
             species = 'Mega ' + species.charAt(0).toUpperCase() + species.slice(1).replace('mega', '');
         } else if(species.endsWith('-primal')){
             species = 'Primal ' + species.charAt(0).toUpperCase() + species.slice(1).replace('primal', '');
+        } else if(species.includes('pumpkaboo')){
+            species = species.replace('-average', '');
+        } else if(species.includes('gourgeist')){
+            species = species.replace('-average', '');
         }
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
@@ -273,6 +273,7 @@ export default class FoundDisplay extends Component {
 
         let formSwitcher = false;
         let formsArray = [];
+        let darm = pokemon.name;
         if(species.includes('deoxys')){
             formSwitcher = true;
             formsArray = ['-normal', '-attack', '-defense', '-speed'];
@@ -366,16 +367,16 @@ export default class FoundDisplay extends Component {
         } else if(species.includes('calyrex')){
             formSwitcher = true;
             formsArray = ['', '-ice-rider', '-shadow-rider'];
-        } else if(species.includes('-standard-galar')){
+        } else if(darm.includes('-standard-galar')){
             formSwitcher = true;
             formsArray = ['-standard-galar', '-zen-galar'];
-        } else if(species.includes('-zen-galar')){
+        } else if(darm.includes('-zen-galar')){
             formSwitcher = true;
             formsArray = ['-standard-galar', '-zen-galar'];
         }
 
         let options = formsArray.map((form, index) => 
-            pokemon.species.name+form !== species 
+            pokemon.species.name+form !== darm 
                 ? <option key={index} value={pokemon.species.name+form}>{this.prettify(pokemon.species.name+form)}</option> 
                 : <option key={index} value={pokemon.species.name+form}>Selected</option>
         )
@@ -407,9 +408,6 @@ export default class FoundDisplay extends Component {
         if (imgNum>images.length){
             isTooHigh = true;
         }
-
-        console.log(imgNum)
-        console.log(images.length)
 
 //---------------------------------------------------------------------------------------------------------------------------------------------------
 // This changes the names from PokeAPI into ones readable by Pokemon DB to get the official art for the found display.
@@ -714,7 +712,7 @@ export default class FoundDisplay extends Component {
 
                         <div className='top'>
                             <img className='mon-img' src={imageSwitcher ? !isTooHigh ? `https://img.pokemondb.net/artwork/${pokemon.species.name+images[this.state.imgIndex]}.jpg` : `https://img.pokemondb.net/artwork/${pokemon.species.name+images[0]}.jpg` : src} alt={`${pokemon.name}`} />
-                            {imageSwitcher && <button onClick={() => this.imageChange(images.length)}></button>}
+                            {imageSwitcher && <button className='image-switch' onClick={() => this.imageChange(images.length)}>Forms</button>}
                             <div className='name-num'>
                                 {megaSwitcher && (
                                     !twoMegas 
