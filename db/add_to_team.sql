@@ -1,5 +1,5 @@
 UPDATE team
-SET p4 = $1
+SET p$3 = $1
 WHERE user_id = $2;
 
 SELECT * FROM team

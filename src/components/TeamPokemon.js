@@ -60,7 +60,7 @@ export default class TeamPokemon extends Component {
         return(
             <div className='team-pokemon'>
                 <div className='x-img'>
-                    <button className='x' onClick={() => this.props.remove()}></button>
+                    <button className='x' onClick={() => this.props.remove(`p${this.props.slot}_name`)}></button>
                     <img className='mon-img' src={`https://img.pokemondb.net/artwork/${teamPokemon.name}.jpg`} alt={`${teamPokemon.name}`} />
                 </div>
                 <div className='name-rename-input'>

@@ -21,12 +21,7 @@ class Profile extends Component {
         this.getTeam = this.getTeam.bind(this);
         this.editPic = this.editPic.bind(this);
         this.universalInput = this.universalInput.bind(this);
-        this.removeFromTeam1 = this.removeFromTeam1.bind(this);
-        this.removeFromTeam2 = this.removeFromTeam2.bind(this);
-        this.removeFromTeam3 = this.removeFromTeam3.bind(this);
-        this.removeFromTeam4 = this.removeFromTeam4.bind(this);
-        this.removeFromTeam5 = this.removeFromTeam5.bind(this);
-        this.removeFromTeam6 = this.removeFromTeam6.bind(this);
+        this.removeFromTeam = this.removeFromTeam.bind(this);
         this.changeName = this.changeName.bind(this);
     }
 
@@ -43,23 +38,8 @@ class Profile extends Component {
         }
     }
 
-    removeFromTeam1(){
-        axios.post('/api/remove_from_team1').then(this.getTeam())
-    }
-    removeFromTeam2(){
-        axios.post('/api/remove_from_team2').then(this.getTeam())
-    }
-    removeFromTeam3(){
-        axios.post('/api/remove_from_team3').then(this.getTeam())
-    }
-    removeFromTeam4(){
-        axios.post('/api/remove_from_team4').then(this.getTeam())
-    }
-    removeFromTeam5(){
-        axios.post('/api/remove_from_team5').then(this.getTeam())
-    }
-    removeFromTeam6(){
-        axios.post('/api/remove_from_team6').then(this.getTeam())
+    removeFromTeam(slot){
+        axios.post('/api/remove_from_team', {slot: slot}).then(this.getTeam())
     }
 
     getTeam(){
@@ -133,16 +113,16 @@ class Profile extends Component {
                                 return (
                                     <div className='user-team' key={index}>
                                         <span className='row1'>
-                                            {team.p1 && <TeamPokemon pokemon={team.p1} name={team.p1_name} remove={this.removeFromTeam1} save={this.changeName} slot={1}/>}
-                                            {team.p2 && <TeamPokemon pokemon={team.p2} name={team.p2_name} remove={this.removeFromTeam2} save={this.changeName} slot={2}/>}
+                                            {team.p1 && <TeamPokemon pokemon={team.p1} name={team.p1_name} remove={this.removeFromTeam} save={this.changeName} slot={1}/>}
+                                            {team.p2 && <TeamPokemon pokemon={team.p2} name={team.p2_name} remove={this.removeFromTeam} save={this.changeName} slot={2}/>}
                                         </span>
                                         <span className='row2'>
-                                            {team.p3 && <TeamPokemon pokemon={team.p3} name={team.p3_name} remove={this.removeFromTeam3} save={this.changeName} slot={3}/>}
-                                            {team.p4 && <TeamPokemon pokemon={team.p4} name={team.p4_name} remove={this.removeFromTeam4} save={this.changeName} slot={4}/>}
+                                            {team.p3 && <TeamPokemon pokemon={team.p3} name={team.p3_name} remove={this.removeFromTeam} save={this.changeName} slot={3}/>}
+                                            {team.p4 && <TeamPokemon pokemon={team.p4} name={team.p4_name} remove={this.removeFromTeam} save={this.changeName} slot={4}/>}
                                         </span>
                                         <span className='row3'>
-                                            {team.p5 && <TeamPokemon pokemon={team.p5} name={team.p5_name} remove={this.removeFromTeam5} save={this.changeName} slot={5}/>}
-                                            {team.p6 && <TeamPokemon pokemon={team.p6} name={team.p6_name} remove={this.removeFromTeam6} save={this.changeName} slot={6}/>}
+                                            {team.p5 && <TeamPokemon pokemon={team.p5} name={team.p5_name} remove={this.removeFromTeam} save={this.changeName} slot={5}/>}
+                                            {team.p6 && <TeamPokemon pokemon={team.p6} name={team.p6_name} remove={this.removeFromTeam} save={this.changeName} slot={6}/>}
                                         </span>
                                     </div>
                                 )

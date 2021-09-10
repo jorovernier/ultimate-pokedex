@@ -38,12 +38,7 @@ class App extends React.Component {
       img6: '',
       title: 'Login'
     }
-    this.addToTeam1 = this.addToTeam1.bind(this);
-    this.addToTeam2 = this.addToTeam2.bind(this);
-    this.addToTeam3 = this.addToTeam3.bind(this);
-    this.addToTeam4 = this.addToTeam4.bind(this);
-    this.addToTeam5 = this.addToTeam5.bind(this);
-    this.addToTeam6 = this.addToTeam6.bind(this);
+    this.addToTeam = this.addToTeam.bind(this);
     this.toggleBurger = this.toggleBurger.bind(this);
     this.toggleFooter = this.toggleFooter.bind(this);
     this.setFooter = this.setFooter.bind(this);
@@ -56,55 +51,15 @@ class App extends React.Component {
     this.img6 = this.img6.bind(this);
     this.changeTitle = this.changeTitle.bind(this);
   }
-  addToTeam1(){
+  addToTeam(slot, img){
     if(this.props.id > 0){
-      axios.post('/api/add_to_team1', {p1: this.props.id});
-      this.img1(this.props.id);
+      axios.post('/api/add_to_team', {p: this.props.id, slot: slot});
+      img(this.props.id);
     } else {
       window.alert('You cannot add nothing to your team!')
     }
   }
-  addToTeam2(){
-    if(this.props.id > 0){
-      axios.post('/api/add_to_team2', {p2: this.props.id});
-      this.img2(this.props.id);
-    } else {
-      window.alert('You cannot add nothing to your team!')
-    }
-  }
-  addToTeam3(){
-    if(this.props.id > 0){
-      axios.post('/api/add_to_team3', {p3: this.props.id});
-      this.img3(this.props.id);
-    } else {
-      window.alert('You cannot add nothing to your team!')
-    }
-  }
-  addToTeam4(){
-    if(this.props.id > 0){
-      axios.post('/api/add_to_team4', {p4: this.props.id});
-      this.img4(this.props.id);
-    } else {
-      window.alert('You cannot add nothing to your team!')
-    }
-  }
-  addToTeam5(){
-    if(this.props.id > 0){
-      axios.post('/api/add_to_team5', {p5: this.props.id});
-      this.img5(this.props.id);
-    } else {
-      window.alert('You cannot add nothing to your team!')
-    }
-  }
-  addToTeam6(){
-    if(this.props.id > 0){
-      axios.post('/api/add_to_team6', {p6: this.props.id});
-      this.img6(this.props.id);
-    } else {
-      window.alert('You cannot add nothing to your team!')
-    }
-  }
-
+  
   toggleBurger(boolean){
     this.setState({
       hamburger: boolean
@@ -239,12 +194,12 @@ class App extends React.Component {
         
           <footer className={this.state.footer ? 'show' : ''}>
             <div>
-              <button className='p1' onClick={() => this.addToTeam1()}>{this.state.img1 ? <img className='img1' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img1}.png`} alt='Team Slot 1'/> : 'Team Slot 1'}</button>
-              <button className='p2' onClick={() => this.addToTeam2()}>{this.state.img2 ? <img className='img2' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img2}.png`} alt='Team Slot 2'/> : 'Team Slot 2'}</button>
-              <button className='p3' onClick={() => this.addToTeam3()}>{this.state.img3 ? <img className='img3' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img3}.png`} alt='Team Slot 3'/> : 'Team Slot 3'}</button>
-              <button className='p4' onClick={() => this.addToTeam4()}>{this.state.img4 ? <img className='img4' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img4}.png`} alt='Team Slot 4'/> : 'Team Slot 4'}</button>
-              <button className='p5' onClick={() => this.addToTeam5()}>{this.state.img5 ? <img className='img5' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img5}.png`} alt='Team Slot 5'/> : 'Team Slot 5'}</button>
-              <button className='p6' onClick={() => this.addToTeam6()}>{this.state.img6 ? <img className='img6' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img6}.png`} alt='Team Slot 6'/> : 'Team Slot 6'}</button>
+              <button className='p1' onClick={() => this.addToTeam(1, this.img1)}>{this.state.img1 ? <img className='img1' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img1}.png`} alt='Team Slot 1'/> : 'Team Slot 1'}</button>
+              <button className='p2' onClick={() => this.addToTeam(2, this.img2)}>{this.state.img2 ? <img className='img2' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img2}.png`} alt='Team Slot 2'/> : 'Team Slot 2'}</button>
+              <button className='p3' onClick={() => this.addToTeam(3, this.img3)}>{this.state.img3 ? <img className='img3' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img3}.png`} alt='Team Slot 3'/> : 'Team Slot 3'}</button>
+              <button className='p4' onClick={() => this.addToTeam(4, this.img4)}>{this.state.img4 ? <img className='img4' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img4}.png`} alt='Team Slot 4'/> : 'Team Slot 4'}</button>
+              <button className='p5' onClick={() => this.addToTeam(5, this.img5)}>{this.state.img5 ? <img className='img5' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img5}.png`} alt='Team Slot 5'/> : 'Team Slot 5'}</button>
+              <button className='p6' onClick={() => this.addToTeam(6, this.img6)}>{this.state.img6 ? <img className='img6' src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${this.state.img6}.png`} alt='Team Slot 6'/> : 'Team Slot 6'}</button>
             </div>
           </footer>
         
