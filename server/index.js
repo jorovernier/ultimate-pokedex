@@ -1,12 +1,9 @@
 require('dotenv').config();
 const {CONNECTION_STRING, SESSION_SECRET, SERVER_PORT} = process.env;
 const express = require('express');
+const cors = require('cors');
 const app = express();
-
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    next();
-});
+app.use(cors());
 
 app.use(express.json());
 const massive = require('massive');
