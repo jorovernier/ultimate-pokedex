@@ -11,6 +11,7 @@ app.use((req, res, next) => {
 app.use(express.json());
 const massive = require('massive');
 const session = require('express-session');
+
 const {register, login, logout, userSession, editPic} = require('./controllers/userController');
 const {addToTeam, getTeam, removeFromTeam, changeName} = require('./controllers/teamController');
 
@@ -19,11 +20,11 @@ app.use(express.static(`${__dirname}/../build`));
 app.use(session({
     secret: SESSION_SECRET,
     resave: false,
-    saveUninitialized: false,
+    saveUninitialized: true,
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 14
     }
-}))
+}));
 
 massive(CONNECTION_STRING).then(db => {
     console.log('Database connected!');

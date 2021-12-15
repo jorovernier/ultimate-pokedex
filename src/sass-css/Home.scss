@@ -6,41 +6,22 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     align-items: center;
-    .welcome {
-        background-color: white;
-        @extend %border-setting;
-        border-color: $darkblue;
-        color: $darkblue;
-        height: 30vh;
-        width: 60vw;
+    .backdrop {
+        min-height: 130vh;
+        height: auto;
         display: flex;
+        flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
-        h1 {
-            width: 35vw;
-            font-size: 48px;
-            font-weight: bold;
-        }
-        .happy-pikachu {
-            max-height: 200px;
-        }
-    }
-    .b-row {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        .about {
+        .welcome {
             background-color: white;
             @extend %border-setting;
             border-color: $darkblue;
             color: $darkblue;
-            height: 30vh;
-            width: 32vw;
+            height: 70vh;
+            width: 60vw;
             display: flex;
-            flex-direction: column;
             justify-content: space-evenly;
             align-items: center;
             h1 {
@@ -48,39 +29,99 @@
                 font-size: 48px;
                 font-weight: bold;
             }
-            p {
-                font-size: 20px;
-                margin: 0px 15px;
-                a {
-                    color: $dexred;
+            .happy-pikachu {
+                max-width: 20vw;
+            }
+        }
+        .b-row {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            .about {
+                background-color: white;
+                @extend %border-setting;
+                border-color: $darkblue;
+                color: $darkblue;
+                height: 35vh;
+                width: 32vw;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                h1 {
+                    width: 35vw;
+                    font-size: 48px;
+                    font-weight: bold;
                 }
-                a:visited {
-                    color: #800015;
+                p {
+                    font-size: 20px;
+                    margin: 0px 15px;
+                    a {
+                        color: $dexred;
+                    }
+                    a:visited {
+                        color: #800015;
+                    }
+                    a:hover {
+                        color: $dexred;
+                    }
                 }
-                a:hover {
-                    color: $dexred;
+            }
+            .disclaimer {
+                background-color: white;
+                @extend %border-setting;
+                border-color: $darkblue;
+                color: $darkblue;
+                height: 35vh;
+                width: 32vw;
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                .a-p {
+                    height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    h1 {
+                        font-size: 48px;
+                        font-weight: bold;
+                    }
+                    p {
+                        font-size: 20px;
+                        margin: 0px 15px;
+                    }
+                }
+                .me {
+                    border: 5px solid;
+                    border-radius: 100px;
+                    border-color: $darkblue;
+                    color: $darkblue;
+                    max-width: 10vw;
+                    margin: 10px;
                 }
             }
         }
-        .disclaimer {
-            background-color: white;
-            @extend %border-setting;
-            border-color: $darkblue;
-            color: $darkblue;
-            height: 30vh;
-            width: 32vw;
+        .home-bottom {
+            position: fixed;
+            bottom: 0;
+            background-color: $lightblue;
+            border-top: 2px solid $darkblue;
+            height: 50px;
+            width: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: space-evenly;
             align-items: center;
-            h1 {
-                width: 30vw;
-                font-size: 48px;
-                font-weight: bold;
+            justify-content: center;
+            a {
+                color: $dexred;
             }
-            p {
-                font-size: 20px;
-                margin: 0px 15px;
+            a:visited {
+                color: #800015;
+            }
+            a:hover {
+                color: $dexred;
             }
         }
     }
@@ -88,15 +129,25 @@
 
 @media (max-width: 1350px) {
     .main {
-        .b-row {
-            .about {
-                p {
-                    font-size: 16px;
+        .backdrop {
+
+            .b-row {
+                .about {
+                    p {
+                        font-size: 16px;
+                    }
                 }
-            }
-            .disclaimer {
-                p {
-                    font-size: 16px;
+                .disclaimer {
+                    flex-direction: column;
+                    .a-p {
+                        width: 100%;
+                        p {
+                            font-size: 16px;
+                        }
+                    }
+                    .me {
+                        display: none;
+                    }
                 }
             }
         }
@@ -105,33 +156,38 @@
 
 @media (max-width: 850px) {
     .main {
-        .welcome {
-            min-height: 20vh;
-            height: auto;
-            margin-top: 50px;
-            h1 {
-                font-size: 36px;
-            }
-        }
-        .b-row {
-            height: 50vh;
-            flex-direction: column;
-            justify-content: space-between;
-            .about {
+        .backdrop {
+            .welcome {
                 min-height: 20vh;
                 height: auto;
-                width: 60vw;
+                margin-top: 50px;
                 h1 {
                     font-size: 36px;
                 }
             }
-            .disclaimer {
-                min-height: 20vh;
-                height: auto;
-                width: 60vw;
-                h1 {
-                    font-size: 36px;
-                    width: 50vw;
+            .b-row {
+                min-height: 50vh;
+                flex-direction: column;
+                justify-content: space-between;
+                .about {
+                    min-height: 20vh;
+                    height: auto;
+                    width: 60vw;
+                    h1 {
+                        font-size: 36px;
+                    }
+                }
+                .disclaimer {
+                    min-height: 20vh;
+                    height: auto;
+                    width: 60vw;
+                    .a-p {
+                        height: 18vh;
+                        h1 {
+                            font-size: 36px;
+                            width: 50vw;
+                        }
+                    }
                 }
             }
         }
@@ -140,29 +196,33 @@
 
 @media (max-width: 650px) {
     .main {
-        .welcome {
-            h1 {
-                font-size: 32px;
-            }
-            .happy-pikachu {
-                max-height: 150px;
-            }
-        }
-        .b-row {
-            .about {
+        .backdrop {
+            .welcome {
                 h1 {
-                    font-size: 24px;
+                    font-size: 32px;
                 }
-                p {
-                    font-size: 14px;
+                .happy-pikachu {
+                    max-height: 150px;
                 }
             }
-            .disclaimer {
-                h1 {
-                    font-size: 24px;
+            .b-row {
+                .about {
+                    h1 {
+                        font-size: 24px;
+                    }
+                    p {
+                        font-size: 14px;
+                    }
                 }
-                p {
-                    font-size: 14px;
+                .disclaimer {
+                    .a-p {
+                        h1 {
+                            font-size: 24px;
+                        }
+                        p {
+                            font-size: 14px;
+                        }
+                    }
                 }
             }
         }
@@ -171,30 +231,36 @@
 
 @media (max-width: 450px) {
     .main {
-        .welcome {
-            flex-direction: column;
-            h1 {
-                font-size: 24px;
-            }
-            .happy-pikachu {
-                max-height: 100px;
-            }
-        }
-        .b-row {
-            .about {
+        .backdrop {
+            .welcome {
+                flex-direction: column;
                 h1 {
-                    font-size: 20px;
+                    font-size: 24px;
                 }
-                p {
-                    font-size: 10px;
+                .happy-pikachu {
+                    max-height: 100px;
                 }
             }
-            .disclaimer {
-                h1 {
-                    font-size: 20px;
+            .b-row {
+                .about {
+                    h1 {
+                        font-size: 20px;
+                    }
+                    p {
+                        font-size: 10px;
+                    }
                 }
-                p {
-                    font-size: 10px;
+                .disclaimer {
+                    .a-p {
+                        // max-width: 55vw;
+                        // min-height: 15vh;
+                        h1 {
+                            font-size: 20px;
+                        }
+                        p {
+                            font-size: 10px;
+                        }
+                    }
                 }
             }
         }

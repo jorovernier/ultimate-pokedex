@@ -16,22 +16,36 @@ export default class AuthComponent extends Component {
 
     render(){
         return (
-            <div className='main'>
-                <div className='welcome'>
-                    <h1>Welcome to the Ultimate Pokedex!</h1>
-                    <img className='happy-pikachu' src='https://www.smashbros.com/assets_v2/img/fighter/pikachu/main.png' alt='happy pikachu' />
-                </div>
-                <div className='b-row'>
-                    <div className='about'>
-                        <h1>About</h1>
-                        <p>This is my first full-stack website. I wanted to make something that would be useful so I decided to make this Pokedex! I get all the information from the <a href='https://pokeapi.co/'>Pokeapi</a>. If you find a bug that I somehow haven't noticed, you can reach me through my <a href='https://github.com/jorovernier'>github</a>. Thanks for visiting and have fun!</p>
+                <div className='main'>
+                    <div className='backdrop'>
+                        <div className='welcome'>
+                            <h1>Welcome to the Ultimate Pokedex!</h1>
+                            {/* <h2>The ultimate source for any Pokemon information you could ever need.</h2> */}
+                            <img className='happy-pikachu' src='https://www.smashbros.com/assets_v2/img/fighter/pikachu/main.png' alt='happy pikachu' />
+                        </div>
+                        <div className='b-row'>
+                            <div className='about'>
+                                <h1>The Project</h1>
+                                <p>This project was created to have data from all the Pokemon games in one easily-accessible place. All users can navigate through the different regions to find data on all Pokemon, items, moves, and types from the Pokemon games. Users that create an account can customize their own team by adding up to six Pokemon and giving them nicknames. All data is sourced from the <a href="https://pokeapi.co/">PokeAPI</a>.</p>
+                            </div>
+                            <div className='disclaimer'>
+                                <div className='a-p'>
+                                    <h1>About the Creator</h1>
+                                    <p>My name is Joely and I'm a Full-Stack Software Developer. I created the Ultimate Pokedex while studying Web Developement at Devmountain. This site is still being maintained while I work on other projects.</p>
+                                </div>
+                                <img className='me' src='https://avatars.githubusercontent.com/u/55214971?v=4' alt='joely vernier smiling at the camera'/>
+                            </div>
+                        </div>
+                        <div className='home-bottom'>
+                            <div>
+                                <a href="https://www.linkedin.com/in/joely-vernier/">Contact</a>
+                            </div>
+                            <div className='copyright'>
+                                <small>&copy; Copyright 2021 Joely Vernier, All Rights Reserved</small>
+                            </div>
+                        </div>
                     </div>
-                    <div className='disclaimer'>
-                        <h1>Page Information</h1>
-                        <p>To get information on a pokemon or item from their respective pages, click on it's sprite. To get information on a move from the Moves page, click on it's name. If you log in, look for the black arrow at the bottom of the Pokedex pages to add pokemon to your team.</p>
-                    </div>
                 </div>
-            </div>
         )
     }
 };

@@ -51,6 +51,7 @@ class App extends React.Component {
     this.img6 = this.img6.bind(this);
     this.changeTitle = this.changeTitle.bind(this);
   }
+
   addToTeam(slot, img){
     if(this.props.id > 0){
       axios.post('/api/add_to_team', {p: this.props.id, slot: slot});
