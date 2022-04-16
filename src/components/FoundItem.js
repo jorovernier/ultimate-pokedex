@@ -25,7 +25,7 @@ export default class FoundItem extends Component {
             held = <div className='hold'>{mappedHoldMons}</div>
         }
         return(
-            <div className='item-base-display'>
+            <div className='item-base-display' key={item.name}>
                 <div className='item-display' style={{backgroundColor: 'rgb(32, 96, 146)'}}>
                     <img className='item-img' src={item.sprites.default} alt={`sprite of ${name}`} />
                     <div className='name-cost'>
