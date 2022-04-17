@@ -1,6 +1,6 @@
 # Ultimate Pokedex
 
-### Please do not fork this repo or make pull requests! If you find an issue, let me know and I will happily fix it myself. Thank you!
+### Please do not fork this repo or make pull requests! If you find an issue, let me know and I will happily fix it myself. Most "issues" are there by choice or I haven't gotten to fixing them yet. Thank you!
 
 #
 
