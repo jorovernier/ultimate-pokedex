@@ -1,5 +1,9 @@
 # Ultimate Pokedex
 
+### Please do not fork this repo or make pull requests! If you find an issue, let me know and I will happily fix it myself. Thank you!
+
+#
+
 [![site status](https://img.shields.io/website?down_color=critical&down_message=offline&up_color=success&up_message=online&url=https%3A%2F%2Ftheultimatepokedex.xyz)](https://img.shields.io/website?down_color=critical&down_message=offline&up_color=success&up_message=online&url=https%3A%2F%2Ftheultimatepokedex.xyz)
 [![lines of code](https://img.shields.io/tokei/lines/github/jorovernier/ultimate-pokedex?color=ff69b4)](https://img.shields.io/tokei/lines/github/jorovernier/ultimate-pokedex?color=ff69b4)
 [![repo size](https://img.shields.io/github/repo-size/jorovernier/ultimate-pokedex?color=blueviolet)](https://img.shields.io/github/repo-size/jorovernier/ultimate-pokedex?color=blueviolet)
